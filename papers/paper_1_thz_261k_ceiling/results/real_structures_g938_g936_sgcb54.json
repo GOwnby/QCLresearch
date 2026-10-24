@@ -1,0 +1,27 @@
+{
+  "G938_2well_Khalatpour2023": {
+    "sequence_A": "41 / 72.5 / 23 / 85",
+    "x_barrier": 0.35,
+    "dE_LO_meV": 49.5,
+    "gamma_260K_meV": 2.21,
+    "G_peak_260K_cm1": 23.12,
+    "T_max_K": 261.0
+  },
+  "G936_3well_Khalatpour2021": {
+    "sequence_A": "44 / 68 / 24 / 64 / 28 / 86",
+    "x_barrier": 0.3,
+    "dE_LO_meV": 39.2,
+    "gamma_260K_meV": 1.96,
+    "G_peak_260K_cm1": 20.58,
+    "T_max_K": 250.0
+  },
+  "SGCB54_StepGraded_ThisWork": {
+    "sequence_A": "5.65(0.22) / 31(0.42) / 5.65(0.22) / 74 / 5.65(0.22) / 14(0.42) / 5.65(0.22) / 89",
+    "x_int": 0.22,
+    "x_core": 0.42,
+    "dE_LO_meV": 54.0,
+    "gamma_260K_meV": 1.39,
+    "G_peak_260K_cm1": 38.15,
+    "T_max_K": 289.4
+  }
+}
