@@ -1,0 +1,5 @@
+{
+  "name": "QCL Research & Simulation Workbench",
+  "description": "Interactive physics simulator and comprehensive research roadmap explorer for Quantum Cascade Lasers (Mid-IR & Terahertz), implementing multi-band intersubband dispersion, CW/pulsed electro-thermal performance models, frequency comb dynamics, and the JPhys Photonics QCL Roadmap.",
+  "requestFramePermissions": []
+}
