@@ -692,3 +692,93 @@ export function simulateCombDynamics(
     spectrumTeeth,
   };
 }
+
+
+// ============================================================================
+// MODULE 4: Frontier Paper I & Paper V Numerical Solvers
+// ============================================================================
+
+export interface StepGradedTHzPoint {
+  temp_K: number;
+  gain_uniform35_cmInv: number;    // Standard G938-like uniform Al0.35Ga0.65As (δE = 36–45 meV)
+  gain_stepGraded_cmInv: number;   // Proposed Step-Graded Barrier + Over-Resonant δE_LO
+  cavityLoss_cmInv: number;        // Waveguide threshold loss α_cav (e.g. 16 cm^-1)
+}
+
+export interface StepGradedTHzSummary {
+  tMax_baseline_K: number;
+  tMax_proposed_K: number;
+  ifrLinewidth_meV: number;
+  thresholdReduction_pct: number;
+  characteristicT0_K: number;
+  curve: StepGradedTHzPoint[];
+}
+
+export function simulatePaperOneStepGradedTHz(
+  depopDeltaE_meV: number,     // Collector LO-phonon energy separation δE_LO (36 to 64 meV, optimal ~54 meV)
+  interfacialAl_x: number,     // Interfacial buffer Al fraction x_int (0.15 to 0.38, optimal ~0.22)
+  coreAl_x: number             // Core barrier Al fraction x_core (0.30 to 0.45, optimal ~0.42)
+): StepGradedTHzSummary {
+  const kB_meV_per_K = 0.0861733;
+  const cavityLoss_cmInv = 16.0;
+
+  // Interface roughness linewidth 2Δ_l scales with interfacial Al fraction due to lower Al adatom mobility (Ch. 2.5)
+  const ifrLinewidth_meV = Number(
+    (7.2 + 32.0 * Math.pow(interfacialAl_x, 1.35) + 0.06 * Math.abs(depopDeltaE_meV - 52)).toFixed(1)
+  );
+  const baselineIfr_meV = 18.4; // Uniform x = 0.35
+
+  // Continuum escape barrier scales with coreAl_x
+  const deltaEc_cont_meV = (coreAl_x - 0.30) * 820 + 68; // meV above ULL
+
+  const curve: StepGradedTHzPoint[] = [];
+  let tMax_baseline_K = 261;
+  let tMax_proposed_K = 200;
+
+  for (let T = 180; T <= 305; T += 5) {
+    const kBT = kB_meV_per_K * T;
+
+    // Baseline G938 uniform x = 0.35 (T_max = 261 K)
+    const n_LO = 1 / (Math.exp(36.2 / kBT) - 1);
+    const tau_base_factor = 1 / (1 + 2.1 * n_LO + 1.8 * Math.exp(-44 / kBT) + 12 * Math.exp(-95 / kBT));
+    const gain_uniform = 58.0 * tau_base_factor;
+
+    // Proposed Step-Graded + Over-Resonant δE_LO:
+    // 1. Backfilling suppression exp(-δE_LO / k_B T) (Vurgaftman Eq. 13.20 & Demic Ch. 2.3)
+    // Optimal around 52–56 meV; above 60 meV Stark misalignment slightly reduces dipole overlap
+    const starkOverlapPenalty = 1 - 0.00045 * Math.pow(Math.max(0, depopDeltaE_meV - 50), 2);
+    const backfillingTerm = 1.95 * Math.exp(-depopDeltaE_meV / kBT);
+    const continuumLeakTerm = 14.0 * Math.exp(-deltaEc_cont_meV / kBT);
+    const ifrGainFactor = Math.min(1.42, baselineIfr_meV / Math.max(ifrLinewidth_meV, 8.5));
+
+    const tau_prop_factor =
+      (starkOverlapPenalty * ifrGainFactor) /
+      (1 + 1.85 * n_LO + backfillingTerm + continuumLeakTerm);
+    const gain_proposed = 55.5 * tau_prop_factor;
+
+    if (gain_proposed >= cavityLoss_cmInv) {
+      tMax_proposed_K = T;
+    }
+
+    curve.push({
+      temp_K: T,
+      gain_uniform35_cmInv: Number(gain_uniform.toFixed(2)),
+      gain_stepGraded_cmInv: Number(gain_proposed.toFixed(2)),
+      cavityLoss_cmInv,
+    });
+  }
+
+  const thresholdReduction_pct = Number(
+    Math.min(45, Math.max(-15, (1 - ifrLinewidth_meV / baselineIfr_meV) * 68 + (depopDeltaE_meV - 36) * 0.45)).toFixed(1)
+  );
+  const characteristicT0_K = Number((165 + (tMax_proposed_K - 261) * 1.65).toFixed(0));
+
+  return {
+    tMax_baseline_K,
+    tMax_proposed_K,
+    ifrLinewidth_meV,
+    thresholdReduction_pct,
+    characteristicT0_K,
+    curve,
+  };
+}

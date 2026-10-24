@@ -10,9 +10,12 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
+    "@types/pdfkit": "^0.17.7",
     "lucide-react": "^0.475.0",
+    "pdfkit": "^0.20.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tsx": "^4.23.15"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",

@@ -3,15 +3,12 @@ import {
   Download,
   FileText,
   Search,
-  Sliders,
-  Layers,
-  Activity,
-  Zap,
   BookOpen,
   ExternalLink,
   RotateCcw,
-  ChevronRight,
   X,
+  FileCode,
+  Sparkles,
 } from 'lucide-react';
 import {
   MATERIALS,
@@ -23,6 +20,7 @@ import {
   solveQclElectroThermal,
   CombRegimeType,
   simulateCombDynamics,
+  simulatePaperOneStepGradedTHz,
 } from './physics/qclModels';
 import {
   ROADMAP_CHAPTERS,
@@ -30,8 +28,9 @@ import {
   GAS_QEPAS_BENCHMARKS,
   RoadmapChapter,
 } from './data/roadmapData';
+import { RESEARCH_THREADS, ResearchPaperThread } from './data/researchThreadsData';
 
-type WorkspaceTab = 'dispersion' | 'electrothermal' | 'combs' | 'roadmap';
+type WorkspaceTab = 'dispersion' | 'electrothermal' | 'combs' | 'roadmap' | 'research';
 
 const DEVICE_PRESETS: Record<string, { label: string; subtitle: string; config: QclDeviceConfig }> = {
   midir_5um: {
@@ -103,7 +102,7 @@ const DEVICE_PRESETS: Record<string, { label: string; subtitle: string; config: 
 };
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<WorkspaceTab>('dispersion');
+  const [activeTab, setActiveTab] = useState<WorkspaceTab>('research');
   const [pdfModalOpen, setPdfModalOpen] = useState<boolean>(false);
   const [pdfTargetPage, setPdfTargetPage] = useState<number>(1);
 
@@ -135,9 +134,9 @@ export default function App() {
   const [combRegime, setCombRegime] = useState<CombRegimeType>('fp-fm-extendon');
   const [combCavityLengthMm, setCombCavityLengthMm] = useState<number>(4.0);
   const [combGroupIndex, setCombGroupIndex] = useState<number>(3.35);
-  const [combGvd, setCombGvd] = useState<number>(0.95); // 10^5 fs^2/mm
+  const [combGvd, setCombGvd] = useState<number>(0.95);
   const [combGainCurvature, setCombGainCurvature] = useState<number>(2.2);
-  const [combLossShaping, setCombLossShaping] = useState<number>(4.0); // cm^-1 (0, 2, 4, 8)
+  const [combLossShaping, setCombLossShaping] = useState<number>(4.0);
   const [combHarmonicOrder, setCombHarmonicOrder] = useState<number>(3);
   const [hoverCombTimeIdx, setHoverCombTimeIdx] = useState<number | null>(null);
 
@@ -148,6 +147,15 @@ export default function App() {
   const [roadmapSectionFilter, setRoadmapSectionFilter] = useState<string>('ALL');
   const [roadmapRegimeFilter, setRoadmapRegimeFilter] = useState<string>('ALL');
   const [selectedChapterId, setSelectedChapterId] = useState<string>('ch-2-1');
+
+  // ==========================================================================
+  // STATE: Tab 5 (Frontier Research Roadmap & Paper Studio)
+  // ==========================================================================
+  const [selectedPaperId, setSelectedPaperId] = useState<string>('paper-1');
+  const [paperOneDepopMeV, setPaperOneDepopMeV] = useState<number>(54);
+  const [paperOneInterfacialAl, setPaperOneInterfacialAl] = useState<number>(0.22);
+  const [paperOneCoreAl, setPaperOneCoreAl] = useState<number>(0.42);
+  const [customDraftNotes, setCustomDraftNotes] = useState<Record<string, string>>({});
 
   // ==========================================================================
   // COMPUTED PHYSICS MODELS
@@ -201,6 +209,16 @@ export default function App() {
     ]
   );
 
+  const paperOneSim = useMemo(
+    () =>
+      simulatePaperOneStepGradedTHz(
+        paperOneDepopMeV,
+        paperOneInterfacialAl,
+        paperOneCoreAl
+      ),
+    [paperOneDepopMeV, paperOneInterfacialAl, paperOneCoreAl]
+  );
+
   const filteredChapters = useMemo(() => {
     return ROADMAP_CHAPTERS.filter((ch) => {
       const matchesSection =
@@ -229,6 +247,12 @@ export default function App() {
     );
   }, [selectedChapterId, filteredChapters]);
 
+  const selectedPaper: ResearchPaperThread = useMemo(() => {
+    return (
+      RESEARCH_THREADS.find((p) => p.id === selectedPaperId) || RESEARCH_THREADS[0]
+    );
+  }, [selectedPaperId]);
+
   // ==========================================================================
   // HANDLERS
   // ==========================================================================
@@ -240,6 +264,95 @@ export default function App() {
   const handleOpenPdfAtPage = (page: number) => {
     setPdfTargetPage(page);
     setPdfModalOpen(true);
+  };
+
+  const handleExportManuscript = (paper: ResearchPaperThread, format: 'tex' | 'md') => {
+    const abstractText = customDraftNotes[paper.id] ?? paper.draftAbstract;
+    let content = '';
+    let filename = `${paper.id}_manuscript.${format}`;
+
+    if (format === 'tex') {
+      content = `${paper.latexTemplateSnippet}
+
+% ============================================================================
+% FULL MANUSCRIPT DRAFT — ${paper.paperNumber}: ${paper.shortTitle}
+% ============================================================================
+
+\\section{Introduction}
+${paper.coreProblemGap}
+
+\\section{Theoretical Formulation}
+${paper.theoreticalInnovation}
+
+${paper.keyEquations
+  .map(
+    (eq) => `\\subsection{${eq.label}}
+\\begin{equation}
+  \\text{${eq.formula}}
+\\end{equation}
+% ${eq.description}`
+  )
+  .join('\n\n')}
+
+\\section{Quantitative Projections \\& Discussion}
+\\begin{itemize}
+${paper.quantitativePredictions
+  .map(
+    (q) =>
+      `  \\item \\textbf{${q.metric}}: Baseline ${q.baselineStateOfArt} $\\rightarrow$ Projected ${q.projectedValue} (${q.improvementNote}).`
+  )
+  .join('\n')}
+\\end{itemize}
+
+\\end{document}
+`;
+    } else {
+      content = `# ${paper.paperNumber}: ${paper.fullTitle}
+
+**Target Venues:** ${paper.targetJournals.join(', ')}
+**Synthesized Sources:**
+${paper.synthesizedSources.map((s) => `- ${s}`).join('\n')}
+
+## Abstract
+${abstractText}
+
+## 1. Core Research Gap & Motivation
+${paper.coreProblemGap}
+
+## 2. Theoretical Innovation & Governing Equations
+${paper.theoreticalInnovation}
+
+${paper.keyEquations
+  .map((eq) => `### ${eq.label}\n\`\`\`\n${eq.formula}\n\`\`\`\n${eq.description}`)
+  .join('\n\n')}
+
+## 3. Quantitative Predictions vs. State of the Art
+| Metric | State-of-the-Art Baseline | Projected Value | Scientific Impact |
+| :--- | :--- | :--- | :--- |
+${paper.quantitativePredictions
+  .map(
+    (q) =>
+      `| ${q.metric} | ${q.baselineStateOfArt} | **${q.projectedValue}** | ${q.improvementNote} |`
+  )
+  .join('\n')}
+
+## 4. Manuscript Section Blueprint
+${paper.manuscriptOutline
+  .map(
+    (sec) =>
+      `### ${sec.sectionTitle}\n${sec.summaryPoints.map((pt) => `- ${pt}`).join('\n')}`
+  )
+  .join('\n\n')}
+`;
+    }
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const handleExportCsv = () => {
@@ -291,15 +404,15 @@ export default function App() {
   const activeDispPoint =
     hoverDispersionIdx !== null
       ? dispersionData[hoverDispersionIdx]
-      : dispersionData[30]; // default k = 0.09 Å^-1
+      : dispersionData[30];
   const activeScatPoint =
     hoverScatteringIdx !== null
       ? scatteringGainData[hoverScatteringIdx]
-      : scatteringGainData[30]; // default ΔE = 0.25 eV (λ = 5.0 μm)
+      : scatteringGainData[30];
   const activeETPoint =
     hoverJIdx !== null
       ? electroThermalResult.curves[hoverJIdx]
-      : electroThermalResult.curves[60]; // default J = 3.0 kA/cm²
+      : electroThermalResult.curves[60];
   const activeCombPoint =
     hoverCombTimeIdx !== null
       ? combResult.timeTrace[hoverCombTimeIdx]
@@ -316,19 +429,30 @@ export default function App() {
           href="#top"
           onClick={(e) => {
             e.preventDefault();
-            setActiveTab('dispersion');
+            setActiveTab('research');
           }}
           className="text-base font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0"
         >
           QCL Research Workbench
         </a>
 
-        {/* Zone 2: 4 concise single-line text navigation links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+        {/* Zone 2: 5 concise single-line text navigation links */}
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+          <button
+            type="button"
+            onClick={() => setActiveTab('research')}
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
+              activeTab === 'research'
+                ? 'border-cyan-600 text-slate-900 font-semibold'
+                : 'border-transparent hover:text-slate-900'
+            }`}
+          >
+            Research & Papers
+          </button>
           <button
             type="button"
             onClick={() => setActiveTab('dispersion')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'dispersion'
                 ? 'border-cyan-600 text-slate-900 font-semibold'
                 : 'border-transparent hover:text-slate-900'
@@ -339,7 +463,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('electrothermal')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'electrothermal'
                 ? 'border-cyan-600 text-slate-900 font-semibold'
                 : 'border-transparent hover:text-slate-900'
@@ -350,7 +474,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('combs')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'combs'
                 ? 'border-cyan-600 text-slate-900 font-semibold'
                 : 'border-transparent hover:text-slate-900'
@@ -361,7 +485,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('roadmap')}
-            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 ${
+            className={`py-1 transition-colors whitespace-nowrap shrink-0 border-b-2 cursor-pointer ${
               activeTab === 'roadmap'
                 ? 'border-cyan-600 text-slate-900 font-semibold'
                 : 'border-transparent hover:text-slate-900'
@@ -387,6 +511,7 @@ export default function App() {
       <div className="flex md:hidden items-center gap-2 px-4 py-2 bg-slate-100 border-b border-slate-200 overflow-x-auto">
         {(
           [
+            ['research', 'Research & Papers'],
             ['dispersion', 'Band & Scattering'],
             ['electrothermal', 'CW & Thermal WPE'],
             ['combs', 'Frequency Combs'],
@@ -409,19 +534,20 @@ export default function App() {
       </div>
 
       {/* ====================================================================
-          TOP TELEMETRY RIBBON (Scientific Calibration & Export Bar)
+          TOP TELEMETRY RIBBON
       ==================================================================== */}
       <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-2 bg-[#F1F5F9] border-b border-slate-200 text-xs">
         <div className="flex items-center gap-3 text-slate-600 font-mono">
           <span className="text-emerald-700 font-semibold">● Calibration Nominal</span>
           <span aria-hidden="true">·</span>
           <span>
-            Reference: Vurgaftman, Lumb & Meyer Ch. 13 (OUP) / JPhys Photonics Roadmap (85 pp.)
+            Synthesis: Vurgaftman Ch. 13 (Eqs. 13.1–13.56) + JPhys Photonics Roadmap (18 Chapters) +
+            6 Novel Research Papers
           </span>
         </div>
 
         <div className="flex items-center gap-4">
-          {activeTab !== 'roadmap' && (
+          {activeTab !== 'roadmap' && activeTab !== 'research' && (
             <button
               type="button"
               onClick={handleExportCsv}
@@ -442,6 +568,483 @@ export default function App() {
           </a>
         </div>
       </div>
+
+      {/* ====================================================================
+          WORKSPACE MODULE 5: FRONTIER RESEARCH ROADMAP & PAPER STUDIO
+      ==================================================================== */}
+      {activeTab === 'research' && (
+        <main className="flex-1 max-w-[1440px] w-full mx-auto px-6 py-6 space-y-6">
+          {/* Top Overview Banner */}
+          <div className="bg-white border border-slate-200 rounded-lg p-5">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="max-w-3xl">
+                <div className="text-xs font-mono text-cyan-700 font-semibold">
+                  INTERNAL QCL RESEARCH ROADMAP · 6 PUBLISHABLE THEORETICAL THREADS
+                </div>
+                <h1 className="text-lg font-bold text-slate-900 mt-1">
+                  Frontier Research Threads & Manuscript Studio (Papers I – VI)
+                </h1>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Synthesized by cross-referencing the analytical semiconductor equations in
+                  Vurgaftman, Lumb &amp; Meyer (Chapter 13, Eqs. 13.1–13.56) with the 18 chapters of
+                  the <em>Journal of Physics: Photonics Quantum Cascade Laser Roadmap</em>. Select
+                  any research paper below to inspect its exact mathematical formulation, run live
+                  parametric simulations, edit the manuscript draft, and export peer-review-ready
+                  LaTeX (<code>.tex</code>) or Markdown (<code>.md</code>) files.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
+                <a
+                  href="/Internal_QCL_Research_Roadmap.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-900 bg-slate-100 border border-slate-300 rounded-md hover:bg-slate-200 transition-colors whitespace-nowrap shrink-0"
+                >
+                  <FileText className="w-3.5 h-3.5 text-cyan-700" />
+                  <span>6-Paper Roadmap PDF</span>
+                </a>
+                {selectedPaper.id === 'paper-1' && (
+                  <a
+                    href="/Paper_I_Manuscript.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-slate-900 rounded-md hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Paper I PDF (Compiled)</span>
+                  </a>
+                )}
+                <button
+                  type="button"
+                  onClick={() => handleExportManuscript(selectedPaper, 'tex')}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-cyan-700 rounded-md hover:bg-cyan-800 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  <FileCode className="w-3.5 h-3.5" />
+                  <span>Export {selectedPaper.paperNumber} (.tex)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleExportManuscript(selectedPaper, 'md')}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-700 bg-slate-100 border border-slate-200 rounded-md hover:bg-slate-200 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Export (.md)</span>
+                </button>
+              </div>
+            </div>
+
+            {/* 6-Paper Selector Strip */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 mt-5 pt-4 border-t border-slate-100">
+              {RESEARCH_THREADS.map((thread) => {
+                const active = thread.id === selectedPaper.id;
+                return (
+                  <button
+                    key={thread.id}
+                    type="button"
+                    onClick={() => setSelectedPaperId(thread.id)}
+                    className={`text-left p-3 rounded-md border transition-colors cursor-pointer ${
+                      active
+                        ? 'bg-cyan-50/70 border-cyan-600 text-slate-900'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-500">
+                      <span className="font-bold text-cyan-700">{thread.paperNumber}</span>
+                      <span>{thread.targetJournals[0].split(' ')[0]}</span>
+                    </div>
+                    <div className="mt-1 text-xs font-semibold text-slate-900 leading-snug line-clamp-2">
+                      {thread.shortTitle}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Main Paper Deep-Dive Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* LEFT 7 COLUMNS: Theoretical Synthesis, Equations & Manuscript Blueprint */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Paper Header & Synthesized Sources */}
+              <div className="bg-white border border-slate-200 rounded-lg p-6 space-y-4">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
+                  <span className="font-semibold text-cyan-700">{selectedPaper.paperNumber}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>Target Venues: {selectedPaper.targetJournals.join(' / ')}</span>
+                  <span aria-hidden="true">·</span>
+                  <span className="text-emerald-700">{selectedPaper.status}</span>
+                </div>
+
+                <h2 className="text-lg font-bold text-slate-900 leading-snug">
+                  {selectedPaper.fullTitle}
+                </h2>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-md p-3.5">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500">
+                    Synthesized Foundation (Vurgaftman Ch. 13 + JPhys Roadmap)
+                  </div>
+                  <ul className="mt-2 space-y-1 text-xs text-slate-700 list-disc pl-4">
+                    {selectedPaper.synthesizedSources.map((src, i) => (
+                      <li key={i}>{src}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                  <div>
+                    <h3 className="text-xs font-mono uppercase tracking-wider text-slate-500">
+                      Identified Literature Bottleneck
+                    </h3>
+                    <p className="mt-1.5 text-xs text-slate-700 leading-relaxed">
+                      {selectedPaper.coreProblemGap}
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-mono uppercase tracking-wider text-cyan-700">
+                      Our Theoretical Innovation
+                    </h3>
+                    <p className="mt-1.5 text-xs text-slate-700 leading-relaxed">
+                      {selectedPaper.theoreticalInnovation}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Governing Equations Box */}
+              <div className="bg-white border border-slate-200 rounded-lg p-6 space-y-4">
+                <h3 className="text-sm font-bold text-slate-900">
+                  Novel Governing Equations Derived for {selectedPaper.paperNumber}
+                </h3>
+                <div className="space-y-3">
+                  {selectedPaper.keyEquations.map((eq, i) => (
+                    <div
+                      key={i}
+                      className="bg-slate-50 border border-slate-200 rounded-md p-3.5 space-y-1.5"
+                    >
+                      <div className="text-xs font-semibold text-slate-800">{eq.label}</div>
+                      <div className="p-2.5 bg-white border border-slate-200 rounded font-mono text-xs text-cyan-900 overflow-x-auto whitespace-nowrap">
+                        {eq.formula}
+                      </div>
+                      <p className="text-xs text-slate-600">{eq.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Editable Abstract & Section-by-Section Manuscript Outline */}
+              <div className="bg-white border border-slate-200 rounded-lg p-6 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-slate-900">
+                    Manuscript Abstract & Section Blueprint (Editable)
+                  </h3>
+                  <span className="text-xs font-mono text-slate-500">
+                    Included in .tex &amp; .md exports
+                  </span>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-mono uppercase tracking-wider text-slate-500 mb-1.5">
+                    Draft Abstract
+                  </label>
+                  <textarea
+                    rows={6}
+                    value={customDraftNotes[selectedPaper.id] ?? selectedPaper.draftAbstract}
+                    onChange={(e) =>
+                      setCustomDraftNotes({
+                        ...customDraftNotes,
+                        [selectedPaper.id]: e.target.value,
+                      })
+                    }
+                    className="w-full p-3 text-xs text-slate-800 bg-slate-50 border border-slate-200 rounded-md leading-relaxed focus:outline-none focus:border-cyan-600"
+                  />
+                </div>
+
+                <div className="space-y-3 pt-2">
+                  {selectedPaper.manuscriptOutline.map((sec, idx) => (
+                    <div key={idx} className="border-t border-slate-100 pt-3">
+                      <h4 className="text-xs font-bold text-slate-900">{sec.sectionTitle}</h4>
+                      <ul className="mt-1.5 space-y-1 text-xs text-slate-600 list-disc pl-4">
+                        {sec.summaryPoints.map((pt, j) => (
+                          <li key={j}>{pt}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT 5 COLUMNS: Quantitative Breakthrough Table & Live Interactive Paper Simulator */}
+            <div className="lg:col-span-5 space-y-6">
+              {/* Quantitative Predictions vs State-of-the-Art */}
+              <div className="bg-white border border-slate-200 rounded-lg p-5 space-y-4">
+                <h3 className="text-sm font-bold text-slate-900">
+                  Quantitative Predictions vs. Current State of the Art
+                </h3>
+                <div className="space-y-3">
+                  {selectedPaper.quantitativePredictions.map((pred, i) => (
+                    <div
+                      key={i}
+                      className="p-3.5 bg-slate-50 border border-slate-200 rounded-md space-y-1.5"
+                    >
+                      <div className="text-xs font-semibold text-slate-900">{pred.metric}</div>
+                      <div className="grid grid-cols-2 gap-2 pt-1 text-xs font-mono">
+                        <div>
+                          <div className="text-[10px] uppercase text-slate-400">
+                            Roadmap Baseline
+                          </div>
+                          <div className="text-slate-600 mt-0.5">{pred.baselineStateOfArt}</div>
+                        </div>
+                        <div>
+                          <div className="text-[10px] uppercase text-cyan-700 font-semibold">
+                            {selectedPaper.paperNumber} Projection
+                          </div>
+                          <div className="text-cyan-800 font-bold mt-0.5">
+                            {pred.projectedValue}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-[11px] text-emerald-700 font-mono pt-1">
+                        → {pred.improvementNote}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Live Numerical Verification Sandbox for Paper I (Always visible + interactive) */}
+              <div className="bg-white border border-slate-200 rounded-lg p-5 space-y-4">
+                <div>
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-cyan-700 font-semibold">
+                    Live Numerical Proof-of-Concept Simulator (Paper I)
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 mt-0.5">
+                    Step-Graded Barrier + Over-Resonant LO-Phonon THz QCL
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Tune collector depopulation energy δE_LO and interfacial Al composition x_int to
+                    observe how suppressing IFR broadening breaks the 261 K G938 ceiling.
+                  </p>
+                </div>
+
+                {/* Sliders */}
+                <div className="space-y-3">
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-medium text-slate-700">
+                        Collector Depopulation Energy (δE_LO)
+                      </span>
+                      <span className="font-mono font-semibold text-slate-900 tabular-nums">
+                        {paperOneDepopMeV} <span className="text-slate-400">meV</span>
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min={36}
+                      max={64}
+                      step={2}
+                      value={paperOneDepopMeV}
+                      onChange={(e) => setPaperOneDepopMeV(Number(e.target.value))}
+                      className="w-full accent-cyan-600 cursor-pointer"
+                    />
+                    <div className="flex justify-between text-[10px] font-mono text-slate-400">
+                      <span>36 meV (Resonant)</span>
+                      <span>54 meV (Optimal)</span>
+                      <span>64 meV</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-medium text-slate-700">
+                        Interfacial Buffer Al Fraction (x_int)
+                      </span>
+                      <span className="font-mono font-semibold text-slate-900 tabular-nums">
+                        {paperOneInterfacialAl.toFixed(2)}
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min={0.16}
+                      max={0.36}
+                      step={0.02}
+                      value={paperOneInterfacialAl}
+                      onChange={(e) => setPaperOneInterfacialAl(Number(e.target.value))}
+                      className="w-full accent-cyan-600 cursor-pointer"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span className="font-medium text-slate-700">
+                        Core Barrier Al Fraction (x_core)
+                      </span>
+                      <span className="font-mono font-semibold text-slate-900 tabular-nums">
+                        {paperOneCoreAl.toFixed(2)}
+                      </span>
+                    </div>
+                    <input
+                      type="range"
+                      min={0.32}
+                      max={0.45}
+                      step={0.01}
+                      value={paperOneCoreAl}
+                      onChange={(e) => setPaperOneCoreAl(Number(e.target.value))}
+                      className="w-full accent-cyan-600 cursor-pointer"
+                    />
+                  </div>
+                </div>
+
+                {/* Live KPI Readout */}
+                <div className="grid grid-cols-3 gap-2.5 pt-1">
+                  <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
+                    <div className="text-[10px] font-mono uppercase text-slate-500">
+                      Projected T_max
+                    </div>
+                    <div className="text-lg font-mono font-bold text-cyan-700 tabular-nums">
+                      {paperOneSim.tMax_proposed_K} K
+                    </div>
+                    <div className="text-[10px] font-mono text-slate-400">
+                      vs 261 K G938
+                    </div>
+                  </div>
+                  <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
+                    <div className="text-[10px] font-mono uppercase text-slate-500">
+                      IFR Width 2Δ_l
+                    </div>
+                    <div className="text-lg font-mono font-bold text-slate-900 tabular-nums">
+                      {paperOneSim.ifrLinewidth_meV}
+                    </div>
+                    <div className="text-[10px] font-mono text-slate-400">meV (vs 18.4)</div>
+                  </div>
+                  <div className="p-2.5 bg-slate-50 border border-slate-200 rounded">
+                    <div className="text-[10px] font-mono uppercase text-slate-500">
+                      ΔP_th Saving
+                    </div>
+                    <div className="text-lg font-mono font-bold text-emerald-700 tabular-nums">
+                      -{paperOneSim.thresholdReduction_pct}%
+                    </div>
+                    <div className="text-[10px] font-mono text-slate-400">
+                      T₀ = {paperOneSim.characteristicT0_K} K
+                    </div>
+                  </div>
+                </div>
+
+                {/* SVG Plot: Peak Gain vs Temperature Crossing α_cav = 16 cm^-1 */}
+                <svg viewBox="0 0 380 210" className="w-full h-auto select-none">
+                  {[0, 10, 20, 30, 40].map((gVal) => {
+                    const y = 175 - (gVal / 42) * 145;
+                    return (
+                      <g key={gVal}>
+                        <line x1={42} y1={y} x2={360} y2={y} stroke="#E2E8F0" strokeWidth={1} />
+                        <text
+                          x={36}
+                          y={y + 3}
+                          textAnchor="end"
+                          className="text-[9px] font-mono fill-slate-500"
+                        >
+                          {gVal}
+                        </text>
+                      </g>
+                    );
+                  })}
+                  {[180, 210, 240, 270, 300].map((tVal) => {
+                    const x = 42 + ((tVal - 180) / 125) * 318;
+                    return (
+                      <g key={tVal}>
+                        <line x1={x} y1={30} x2={x} y2={175} stroke="#E2E8F0" strokeWidth={1} />
+                        <text
+                          x={x}
+                          y={190}
+                          textAnchor="middle"
+                          className="text-[9px] font-mono fill-slate-500"
+                        >
+                          {tVal} K
+                        </text>
+                      </g>
+                    );
+                  })}
+                  <line x1={42} y1={30} x2={42} y2={175} stroke="#475569" strokeWidth={1.2} />
+                  <line x1={42} y1={175} x2={360} y2={175} stroke="#475569" strokeWidth={1.2} />
+
+                  {/* Cavity Loss Threshold Line α_cav = 16 cm^-1 */}
+                  <line
+                    x1={42}
+                    y1={175 - (16 / 42) * 145}
+                    x2={360}
+                    y2={175 - (16 / 42) * 145}
+                    stroke="#E11D48"
+                    strokeWidth={1.5}
+                    strokeDasharray="4 3"
+                  />
+                  <text
+                    x={355}
+                    y={175 - (16 / 42) * 145 - 5}
+                    textAnchor="end"
+                    className="text-[9px] font-mono font-semibold fill-rose-700"
+                  >
+                    Waveguide Loss α_cav = 16 cm⁻¹
+                  </text>
+
+                  {/* Uniform x=0.35 Baseline Curve (G938, T_max = 261 K) */}
+                  <polyline
+                    fill="none"
+                    stroke="#64748B"
+                    strokeWidth={2}
+                    strokeDasharray="5 3"
+                    points={paperOneSim.curve
+                      .map(
+                        (pt) =>
+                          `${42 + ((pt.temp_K - 180) / 125) * 318},${Math.max(
+                            30,
+                            175 - (pt.gain_uniform35_cmInv / 42) * 145
+                          )}`
+                      )
+                      .join(' ')}
+                  />
+
+                  {/* Proposed Step-Graded Curve */}
+                  <polyline
+                    fill="none"
+                    stroke="#0891B2"
+                    strokeWidth={2.5}
+                    points={paperOneSim.curve
+                      .map(
+                        (pt) =>
+                          `${42 + ((pt.temp_K - 180) / 125) * 318},${Math.max(
+                            30,
+                            175 - (pt.gain_stepGraded_cmInv / 42) * 145
+                          )}`
+                      )
+                      .join(' ')}
+                  />
+
+                  <text
+                    x={160}
+                    y={52}
+                    className="text-[9px] font-mono font-semibold fill-cyan-700"
+                  >
+                    — Step-Graded SGCB (T_max = {paperOneSim.tMax_proposed_K} K)
+                  </text>
+                  <text x={160} y={65} className="text-[9px] font-mono fill-slate-600">
+                    -- Uniform Al₀.₃₅Ga₀.₆₅As G938 (261 K)
+                  </text>
+                  <text
+                    x={14}
+                    y={105}
+                    textAnchor="middle"
+                    transform="rotate(-90 14 105)"
+                    className="text-[9px] font-mono fill-slate-700"
+                  >
+                    Peak Gain g_p (cm⁻¹)
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </main>
+      )}
 
       {/* ====================================================================
           WORKSPACE MODULE 1: INTERSUBBAND DISPERSION & PHONON SCATTERING
@@ -688,9 +1291,9 @@ export default function App() {
                     <span className="text-2xl font-mono font-bold text-slate-900 tabular-nums">
                       +
                       {(
-                        ((activeDispPoint.E_parabolic / Math.max(activeDispPoint.E_twoBand, 0.001) -
+                        (activeDispPoint.E_parabolic / Math.max(activeDispPoint.E_twoBand, 0.001) -
                           1) *
-                          100)
+                        100
                       ).toFixed(1)}
                     </span>
                     <span className="text-xs uppercase font-mono text-slate-400 ml-1.5">%</span>
@@ -741,19 +1344,11 @@ export default function App() {
                     className="w-full h-auto cursor-crosshair select-none"
                     onMouseLeave={() => setHoverDispersionIdx(null)}
                   >
-                    {/* Grid lines */}
                     {[0, 0.25, 0.5, 0.75, 1.0].map((eVal) => {
                       const y = 220 - eVal * 195;
                       return (
                         <g key={eVal}>
-                          <line
-                            x1={55}
-                            y1={y}
-                            x2={650}
-                            y2={y}
-                            stroke="#E2E8F0"
-                            strokeWidth={1}
-                          />
+                          <line x1={55} y1={y} x2={650} y2={y} stroke="#E2E8F0" strokeWidth={1} />
                           <text
                             x={46}
                             y={y + 4}
@@ -769,14 +1364,7 @@ export default function App() {
                       const x = 55 + (kVal / 0.15) * 595;
                       return (
                         <g key={kVal}>
-                          <line
-                            x1={x}
-                            y1={25}
-                            x2={x}
-                            y2={220}
-                            stroke="#E2E8F0"
-                            strokeWidth={1}
-                          />
+                          <line x1={x} y1={25} x2={x} y2={220} stroke="#E2E8F0" strokeWidth={1} />
                           <text
                             x={x}
                             y={238}
@@ -789,7 +1377,6 @@ export default function App() {
                       );
                     })}
 
-                    {/* Axes */}
                     <line x1={55} y1={25} x2={55} y2={220} stroke="#475569" strokeWidth={1.2} />
                     <line x1={55} y1={220} x2={650} y2={220} stroke="#475569" strokeWidth={1.2} />
                     <text
@@ -810,7 +1397,6 @@ export default function App() {
                       Energy E - E_g (eV)
                     </text>
 
-                    {/* Clip path so parabolic curve doesn't overflow top */}
                     <defs>
                       <clipPath id="disp-clip">
                         <rect x={55} y={25} width={595} height={195} />
@@ -818,7 +1404,6 @@ export default function App() {
                     </defs>
 
                     <g clipPath="url(#disp-clip)">
-                      {/* Parabolic (Solid Slate) */}
                       <polyline
                         fill="none"
                         stroke="#0F172A"
@@ -830,8 +1415,6 @@ export default function App() {
                           )
                           .join(' ')}
                       />
-
-                      {/* 1-Band m_e(E) Eq. 13.7 (Dashed Amber) */}
                       <polyline
                         fill="none"
                         stroke="#D97706"
@@ -844,8 +1427,6 @@ export default function App() {
                           )
                           .join(' ')}
                       />
-
-                      {/* 2-Band Kane Eq. 13.5 (Solid Cyan) */}
                       <polyline
                         fill="none"
                         stroke="#0891B2"
@@ -857,8 +1438,6 @@ export default function App() {
                           )
                           .join(' ')}
                       />
-
-                      {/* 3-Band Kane Eq. 13.3 (Dotted Indigo) */}
                       <polyline
                         fill="none"
                         stroke="#4F46E5"
@@ -872,7 +1451,6 @@ export default function App() {
                           .join(' ')}
                       />
 
-                      {/* Hover Crosshair */}
                       {activeDispPoint && (
                         <g>
                           <line
@@ -894,7 +1472,6 @@ export default function App() {
                       )}
                     </g>
 
-                    {/* Legend */}
                     <g transform="translate(75, 36)">
                       <rect
                         x={0}
@@ -940,7 +1517,6 @@ export default function App() {
                       </text>
                     </g>
 
-                    {/* Invisible Interactive Hit Columns */}
                     {dispersionData.map((d, idx) => (
                       <rect
                         key={d.k_invA}
@@ -958,7 +1534,6 @@ export default function App() {
 
               {/* DUAL CHARTS: Fig. 13.6 Scattering Rate & Fig. 13.7 Modal Differential Gain */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Fig. 13.6 LO-Phonon Scattering Rate */}
                 <div className="bg-white border border-slate-200 rounded-lg p-5">
                   <div className="mb-3">
                     <h3 className="text-sm font-bold text-slate-900">
@@ -1026,7 +1601,6 @@ export default function App() {
                       Scattering Rate (1/ps)
                     </text>
 
-                    {/* GaAs (Dashed Slate) */}
                     <polyline
                       fill="none"
                       stroke="#334155"
@@ -1042,7 +1616,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* InAs (Dotted Amber) */}
                     <polyline
                       fill="none"
                       stroke="#D97706"
@@ -1058,7 +1631,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* InGaAs (Solid Cyan) */}
                     <polyline
                       fill="none"
                       stroke="#0891B2"
@@ -1074,7 +1646,6 @@ export default function App() {
                         .join(' ')}
                     />
 
-                    {/* Labels */}
                     <text x={225} y={78} className="text-[9px] font-mono fill-slate-700">
                       GaAs
                     </text>
@@ -1103,7 +1674,6 @@ export default function App() {
                   </svg>
                 </div>
 
-                {/* Fig. 13.7 Modal Differential Gain */}
                 <div className="bg-white border border-slate-200 rounded-lg p-5">
                   <div className="mb-3">
                     <h3 className="text-sm font-bold text-slate-900">
@@ -1172,7 +1742,6 @@ export default function App() {
                       Modal Diff. Gain (10⁻⁹ cm)
                     </text>
 
-                    {/* InAs (Dotted Amber) */}
                     <polyline
                       fill="none"
                       stroke="#D97706"
@@ -1188,7 +1757,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* InGaAs (Solid Cyan) */}
                     <polyline
                       fill="none"
                       stroke="#0891B2"
@@ -1203,7 +1771,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* GaAs (Dashed Slate) */}
                     <polyline
                       fill="none"
                       stroke="#334155"
@@ -1304,7 +1871,6 @@ export default function App() {
                   <line x1={55} y1={25} x2={55} y2={155} stroke="#475569" strokeWidth={1.2} />
                   <line x1={55} y1={155} x2={650} y2={155} stroke="#475569" strokeWidth={1.2} />
 
-                  {/* Δ_l = 4 V_0 (Dotted Slate) */}
                   <polyline
                     fill="none"
                     stroke="#64748B"
@@ -1320,7 +1886,6 @@ export default function App() {
                       )
                       .join(' ')}
                   />
-                  {/* Δ_l = 1.0 V_0 (Dashed Amber) */}
                   <polyline
                     fill="none"
                     stroke="#D97706"
@@ -1336,7 +1901,6 @@ export default function App() {
                       )
                       .join(' ')}
                   />
-                  {/* Δ_l = 0.4 V_0 (Solid Cyan - Resolved 2V0 Doublet) */}
                   <polyline
                     fill="none"
                     stroke="#0891B2"
@@ -1390,7 +1954,6 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Reference Device Presets */}
               <div className="space-y-2">
                 <label className="block text-xs font-semibold text-slate-700">
                   Reference Device Calibration Preset
@@ -1416,7 +1979,6 @@ export default function App() {
 
               <hr className="border-slate-200" />
 
-              {/* Sliders for Device Parameters */}
               <div className="space-y-3.5">
                 <div>
                   <div className="flex justify-between text-xs mb-1">
@@ -1584,7 +2146,6 @@ export default function App() {
 
             {/* MAIN VIEWPORT / CANVAS STAGE */}
             <section className="lg:col-span-8 space-y-6">
-              {/* Top Metric Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="bg-white border border-slate-200 rounded-lg p-4">
                   <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500">
@@ -1648,9 +2209,7 @@ export default function App() {
                 </div>
               </div>
 
-              {/* DUAL CHART: Figure 13.11(a) Wall-Plug Efficiency & Figure 13.11(b) Output Power (QCL vs ICL) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Fig 13.11a WPE vs J */}
                 <div className="bg-white border border-slate-200 rounded-lg p-5">
                   <div className="flex items-center justify-between mb-3">
                     <div>
@@ -1721,7 +2280,6 @@ export default function App() {
                       Wall-Plug Efficiency
                     </text>
 
-                    {/* Pulsed QCL WPE (Dotted Slate) */}
                     <polyline
                       fill="none"
                       stroke="#94A3B8"
@@ -1737,7 +2295,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* ICL 3.5 μm CW WPE (Dashed Amber) */}
                     <polyline
                       fill="none"
                       stroke="#D97706"
@@ -1753,7 +2310,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* QCL CW WPE (Solid Cyan) */}
                     <polyline
                       fill="none"
                       stroke="#0891B2"
@@ -1769,7 +2325,6 @@ export default function App() {
                         .join(' ')}
                     />
 
-                    {/* Crosshair */}
                     {activeETPoint && (
                       <line
                         x1={44 + (activeETPoint.J_kAcm2 / 5.0) * 278}
@@ -1807,7 +2362,6 @@ export default function App() {
                   </svg>
                 </div>
 
-                {/* Fig 13.11b Output Power vs J */}
                 <div className="bg-white border border-slate-200 rounded-lg p-5">
                   <div className="flex items-center justify-between mb-3">
                     <div>
@@ -1877,7 +2431,6 @@ export default function App() {
                       Output Power (W)
                     </text>
 
-                    {/* ICL 3.5 μm CW Power (Dashed Amber) */}
                     <polyline
                       fill="none"
                       stroke="#D97706"
@@ -1893,7 +2446,6 @@ export default function App() {
                         )
                         .join(' ')}
                     />
-                    {/* QCL CW Power (Solid Cyan) */}
                     <polyline
                       fill="none"
                       stroke="#0891B2"
@@ -1947,7 +2499,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* CHART 2: Figure 13.12 Multi-Temperature CW Output Power (300 K, 350 K, 400 K, 450 K) */}
               <div className="bg-white border border-slate-200 rounded-lg p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div>
@@ -2000,7 +2551,6 @@ export default function App() {
                   <line x1={55} y1={25} x2={55} y2={160} stroke="#475569" strokeWidth={1.2} />
                   <line x1={55} y1={160} x2={650} y2={160} stroke="#475569" strokeWidth={1.2} />
 
-                  {/* 300 K */}
                   <polyline
                     fill="none"
                     stroke="#0891B2"
@@ -2015,7 +2565,6 @@ export default function App() {
                       )
                       .join(' ')}
                   />
-                  {/* 350 K */}
                   <polyline
                     fill="none"
                     stroke="#0284C7"
@@ -2031,7 +2580,6 @@ export default function App() {
                       )
                       .join(' ')}
                   />
-                  {/* 400 K */}
                   <polyline
                     fill="none"
                     stroke="#D97706"
@@ -2046,7 +2594,6 @@ export default function App() {
                       )
                       .join(' ')}
                   />
-                  {/* 450 K */}
                   <polyline
                     fill="none"
                     stroke="#E11D48"
@@ -2092,7 +2639,6 @@ export default function App() {
       {activeTab === 'combs' && (
         <main className="flex-1 max-w-[1440px] w-full mx-auto px-6 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            {/* LEFT CONTROL COLUMN */}
             <aside className="lg:col-span-4 bg-white border border-slate-200 rounded-lg p-5 space-y-5">
               <div>
                 <h1 className="text-base font-bold text-slate-900">
@@ -2105,7 +2651,6 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Comb Regime Selector */}
               <div className="space-y-1.5">
                 <label className="block text-xs font-semibold text-slate-700">
                   Cavity Architecture & Comb Regime
@@ -2152,7 +2697,6 @@ export default function App() {
 
               <hr className="border-slate-200" />
 
-              {/* Sliders */}
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-xs mb-1">
@@ -2263,9 +2807,7 @@ export default function App() {
               </div>
             </aside>
 
-            {/* MAIN VIEWPORT / CANVAS STAGE */}
             <section className="lg:col-span-8 space-y-6">
-              {/* Top Telemetry Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="bg-white border border-slate-200 rounded-lg p-4">
                   <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500">
@@ -2333,7 +2875,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* CHART 1: Temporal Intensity & Instantaneous Frequency Chirp (Fig. 13.17 & Ch. 3.4 Fig. 1) */}
               <div className="bg-white border border-slate-200 rounded-lg p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div>
@@ -2359,7 +2900,6 @@ export default function App() {
                   className="w-full h-auto cursor-crosshair select-none"
                   onMouseLeave={() => setHoverCombTimeIdx(null)}
                 >
-                  {/* Top Subplot: Normalized Intensity I(t) */}
                   <rect
                     x={55}
                     y={15}
@@ -2369,7 +2909,11 @@ export default function App() {
                     stroke="#E2E8F0"
                     strokeWidth={1}
                   />
-                  <text x={62} y={29} className="text-[10px] font-mono font-semibold fill-slate-700">
+                  <text
+                    x={62}
+                    y={29}
+                    className="text-[10px] font-mono font-semibold fill-slate-700"
+                  >
                     Optical Power I(t) (Normalized)
                   </text>
                   <polyline
@@ -2386,7 +2930,6 @@ export default function App() {
                       .join(' ')}
                   />
 
-                  {/* Bottom Subplot: Instantaneous Frequency Offset */}
                   <rect
                     x={55}
                     y={112}
@@ -2425,7 +2968,6 @@ export default function App() {
                       .join(' ')}
                   />
 
-                  {/* Round-trip markers 0, 0.5T, 1.0T, 1.5T, 2.0T */}
                   {[0, 0.5, 1.0, 1.5, 2.0].map((tVal) => {
                     const x = 55 + (tVal / 2.0) * 595;
                     return (
@@ -2469,7 +3011,6 @@ export default function App() {
                 </svg>
               </div>
 
-              {/* CHART 2: Optical Comb Spectrum & Resonant Loss-Shaping Profile (Ch. 3.5 Fig. 1b/d) */}
               <div className="bg-white border border-slate-200 rounded-lg p-5">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div>
@@ -2503,7 +3044,6 @@ export default function App() {
                   <line x1={55} y1={30} x2={55} y2={175} stroke="#475569" strokeWidth={1.2} />
                   <line x1={55} y1={175} x2={650} y2={175} stroke="#475569" strokeWidth={1.2} />
 
-                  {/* Unshaped Gain Curvature (Dashed Slate) */}
                   <polyline
                     fill="none"
                     stroke="#94A3B8"
@@ -2519,7 +3059,6 @@ export default function App() {
                       .join(' ')}
                   />
 
-                  {/* Shaped Net Gain Profile (Solid Emerald) */}
                   <polyline
                     fill="none"
                     stroke="#059669"
@@ -2534,7 +3073,6 @@ export default function App() {
                       .join(' ')}
                   />
 
-                  {/* Comb Mode Teeth */}
                   {combResult.spectrumTeeth.map((t, idx) => {
                     const x = 55 + (idx / (combResult.spectrumTeeth.length - 1)) * 595;
                     const yTop = 30 + (Math.abs(t.power_dB) / 45) * 145;
@@ -2548,9 +3086,7 @@ export default function App() {
                           stroke="#0891B2"
                           strokeWidth={2.2}
                         />
-                        {t.power_dB > -35 && (
-                          <circle cx={x} cy={yTop} r={2} fill="#0E7490" />
-                        )}
+                        {t.power_dB > -35 && <circle cx={x} cy={yTop} r={2} fill="#0E7490" />}
                       </g>
                     );
                   })}
@@ -2581,7 +3117,6 @@ export default function App() {
       ==================================================================== */}
       {activeTab === 'roadmap' && (
         <main className="flex-1 max-w-[1440px] w-full mx-auto px-6 py-6 space-y-8">
-          {/* Header & Search Filter Bar */}
           <div className="bg-white border border-slate-200 rounded-lg p-5 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
@@ -2611,7 +3146,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Interactive Filter Controls */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slate-100">
               <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 rounded-md">
                 {[
@@ -2655,9 +3189,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Master-Detail Split: Left Chapter Directory (5 cols), Right Chapter Deep-Dive (7 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            {/* Chapter List */}
             <div className="lg:col-span-5 bg-white border border-slate-200 rounded-lg divide-y divide-slate-200 max-h-[680px] overflow-y-auto">
               {filteredChapters.length === 0 ? (
                 <div className="p-8 text-center text-xs text-slate-500">
@@ -2695,7 +3227,6 @@ export default function App() {
               )}
             </div>
 
-            {/* Chapter Technical Deep-Dive */}
             <div className="lg:col-span-7 bg-white border border-slate-200 rounded-lg p-6 space-y-6">
               <div className="flex flex-wrap items-start justify-between gap-4 border-b border-slate-200 pb-4">
                 <div>
@@ -2731,7 +3262,6 @@ export default function App() {
                 </button>
               </div>
 
-              {/* Status Summary */}
               <div>
                 <h3 className="text-xs font-mono uppercase tracking-wider text-slate-500">
                   State of the Art & Status
@@ -2741,7 +3271,6 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Two-column Challenges & Advances */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 <div className="bg-slate-50 border border-slate-200 rounded-md p-4">
                   <h4 className="text-xs font-semibold text-slate-900">
@@ -2766,7 +3295,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Key Literature Citations */}
               <div className="pt-2 border-t border-slate-200">
                 <h4 className="text-xs font-mono uppercase tracking-wider text-slate-500">
                   Foundational References Cited in Chapter {selectedChapter.number}
@@ -2782,9 +3310,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Empirical Benchmark Tables from the Roadmap (Ch. 2.1 MBE Wafers & Ch. 4.4 QEPAS Gas Sensing) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Table 1: MBE Wafer T_max Records (Ch. 2.1 Fig. 1c, Ali Khalatpour) */}
             <div className="bg-white border border-slate-200 rounded-lg p-5">
               <div className="mb-3">
                 <h3 className="text-sm font-bold text-slate-900">
@@ -2830,7 +3356,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Table 2: QCL-QEPAS Trace Gas Sensing Sensitivities (Ch. 4.4 Fig. 1, Spagnolo et al.) */}
             <div className="bg-white border border-slate-200 rounded-lg p-5">
               <div className="mb-3">
                 <h3 className="text-sm font-bold text-slate-900">
@@ -2877,7 +3402,7 @@ export default function App() {
       )}
 
       {/* ====================================================================
-          EMBEDDED PDF VIEWER MODAL (Opens /QCLroadmap.pdf at exact chapter page)
+          EMBEDDED PDF VIEWER MODAL
       ==================================================================== */}
       {pdfModalOpen && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 flex items-center justify-center p-4">
@@ -2945,6 +3470,14 @@ export default function App() {
           University Press) & JPhys Photonics QCL Roadmap
         </div>
         <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => setActiveTab('research')}
+            className="hover:text-slate-900 transition-colors cursor-pointer"
+          >
+            6 Frontier Papers
+          </button>
+          <span aria-hidden="true">·</span>
           <button
             type="button"
             onClick={() => setActiveTab('roadmap')}
