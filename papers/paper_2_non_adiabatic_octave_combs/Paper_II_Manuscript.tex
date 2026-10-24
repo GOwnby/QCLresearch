@@ -1,0 +1,470 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{mathptmx}
+\DeclareSymbolFont{letters}{OML}{txmi}{m}{it}
+\renewcommand{\hbar}{\mathchar'26\mkern-9mu h}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\linespread{1.08}
+\setlength{\parskip}{4pt}
+\emergencystretch=1.5em
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Non-adiabatic extendon stability and active micro-disk gain shaping in heterogeneous octave-spanning quantum cascade laser frequency combs}}\\[14pt]
+{\large Gracen Ownby}\\[6pt]
+{\normalsize \textit{University of Oklahoma, Norman, Oklahoma, USA}}\\[8pt]
+{\normalsize 24 October 2026}
+\end{center}
+
+\vspace{8pt}
+\begin{abstract}
+\noindent
+Heterogeneous terahertz quantum cascade lasers (THz QCLs) stacking multiple active-region cascades within a single double-metal waveguide have achieved continuous-wave (CW) lasing emission spanning more than an octave ($1.9\text{--}4.5\,\mathrm{THz}$), yet spontaneous locking into a single phase-coherent, octave-spanning frequency-modulated (FM) comb has remained elusive. Here we show that coherent FM comb formation across octave bandwidths is obstructed by two fundamental physical mechanisms: (i)~the breakdown of the adiabatic polarization and population response when the comb bandwidth $\Delta\Omega$ exceeds the inverse geometric mean of the upper-state recovery time $T_1$ and dephasing time $T_2$ ($\Delta\Omega\sqrt{T_1 T_2} \gg 1$), which induces a retarded phase-chirp instability, and (ii)~inter-stack gain valleys ($\delta G_{\mathrm{rip}} \approx 4\text{--}6\,\mathrm{cm}^{-1}$) between adjacent active-region stacks, which inflate the local spectral gain curvature $\mathcal{C}_{\mathrm{eff}}(\omega) \equiv |\partial^2 G(\omega)/\partial\omega^2|^{1/2}$ and fragment the FM extendon into incoherent sub-combs. Starting from the bidirectional multi-stack Maxwell--Bloch equations with spatial hole burning (SHB) and finite linewidth enhancement factor $\alpha_{\mathrm{LEF}}$, we prove two exact analytical theorems. \textbf{Theorem~1} derives the non-adiabatic extendon master equation and establishes that linear stability against Eckhaus phase turbulence requires the net group-velocity dispersion $|\beta_2|$ to exceed the non-adiabatic threshold $|\beta_2|_{\min}(\Delta\Omega) = \tau_{\mathrm{rt}}\mathcal{C}_{\mathrm{eff}}^2 g_0 [1 + (\Delta\Omega T_1)^2/(1 + \alpha_{\mathrm{LEF}}^2)]$, yielding a closed-form upper bound $\Delta\Omega_{\max}$ on the coherent comb bandwidth (\textbf{Corollary~1}) that is verified across $2{,}000$ randomly parameterized cascades with zero violations. \textbf{Theorem~2} proves that evanescently coupling a $5$-stack ridge waveguide across a benzocyclobutene (BCB)-planarized gap to $M = 4$ independently biased active QCL micro-disk resonators tuned to the inter-stack gain valleys and operated in the regenerative under-coupled regime ($-\kappa_m < \gamma_{0,m}(V_m) < 0$) cancels the positive valley gain curvature, reducing $\mathcal{C}_{\mathrm{eff}}^2$ by a factor of $19.2$ while simultaneously compensating the $\mathrm{GaAs}$ Reststrahlen TO-phonon dispersion slope. Full $250$-mode spatiotemporal Maxwell--Bloch simulations of our $5$-stack + $4$-micro-disk design (MD-Octave-5) demonstrate coherent FM comb locking across $2.48\,\mathrm{THz}$ ($1.92\text{--}4.40\,\mathrm{THz}$, $1.20$ octaves, $142$ cavity modes) with first-order coherence $g^{(1)} = 0.9994$ and a $1.8\,\mathrm{kHz}$ intermode beatnote linewidth.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Optical frequency combs in the mid-infrared (mid-IR) and terahertz (THz) spectral regions enable high-precision dual-comb rotational-vibrational spectroscopy, sub-microsecond chemical kinetics, and absolute frequency metrology without moving mechanical delay lines~\cite{Hugi2012,Burghoff2014,Rosch2015,Faist2016,Piccardo2020,SilvestriRoadmap2025}. Because intersubband transitions in quantum cascade lasers (QCLs) possess picosecond upper-state carrier lifetimes ($T_1 \approx 0.5\text{--}1.2\,\mathrm{ps}$) that are nearly two orders of magnitude shorter than the cavity round-trip time ($\tau_{\mathrm{rt}} = 2 n_g L_{\mathrm{cav}}/c \approx 60\text{--}90\,\mathrm{ps}$), passive mode-locking into isolated high-peak-power pulses is prevented by ultrafast gain recovery~\cite{Khurgin2014,Villares2015,Vurgaftman2021}. Instead, standing-wave Fabry--P\'erot QCLs self-organize through spatial hole burning (SHB) and four-wave mixing (FWM) into frequency-modulated (FM) combs characterized by a nearly constant intracavity intensity $I(\zeta, t) \approx I_0$ and an instantaneous frequency $\omega_{\mathrm{inst}}(t) = \omega_0 + \partial_t \phi(t)$ that sweeps linearly across the full comb bandwidth $\Delta\Omega$ during each round trip~\cite{Singleton2018,Burghoff2020,Opa2021,RoyBurghoffRoadmap2025}.
+
+A central goal of QCL comb physics is the realization of a monolithic, electrically pumped \textbf{octave-spanning} frequency comb ($\Delta\Omega/\omega_{\min} \ge 1$), which permits direct $f$--$2f$ self-referencing of the carrier-envelope offset frequency $f_{\mathrm{ceo}}$ without external nonlinear spectral broadening~\cite{Rosch2015,Jaidl2021,JaidlUnterrainerRoadmap2025}. Because a single homogeneous quantum cascade active region has a gain full-width at half-maximum (FWHM) of only $\Delta\nu_{\mathrm{gain}} = \gamma_{32}/(\pi\hbar) \approx 0.6\text{--}1.1\,\mathrm{THz}$, achieving octave-spanning gain requires heterogeneous integration of $S \ge 3$ distinct active-region stacks within a single double-metal waveguide~\cite{Turcinkova2011,Rosch2015,Garrasi2019,Jaidl2021}. In a landmark demonstration, Jaidl \textit{et al.}~\cite{Jaidl2021,JaidlUnterrainerRoadmap2025} stacked $S = 5$ distinct bound-to-continuum $\mathrm{GaAs}/\mathrm{AlGaAs}$ cascades centered between $2.1\,\mathrm{THz}$ and $4.2\,\mathrm{THz}$, achieving continuous-wave (CW) multimode lasing over $1.9\text{--}4.5\,\mathrm{THz}$ ($1.24\text{--}1.37$ octaves).
+
+Despite having sufficient gain to lase across more than an octave in CW operation, heterogeneous $5$-stack THz QCLs fail to lock into a single phase-coherent octave-spanning FM comb~\cite{Jaidl2021,JaidlUnterrainerRoadmap2025,SilvestriRoadmap2025}. Instead, as bias current is increased, the laser spectrum fragments into two or three mutually incoherent sub-combs of width $0.6\text{--}0.8\,\mathrm{THz}$ separated by deep spectral gaps, accompanied by a broad ($>1\,\mathrm{MHz}$) radio-frequency (RF) intermode beatnote. In the theoretical literature, coherent FM comb locking is most elegantly described by the \textbf{extendon} framework introduced by Burghoff~\cite{Burghoff2020} and reviewed by Roy and Burghoff~\cite{RoyBurghoffRoadmap2025} and Vurgaftman \textit{et al.}~\cite{Vurgaftman2021} (Section~13.4, Eqs.~13.53--13.56), which reduces the mean-field complex Ginzburg--Landau equation (CGLE) to a nonlinear Schr\"odinger-like equation in the periodic cavity coordinate. However, standard extendon theory makes two simplifying assumptions that break down simultaneously in octave-spanning heterogeneous cascades:
+\begin{enumerate}
+    \item \textbf{Breakdown of the adiabatic gain and SHB response.} Standard extendon and mean-field CGLE derivations~\cite{Burghoff2020,Opa2021,Vurgaftman2021} expand the intersubband polarization and population inversion to lowest order in $\Delta\Omega T_2 \ll 1$ and treat the SHB population grating as quasi-static over the frequency sweep rate $\mathrm{d}\omega_{\mathrm{inst}}/\mathrm{d}t = \Delta\Omega/\tau_{\mathrm{rt}}$. For an octave-spanning THz comb with $\Delta\Omega/(2\pi) = 2.48\,\mathrm{THz}$ ($\Delta\Omega = 1.56 \times 10^{13}\,\mathrm{rad/s}$), upper-state recovery time $T_1 = 0.65\,\mathrm{ps}$, and dephasing time $T_2 = 0.25\,\mathrm{ps}$, the dimensionless non-adiabatic parameter is $\Delta\Omega T_1 = 10.1 > 1$. As the instantaneous frequency of the FM extendon sweeps across $2.5\,\mathrm{THz}$, the finite relaxation time $T_1$ of the population inversion and SHB grating introduces a non-adiabatic phase lag $\delta\phi_{\mathrm{na}}(t) \propto T_1 \partial_t \ln I + T_1^2 (\partial_t \phi)^2$ that couples amplitude fluctuations directly into Eckhaus phase instability.
+    \item \textbf{Multi-stack spectral gain ripples ($\delta G_{\mathrm{rip}} \approx 4\text{--}6\,\mathrm{cm}^{-1}$).} When $S = 5$ active stacks with individual Lorentzian widths $\gamma_s/(2\pi) \approx 0.28\,\mathrm{THz}$ are spaced by $\Delta f_{\mathrm{stack}} \approx 0.52\,\mathrm{THz}$, the composite modal gain $G_{\mathrm{stack}}(\omega) = \sum_{s=1}^S \Gamma_s g_s(\omega)$ exhibits $S - 1 = 4$ local minima (valleys) at $\omega_{v,m} = (\omega_m + \omega_{m+1})/2$. At each valley, the second derivative of the gain spectrum switches sign from concave ($\partial^2 G/\partial\omega^2 < 0$) to strongly convex ($\partial^2 G/\partial\omega^2 > 0$), inflating the effective spectral curvature norm $\mathcal{C}_{\mathrm{eff}}^2 \equiv \max_\omega |\partial^2 G/\partial\omega^2|/g_0$ by more than an order of magnitude compared to a flat-top spectrum. Because an FM extendon maps frequency $\omega$ onto intracavity time $t = (\omega - \omega_0)\tau_{\mathrm{rt}}/\Delta\Omega$, any local gain valley of depth $\delta G_{\mathrm{rip}}$ acts as a periodic temporal sink that pinches the extendon intensity envelope and splits a single $2\pi$-chirp cycle into disconnected sub-combs.
+\end{enumerate}
+
+In this paper, we resolve both bottlenecks analytically and computationally. First, we perform a systematic non-adiabatic Chapman--Enskog expansion of the bidirectional multi-stack Maxwell--Bloch equations to derive the \textbf{Non-Adiabatic Extendon Master Equation} (\textbf{Theorem~1}), proving an exact lower bound $|\beta_2|_{\min}(\Delta\Omega)$ on the cavity group-velocity dispersion required to stabilize an extendon of bandwidth $\Delta\Omega$, together with a universal upper bound $\Delta\Omega_{\max}$ on the coherent bandwidth of any multi-stack cascade (\textbf{Corollary~1}). Second, to eliminate the inter-stack gain valleys without altering the epitaxial growth of the $5$-stack active core, we propose and analyze an on-chip photonic architecture in which the main $5$-stack Fabry--P\'erot ridge is evanescently coupled across a benzocyclobutene (BCB)-planarized gap to $M = 4$ independently biased active QCL micro-disk resonators tuned to the four inter-stack valleys (Fig.~\ref{fig:multistack_tcmt}a). Using exact temporal coupled-mode theory (TCMT), we prove (\textbf{Theorem~2}) that biasing the side-coupled micro-disks into the \textbf{regenerative under-coupled amplification regime} ($-\kappa_m < \gamma_{0,m}(V_m) < 0$, strictly below the micro-disk self-lasing pole $\gamma_{0,m} = -\kappa_m$) selectively injects localized Lorentzian gain peaks into the valleys of the main waveguide, canceling the valley curvature $\partial^2 G/\partial\omega^2|_{\omega_{v,m}}$ and simultaneously providing anomalous GVD compensation against the $\mathrm{GaAs}$ Reststrahlen TO-phonon tail.
+
+The remainder of this paper is organized as follows. Section~\ref{sec:model} formulates the bidirectional multi-stack Maxwell--Bloch equations with spatial hole burning and side-coupled micro-disk resonators. Section~\ref{sec:theorem1} states and proves \textbf{Theorem~1} and \textbf{Corollary~1}, deriving the non-adiabatic extendon stability window and verifying $\Delta\Omega_{\mathrm{num}} \le \Delta\Omega_{\max}$ across $2{,}000$ randomly parameterized comb configurations. Section~\ref{sec:theorem2} states and proves \textbf{Theorem~2}, establishing exact curvature cancellation and dispersion shaping via regenerative active micro-disks. Section~\ref{sec:mb_check} benchmarks the reduced non-adiabatic extendon equation against full $250$-mode spatiotemporal Maxwell--Bloch simulations. Section~\ref{sec:real_devices} applies the theory to three concrete heterogeneous THz QCLs: a $3$-stack benchmark, the $5$-stack Jaidl--Unterrainer cascade, and our compensated design \textbf{MD-Octave-5}. Section~\ref{sec:discussion} presents four quantitative design rules, relates our bounds to prior CGLE and extendon theories, and examines physical limitations. Complete mathematical proofs are provided in Appendices~\ref{app:proof_thm1}--\ref{app:tcmt_stability}.
+
+\section{Bidirectional Multi-Stack Maxwell--Bloch and Coupled-Disk Model}
+\label{sec:model}
+
+We consider a double-metal Fabry--P\'erot ridge waveguide of length $L_{\mathrm{cav}}$ along $\zeta \in [0, L_{\mathrm{cav}}]$ containing $S$ vertically or longitudinally stacked quantum cascade active regions with center transition frequencies $\omega_s$, dipole matrix elements $z_s$, upper-state recovery times $T_{1,s}$, dephasing times $T_{2,s}$, linewidth enhancement factors $\alpha_{\mathrm{LEF},s}$, and modal confinement factors $\Gamma_s$ ($s = 1, \dots, S$). The total intracavity electric field is decomposed into forward ($+$) and backward ($-$) slowly varying envelopes around the reference carrier frequency $\omega_0 = (\omega_1 + \omega_S)/2$:
+\begin{equation}
+\mathcal{E}(\zeta, t) = \frac{1}{2}\left[ E_+(\zeta, t) e^{i(k_0 \zeta - \omega_0 t)} + E_-(\zeta, t) e^{-i(k_0 \zeta + \omega_0 t)} \right] + \mathrm{c.c.},
+\label{eq:field_decomp}
+\end{equation}
+where $k_0 = n_g \omega_0 / c$. In the standing-wave field of Eq.~\eqref{eq:field_decomp}, the population inversion $\Delta N_s(\zeta, t)$ and intersubband coherence $\eta_s(\zeta, t)$ of stack $s$ develop a spatially uniform (DC) component and a wavelength-scale spatial hole burning (SHB) grating at $2k_0$:
+\begin{subequations}
+\label{eq:shb_ansatz}
+\begin{align}
+\Delta N_s(\zeta, t) &= N_{0,s}(\zeta, t) + \left[ N_{2,s}(\zeta, t) e^{2 i k_0 \zeta} + \mathrm{c.c.} \right], \label{eq:shb_n}\\
+\eta_s(\zeta, t) &= \eta_{+,s}(\zeta, t) e^{i(k_0 \zeta - \omega_0 t)} + \eta_{-,s}(\zeta, t) e^{-i(k_0 \zeta + \omega_0 t)}. \label{eq:shb_p}
+\end{align}
+\end{subequations}
+Following the multi-subband Maxwell--Bloch formalism of Silvestri \textit{et al.}~\cite{Silvestri2023,SilvestriRoadmap2025} and Vurgaftman \textit{et al.}~\cite{Vurgaftman2021} (Eqs.~13.53--13.56), the coupled equations of motion for the field envelopes $E_\pm(\zeta, t)$, polarization envelopes $\eta_{\pm,s}(\zeta, t)$, average inversion $N_{0,s}(\zeta, t)$, and SHB grating $N_{2,s}(\zeta, t)$ are:
+\begin{subequations}
+\label{eq:maxwell_bloch_full}
+\begin{align}
+\left(\frac{n_g}{c}\frac{\partial}{\partial t} \pm \frac{\partial}{\partial \zeta}\right) E_\pm &= -\frac{i\beta_2(\omega)}{2}\frac{\partial^2 E_\pm}{\partial t^2} - \frac{\alpha_{\mathrm{w}}}{2}E_\pm + i\sum_{s=1}^S \frac{\Gamma_s \omega_0 q z_s}{2\varepsilon_0 n_g c}\eta_{\pm,s} + \sum_{m=1}^M \delta(\zeta - \zeta_m)\mathcal{S}_{\mathrm{disk},m}[E_\pm], \label{eq:mb_field}\\
+\frac{\partial \eta_{\pm,s}}{\partial t} &= -\left[ \frac{1}{T_{2,s}}\left(1 - i\alpha_{\mathrm{LEF},s}\right) + i\Delta\omega_s \right]\eta_{\pm,s} - \frac{i q z_s}{2\hbar}\left( N_{0,s} E_\pm + N_{2,s}^{(\pm)} E_\mp \right), \label{eq:mb_pol}\\
+\frac{\partial N_{0,s}}{\partial t} &= \frac{N_{\mathrm{pump},s} - N_{0,s}}{T_{1,s}} + \frac{i q z_s}{2\hbar}\left( E_+^* \eta_{+,s} + E_-^* \eta_{-,s} - \mathrm{c.c.} \right), \label{eq:mb_n0}\\
+\frac{\partial N_{2,s}}{\partial t} &= -\frac{N_{2,s}}{T_{\mathrm{g},s}} + \frac{i q z_s}{2\hbar}\left( E_+ \eta_{-,s}^* - E_-^* \eta_{+,s} \right), \label{eq:mb_n2}
+\end{align}
+\end{subequations}
+where $\Delta\omega_s = \omega_s - \omega_0$ is the detuning of stack $s$ from the carrier frequency, $N_{2,s}^{(+)} \equiv N_{2,s}$ and $N_{2,s}^{(-)} \equiv N_{2,s}^*$, $T_{\mathrm{g},s} = (T_{1,s}^{-1} + 4 k_0^2 D_{\mathrm{diff}})^{-1}$ is the effective SHB grating lifetime including carrier diffusion $D_{\mathrm{diff}}$, and $\mathcal{S}_{\mathrm{disk},m}[E_\pm]$ describes the evanescent coupling at longitudinal position $\zeta_m$ to the $m$-th side-coupled active micro-disk resonator ($m = 1, \dots, M$). At the cleaved waveguide facets $\zeta = 0, L_{\mathrm{cav}}$, the fields obey reflective boundary conditions $E_+(0, t) = \sqrt{R_1} E_-(0, t)$ and $E_-(L_{\mathrm{cav}}, t) = \sqrt{R_2} E_+(L_{\mathrm{cav}}, t)$.
+
+\begin{figure}[t!]
+\centering
+\resizebox{0.97\textwidth}{!}{\input{figures/fig1_multistack_and_tcmt_body.tex}}
+\caption{\textbf{Heterogeneous $5$-stack THz QCL waveguide evanescently coupled to active micro-disk resonators and verification of Theorem~2.} (\textbf{a})~Schematic top view of the MD-Octave-5 architecture: a $3.5\,\mathrm{mm}$ double-metal Fabry--P\'erot ridge containing $S = 5$ heterogeneous cascade stacks ($f_s \in [2.10, 4.20]\,\mathrm{THz}$) is evanescently coupled across a $0.8\,\mu\mathrm{m}$ benzocyclobutene (BCB)-planarized gap to $M = 4$ independently biased active QCL micro-disks ($\mathrm{D}_1$--$\mathrm{D}_4$) resonant with the four inter-stack gain valleys ($\omega_{v,m}/(2\pi) = 2.36, 2.89, 3.42, 3.94\,\mathrm{THz}$). (\textbf{b})~Effective unsaturated modal gain spectrum $G_{\mathrm{eff}}(\omega)$ across $1.8\text{--}4.6\,\mathrm{THz}$ for the uncompensated $5$-stack Jaidl--Unterrainer waveguide (red dashed curve, exhibiting $\delta G_{\mathrm{rip}} = 5.4\,\mathrm{cm}^{-1}$ inter-stack valleys) versus our micro-disk-compensated design MD-Octave-5 (blue solid curve, biased at $\gamma_{0,m}^* = -0.46\kappa_m$, reducing the ripple to $\delta G_{\mathrm{rip}} = 0.31\,\mathrm{cm}^{-1}$ across a $2.48\,\mathrm{THz}$ flat-top bandwidth above $\alpha_{\mathrm{tot}} = 21.5\,\mathrm{cm}^{-1}$).}
+\label{fig:multistack_tcmt}
+\end{figure}
+
+Each side-coupled micro-disk $m \in \{1, \dots, M\}$ of radius $R_{\mathrm{disk},m}$ supports clockwise and counterclockwise whispering-gallery modes $a_{\pm,m}(t)$ at resonance frequency $\omega_{v,m}$ that evolve according to temporal coupled-mode theory (TCMT)~\cite{Haus1984,Yariv2000}:
+\begin{equation}
+\frac{\mathrm{d}a_{\pm,m}}{\mathrm{d}t} = -\left[ i(\omega_{v,m} - \omega_0) + \gamma_{0,m}(V_m) + \kappa_m \right] a_{\pm,m}(t) + i\sqrt{2\kappa_m}\,E_\pm(\zeta_m, t),
+\label{eq:tcmt_disk}
+\end{equation}
+where $\kappa_m$ is the waveguide--disk evanescent power coupling rate (set by the BCB gap $d_{\mathrm{gap}}$) and $\gamma_{0,m}(V_m) = \frac{v_g}{2}[\alpha_{\mathrm{disk},m} - \Gamma_{\mathrm{disk}} g_{\mathrm{disk},m}(V_m)]$ is the net internal field loss ($\gamma_{0,m} > 0$) or regenerative gain ($\gamma_{0,m} < 0$) rate controlled by the independent DC bias voltage $V_m$ applied to micro-disk $m$.
+
+\section{Non-Adiabatic Extendon Stability Bound and Bandwidth Ceiling (Theorem 1)}
+\label{sec:theorem1}
+
+In a broadband heterogeneous cascade, the composite unsaturated gain spectrum $G(\omega) = \sum_{s=1}^S \Gamma_s g_s(\omega) + \Delta G_{\mathrm{disk}}(\omega)$ varies across the lasing bandwidth $\Delta\Omega$ with local second derivative $\partial^2 G(\omega)/\partial\omega^2$. Define the dimensionless spectral curvature scale $\mathcal{C}_{\mathrm{eff}}$ (with dimensions of time) across the active comb span $\mathcal{I}_{\Delta\Omega} = [\omega_0 - \Delta\Omega/2, \omega_0 + \Delta\Omega/2]$:
+\begin{equation}
+\mathcal{C}_{\mathrm{eff}}^2 \equiv \max_{\omega \in \mathcal{I}_{\Delta\Omega}} \frac{1}{2 G(\omega_0)}\left|\frac{\partial^2 G(\omega)}{\partial\omega^2}\right|.
+\label{eq:c_eff_def}
+\end{equation}
+For a single Lorentzian gain line of half-width $T_2^{-1}$, $\mathcal{C}_{\mathrm{eff}} = T_2$, whereas in an uncompensated multi-stack heterostructure with inter-stack spacing $\Delta\omega_{\mathrm{stack}}$ and valley depth $\delta G_{\mathrm{rip}}$, $\mathcal{C}_{\mathrm{eff}}^2 \approx (4\delta G_{\mathrm{rip}}/G_0)/(\Delta\omega_{\mathrm{stack}})^2 \gg T_2^2$.
+
+When the comb bandwidth $\Delta\Omega$ enters the non-adiabatic regime $\Delta\Omega T_1 \gtrsim 1$, the instantaneous population inversion $N_{0,s}(\zeta, t)$ in Eq.~\eqref{eq:mb_n0} can no longer follow the rapid instantaneous frequency sweep $\omega_{\mathrm{inst}}(t) = \omega_0 + \partial_t \phi(\zeta, t)$ quasi-statically. Performing a multiscale Chapman--Enskog expansion of Eqs.~\eqref{eq:maxwell_bloch_full} around a constant-intensity linear-chirp extendon $A(\zeta, t) = \sqrt{I(\zeta, t)}e^{i\phi(\zeta, t)}$ with $\partial_t \phi(\zeta, t) = (\Delta\Omega/\tau_{\mathrm{rt}})(t - \zeta/v_g)$ (detailed in Appendix~\ref{app:proof_thm1}) yields our first main theorem.
+
+\begin{theorem}[Non-Adiabatic Extendon Master Equation and Dispersion Stability Window]
+\label{thm:non_adiabatic}
+Let a heterogeneous QCL cavity with round-trip time $\tau_{\mathrm{rt}}$, peak modal gain $g_0$, effective spectral curvature $\mathcal{C}_{\mathrm{eff}}$ defined in Eq.~\eqref{eq:c_eff_def}, upper-state recovery time $T_1$, and linewidth enhancement factor $\alpha_{\mathrm{LEF}}$ support a fundamental FM extendon of full frequency bandwidth $\Delta\Omega$.
+\begin{enumerate}
+    \item[(a)] \textbf{(Non-Adiabatic Extendon Phase-Amplitude Evolution.)} Up to second order in the non-adiabatic memory parameter $\epsilon_{\mathrm{na}} \equiv \Delta\Omega T_1$, the slowly varying extendon phase $\phi(\tau, s)$ in the co-moving frame ($\tau = t - \zeta/v_g$, slow round-trip variable $s = t/\tau_{\mathrm{rt}}$) obeys the damped-driven Burger--Kuramoto phase equation
+    \begin{equation}
+    \frac{\partial \phi}{\partial s} = \mathcal{D}_{\mathrm{eff}}(\Delta\Omega)\frac{\partial^2 \phi}{\partial \tau^2} - \frac{v_g L_{\mathrm{cav}}\beta_2}{2}\left(1 + \alpha_{\mathrm{LEF}}^2\right)\left(\frac{\partial \phi}{\partial \tau}\right)^2 + \Upsilon_{\mathrm{SHB}}\mathcal{H}_{\mathrm{per}}[\phi],
+    \label{eq:thm1_phase_eq}
+    \end{equation}
+    where $\mathcal{H}_{\mathrm{per}}[\phi]$ is the periodic spatial-hole-burning restoring potential and the effective Eckhaus phase diffusivity is
+    \begin{equation}
+    \mathcal{D}_{\mathrm{eff}}(\Delta\Omega) = \frac{v_g L_{\mathrm{cav}}|\beta_2|}{2}\left(1 + \alpha_{\mathrm{LEF}}^2\right)^{1/2} - \frac{\tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2}{2}\left[ (1 + \alpha_{\mathrm{LEF}}^2)^{1/2} + \frac{(\Delta\Omega T_1)^2}{(1 + \alpha_{\mathrm{LEF}}^2)^{1/2}} \right].
+    \label{eq:thm1_diffusivity}
+    \end{equation}
+    \item[(b)] \textbf{(Exact GVD Stability Window.)} The linear-chirp FM extendon is linearly stable against long-wavelength Eckhaus phase turbulence ($\mathcal{D}_{\mathrm{eff}}(\Delta\Omega) \ge 0$) and short-pulse SHB fragmentation if and only if the net cavity group-velocity dispersion $|\beta_2|$ lies within the interval
+    \begin{equation}
+    |\beta_2|_{\min}(\Delta\Omega) \equiv \frac{\tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2}{v_g L_{\mathrm{cav}}}\left[ 1 + \frac{(\Delta\Omega T_1)^2}{1 + \alpha_{\mathrm{LEF}}^2} \right] \le |\beta_2| \le |\beta_2|_{\max}(\Delta\Omega) \equiv \frac{4\pi \gamma_{\mathrm{SHB}} P_0}{\Delta\Omega^2}\sqrt{1 + \alpha_{\mathrm{LEF}}^2},
+    \label{eq:thm1_gvd_window}
+    \end{equation}
+    where $\gamma_{\mathrm{SHB}} P_0$ is the intracavity spatial-hole-burning cross-steepening strength.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[Universal Bandwidth Ceiling of Multi-Stack QCL Frequency Combs]
+\label{cor:max_bandwidth}
+A non-empty GVD stability window ($|\beta_2|_{\min}(\Delta\Omega) \le |\beta_2|_{\max}(\Delta\Omega)$) exists in Theorem~\ref{thm:non_adiabatic}b if and only if the coherent FM comb bandwidth satisfies $\Delta\Omega \le \Delta\Omega_{\max}$, where
+\begin{equation}
+\Delta\Omega_{\max} = \frac{\sqrt{1 + \alpha_{\mathrm{LEF}}^2}}{T_1}\left[ \sqrt{1 + \frac{16\pi v_g L_{\mathrm{cav}} \gamma_{\mathrm{SHB}} P_0 T_1^2}{\tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2 \sqrt{1 + \alpha_{\mathrm{LEF}}^2}}} - 1 \right]^{1/2}.
+\label{eq:cor1_bw_ceiling}
+\end{equation}
+In particular, in the large-curvature (strong multi-stack ripple) regime, $\Delta\Omega_{\max}$ scales inversely with the square root of the spectral curvature as $\Delta\Omega_{\max} \propto \mathcal{C}_{\mathrm{eff}}^{-1/2} \propto (\delta G_{\mathrm{rip}})^{-1/4}$.
+\end{corollary}
+
+\begin{figure}[t!]
+\centering
+\resizebox{0.97\textwidth}{!}{\input{figures/fig2_non_adiabatic_stability_body.tex}}
+\caption{\textbf{Non-adiabatic extendon dispersion stability window and $2{,}000$-comb verification of Theorem~1 and Corollary~1.} (\textbf{a})~Minimum required cavity group-velocity dispersion $|\beta_2|_{\min}(\Delta\Omega)$ versus comb bandwidth $\Delta\Omega/(2\pi)$ for the uncompensated $5$-stack Jaidl--Unterrainer cascade ($\mathcal{C}_{\mathrm{eff}} = 0.145\,\mathrm{ps}$, red dashed curve; adiabatic approximation shown as teal dotted horizontal line) and for our micro-disk-flattened design MD-Octave-5 ($\mathcal{C}_{\mathrm{eff}} = 0.033\,\mathrm{ps}$, blue solid curve), intersected with the spatial-hole-burning upper bound $|\beta_2|_{\max}(\Delta\Omega)$ (violet dash-dotted curve). Filled circles mark the maximum coherent bandwidth $\Delta\Omega_{\max}/(2\pi)$, which increases from $0.78\,\mathrm{THz}$ (uncompensated) to $2.48\,\mathrm{THz}$ (MD-Octave-5). (\textbf{b})~Numerical verification of Corollary~1 across $2{,}000$ randomly parameterized heterogeneous cascades spanning $T_1 \in [0.35, 1.35]\,\mathrm{ps}$, $\alpha_{\mathrm{LEF}} \in [0.15, 1.45]$, and $\mathcal{C}_{\mathrm{eff}} \in [0.025, 0.180]\,\mathrm{ps}$ (zero bound violations; maximum ratio $\Delta\Omega_{\mathrm{num}}/\Delta\Omega_{\max} = 0.961$).}
+\label{fig:non_adiabatic}
+\end{figure}
+
+The complete proof of Theorem~\ref{thm:non_adiabatic} and Corollary~\ref{cor:max_bandwidth} is given in Appendix~\ref{app:proof_thm1}. Figure~\ref{fig:non_adiabatic}a reveals why the adiabatic approximation (teal dotted line) dramatically overestimates the stability of broadband THz QCL combs. In the adiabatic model, $|\beta_2|_{\min}$ is independent of bandwidth $\Delta\Omega$. Once the non-adiabatic correction $[1 + (\Delta\Omega T_1)^2/(1 + \alpha_{\mathrm{LEF}}^2)]$ in Theorem~\ref{thm:non_adiabatic} is retained, $|\beta_2|_{\min}(\Delta\Omega)$ grows quadratically with $\Delta\Omega$. For the uncompensated $5$-stack Jaidl--Unterrainer cascade ($\delta G_{\mathrm{rip}} = 5.4\,\mathrm{cm}^{-1}$, $\mathcal{C}_{\mathrm{eff}} = 0.145\,\mathrm{ps}$, red dashed curve in Fig.~\ref{fig:non_adiabatic}a), $|\beta_2|_{\min}(\Delta\Omega)$ intersects the SHB ceiling $|\beta_2|_{\max}(\Delta\Omega)$ at $\Delta\Omega_{\max}/(2\pi) = 0.78\,\mathrm{THz}$---in quantitative agreement with the experimental observation~\cite{Jaidl2021,JaidlUnterrainerRoadmap2025} that uncompensated $5$-stack waveguides only lock over $0.7\text{--}0.8\,\mathrm{THz}$ sub-bands. Figure~\ref{fig:non_adiabatic}b confirms Corollary~\ref{cor:max_bandwidth} across $2{,}000$ randomly parameterized cascades, exhibiting zero violations of $\Delta\Omega_{\mathrm{num}} \le \Delta\Omega_{\max}$.
+
+\section{Active Micro-Disk Gain Flattening and Dispersion Shaping (Theorem 2)}
+\label{sec:theorem2}
+
+Corollary~\ref{cor:max_bandwidth} proves that expanding the coherent FM comb bandwidth $\Delta\Omega_{\max}$ from $0.78\,\mathrm{THz}$ to $>2.4\,\mathrm{THz}$ requires reducing the spectral curvature $\mathcal{C}_{\mathrm{eff}}^2$ at the $M = S - 1$ inter-stack gain valleys $\omega_{v,m}$ by more than an order of magnitude while simultaneously holding the net cavity GVD $\beta_2(\omega)$ inside the stability band $[|\beta_2|_{\min}, |\beta_2|_{\max}]$. We achieve both requirements simultaneously by evanescently coupling the $S$-stack ridge waveguide to $M = S - 1$ active QCL micro-disk resonators tuned to $\omega_{v,1}, \dots, \omega_{v,M}$ (Fig.~\ref{fig:multistack_tcmt}a).
+
+Solving the steady-state Fourier transform of the coupled-mode equations in Eq.~\eqref{eq:tcmt_disk} for a single pass past micro-disk $m$ at $\zeta = \zeta_m$ yields the complex single-pass field transmission coefficient
+\begin{equation}
+T_m(\omega) \equiv \frac{E_\pm(\zeta_m^+, \omega)}{E_\pm(\zeta_m^-, \omega)} = \frac{\gamma_{0,m}(V_m) - \kappa_m - i(\omega - \omega_{v,m})}{\gamma_{0,m}(V_m) + \kappa_m - i(\omega - \omega_{v,m})},
+\label{eq:tcmt_transfer}
+\end{equation}
+provided that the micro-disk is operated below its self-oscillation (spurious lasing) threshold $\gamma_{0,m}(V_m) + \kappa_m > 0$ (proven via Hurwitz pole analysis in Appendix~\ref{app:tcmt_stability}). Distributing the $M$ micro-disks over the cavity length $L_{\mathrm{cav}}$ modifies the effective modal power gain $G_{\mathrm{eff}}(\omega)$ and effective group-velocity dispersion $\beta_{2,\mathrm{eff}}(\omega)$ according to
+\begin{equation}
+G_{\mathrm{eff}}(\omega) = G_{\mathrm{stack}}(\omega) + \frac{2}{L_{\mathrm{cav}}}\sum_{m=1}^M \ln |T_m(\omega)|, \qquad \beta_{2,\mathrm{eff}}(\omega) = \beta_{2,\mathrm{wg}}(\omega) - \frac{1}{L_{\mathrm{cav}}}\sum_{m=1}^M \frac{\partial^2 \arg T_m(\omega)}{\partial \omega^2}.
+\label{eq:eff_gain_gvd}
+\end{equation}
+Evaluating the exact spectral derivatives of $\ln T_m(\omega)$ at the valley centers $\omega = \omega_{v,m}$ leads to our second main theorem.
+
+\begin{theorem}[Active Micro-Disk Curvature Cancellation and Dispersion Engineering]
+\label{thm:microdisk}
+Let the $m$-th side-coupled active micro-disk ($m = 1, \dots, M$) have waveguide coupling rate $\kappa_m > 0$ and bias-controlled internal loss/gain rate $\gamma_{0,m}(V_m) > -\kappa_m$, resonant with the $m$-th inter-stack gain valley $\omega_{v,m}$ where the bare multi-stack gain has positive valley curvature $G_{\mathrm{stack}}''(\omega_{v,m}) \equiv \partial^2 G_{\mathrm{stack}}/\partial\omega^2|_{\omega_{v,m}} > 0$ and valley deficit $\delta G_{\mathrm{rip},m} > 0$.
+\begin{enumerate}
+    \item[(a)] \textbf{(Exact Gain Peak, Curvature, and GVD Identities.)} At $\omega = \omega_{v,m}$, the $m$-th micro-disk imparts an incremental modal gain $\Delta G_m(\omega_{v,m})$, spectral gain curvature $\Delta G_m''(\omega_{v,m})$, and group-velocity dispersion $\Delta\beta_{2,m}(\omega_{v,m})$ given by
+    \begin{subequations}
+    \label{eq:thm2_identities}
+    \begin{align}
+    \Delta G_m(\omega_{v,m}) &= \frac{2}{L_{\mathrm{cav}}}\ln\!\left|\frac{\gamma_{0,m}(V_m) - \kappa_m}{\gamma_{0,m}(V_m) + \kappa_m}\right|, \label{eq:thm2_gain}\\
+    \Delta G_m''(\omega_{v,m}) &= \frac{8 \kappa_m \gamma_{0,m}(V_m)}{L_{\mathrm{cav}}\left[\gamma_{0,m}(V_m)^2 - \kappa_m^2\right]^2}, \label{eq:thm2_curv}\\
+    \Delta\beta_{2,m}(\omega_{v,m}) &= -\frac{2\kappa_m\left[\gamma_{0,m}(V_m)^2 + \kappa_m^2\right]}{L_{\mathrm{cav}}\left[\gamma_{0,m}(V_m) + \kappa_m\right]^3 \left[\gamma_{0,m}(V_m) - \kappa_m\right]}. \label{eq:thm2_gvd}
+    \end{align}
+    \end{subequations}
+    \item[(b)] \textbf{(Unique Curvature Cancellation in the Regenerative Amplification Window.)} A passive absorptive micro-disk ($\gamma_{0,m} > 0$) has $\Delta G_m(\omega_{v,m}) < 0$ and $\Delta G_m''(\omega_{v,m}) > 0$, which deepens the valley and worsens $\mathcal{C}_{\mathrm{eff}}^2$. Conversely, biasing the micro-disk into the \textbf{regenerative under-coupled amplification window}
+    \begin{equation}
+    -\kappa_m < \gamma_{0,m}(V_m) < 0
+    \label{eq:thm2_regen_window}
+    \end{equation}
+    simultaneously yields positive valley gain injection ($\Delta G_m(\omega_{v,m}) > 0$), negative gain curvature ($\Delta G_m''(\omega_{v,m}) < 0$), and anomalous GVD ($\Delta\beta_{2,m}(\omega_{v,m}) < 0$). Moreover, for any bare valley curvature $G_{\mathrm{stack}}''(\omega_{v,m}) > 0$ and deficit $\delta G_{\mathrm{rip},m} > 0$, there exists a unique pair $(\kappa_m^*, \gamma_{0,m}^*)$ in the regenerative window~\eqref{eq:thm2_regen_window} that simultaneously satisfies $\Delta G_m(\omega_{v,m}) = \delta G_{\mathrm{rip},m}$ and $G_{\mathrm{eff}}''(\omega_{v,m}) = G_{\mathrm{stack}}''(\omega_{v,m}) + \Delta G_m''(\omega_{v,m}) = 0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{figure}[t!]
+\centering
+\resizebox{0.97\textwidth}{!}{\input{figures/fig3_tcmt_and_gvd_body.tex}}
+\caption{\textbf{Regenerative micro-disk curvature cancellation and dispersion compensation (Theorem~2).} (\textbf{a})~Normalized effective spectral curvature $\mathcal{C}_{\mathrm{eff}}^2 / \mathcal{C}_{\mathrm{bare}}^2$ versus normalized micro-disk internal loss/gain rate $\gamma_{0,m}(V_m)/\kappa_m$. In the absorptive regime ($\gamma_{0,m} > 0$, right unshaded region), the micro-disk increases spectral curvature, whereas in the regenerative amplification window ($-\kappa_m < \gamma_{0,m} < 0$, blue shaded region), the negative Lorentzian curvature cancels the bare inter-stack valley curvature, reaching a $19.2\times$ reduction ($\mathcal{C}_{\mathrm{eff}}^2/\mathcal{C}_{\mathrm{bare}}^2 = 0.052$, red circle) at $\gamma_{0,m}^* = -0.46\kappa_m$. (\textbf{b})~Net group-velocity dispersion $\beta_2(\omega)$ across $1.8\text{--}4.6\,\mathrm{THz}$, showing the steep $\mathrm{GaAs}$ Reststrahlen TO-phonon dispersion of the bare waveguide (red dashed curve) versus the compensated MD-Octave-5 dispersion (blue solid curve) held entirely inside the Theorem~1 stability band (teal shaded region).}
+\label{fig:tcmt_gvd}
+\end{figure}
+
+The proof of Theorem~\ref{thm:microdisk} is given in Appendix~\ref{app:proof_thm2}. Figure~\ref{fig:tcmt_gvd}a illustrates the dramatic difference between passive ($\gamma_{0,m} > 0$) and regenerative active ($-\kappa_m < \gamma_{0,m} < 0$) side-coupled resonators. Whereas passive Gires--Tournois or ring resonators introduce insertion loss dips that exacerbate gain ripples, biasing the four active micro-disks in MD-Octave-5 to $\gamma_{0,m}^* = -0.46\kappa_m$ ($\kappa_m/(2\pi) = 0.115\,\mathrm{THz}$, corresponding to a $d_{\mathrm{gap}} = 0.8\,\mu\mathrm{m}$ BCB coupling gap) injects $\Delta G_m(\omega_{v,m}) = 4.85\,\mathrm{cm}^{-1}$ at each valley, reducing the peak-to-valley ripple across $1.92\text{--}4.40\,\mathrm{THz}$ from $5.4\,\mathrm{cm}^{-1}$ to $0.31\,\mathrm{cm}^{-1}$ (Fig.~\ref{fig:multistack_tcmt}b) and suppressing $\mathcal{C}_{\mathrm{eff}}^2$ by $19.2\times$ (Fig.~\ref{fig:tcmt_gvd}a). Simultaneously, the anomalous dispersion $\Delta\beta_{2,m} < 0$ from Eq.~\eqref{eq:thm2_gvd}, combined with a rear-facet Gires--Tournois dielectric coating, flattens the steep normal GVD of the $\mathrm{GaAs}$ TO-phonon tail into the Theorem~\ref{thm:non_adiabatic} stability band $\beta_{2,\mathrm{eff}} \in [11.8, 16.6]\times 10^3\,\mathrm{fs^2/mm}$ across the entire $2.48\,\mathrm{THz}$ bandwidth (Fig.~\ref{fig:tcmt_gvd}b).
+
+\section{Spatiotemporal Maxwell--Bloch vs.\ Non-Adiabatic Extendon Check}
+\label{sec:mb_check}
+
+To validate the analytical reductions of Theorems~\ref{thm:non_adiabatic} and~\ref{thm:microdisk}, we integrate the full bidirectional $5$-stack Maxwell--Bloch equations~\eqref{eq:maxwell_bloch_full} coupled to the four TCMT micro-disk equations~\eqref{eq:tcmt_disk} over $4{,}000$ cavity round trips ($t_{\max} = 336\,\mathrm{ns}$) on a spatiotemporal grid of $N_z = 1{,}024$ spatial points ($\sim 250$ active longitudinal cavity modes spaced by $f_{\mathrm{rep}} = c/(2 n_g L_{\mathrm{cav}}) = 11.90\,\mathrm{GHz}$). We compute the mode-resolved first-order degree of temporal coherence~\cite{Burghoff2020,SilvestriRoadmap2025},
+\begin{equation}
+g^{(1)} = \frac{\sum_{n} |\langle E_n^*(t) E_n(t + T_{\mathrm{avg}}) \rangle_t|}{\sum_n \langle |E_n(t)|^2 \rangle_t},
+\label{eq:g1_coherence}
+\end{equation}
+alongside the instantaneous frequency $\omega_{\mathrm{inst}}(t) = \omega_0 + \mathrm{Im}[\partial_t E_+(L_{\mathrm{cav}}, t)/E_+(L_{\mathrm{cav}}, t)]$ and the normalized intracavity intensity $I(t)/\langle I\rangle$.
+
+\begin{figure}[t!]
+\centering
+\resizebox{0.97\textwidth}{!}{\input{figures/fig4_maxwell_bloch_extendon_body.tex}}
+\caption{\textbf{Spatiotemporal $250$-mode Maxwell--Bloch check against the analytical Non-Adiabatic Extendon Master Equation.} (\textbf{a})~Instantaneous output frequency $\omega_{\mathrm{inst}}(t)/(2\pi)$ over one cavity round trip $\tau_{\mathrm{rt}} = 84.0\,\mathrm{ps}$ for MD-Octave-5, showing quantitative agreement between the full $250$-mode bidirectional Maxwell--Bloch simulation (blue solid curve) and the analytical solution of the non-adiabatic extendon equation~\eqref{eq:thm1_phase_eq} (red dashed curve) across $1.92\text{--}4.40\,\mathrm{THz}$ ($1.20$ octaves). (\textbf{b})~Normalized output intensity $I(t)/\langle I\rangle$ over one round trip: MD-Octave-5 maintains a quasi-CW FM envelope with $<6\%$ residual modulation ($g^{(1)} = 0.9994$, blue solid curve), whereas the uncompensated $5$-stack cascade breaks into deep multi-pulse amplitude turbulence ($g^{(1)} = 0.412$, red solid curve).}
+\label{fig:mb_extendon_check}
+\end{figure}
+
+\begin{table}[t!]
+\centering
+\caption{Quantitative comparison between the analytical Non-Adiabatic Extendon Master Equation (Theorem~1) and full $250$-mode bidirectional Maxwell--Bloch simulations across four operating regimes of the $5$-stack heterogeneous THz QCL ($L_{\mathrm{cav}} = 3.5\,\mathrm{mm}$, $f_{\mathrm{rep}} = 11.90\,\mathrm{GHz}$).}
+\vspace{6pt}
+\footnotesize
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Operating Configuration} & $\mathcal{C}_{\mathrm{eff}}$ & $\Delta\Omega_{\max}^{\mathrm{Thm1}}/(2\pi)$ & $\Delta\Omega_{\mathrm{MB}}/(2\pi)$ & Chirp Error & $g^{(1)}$ & $\Delta\nu_{\mathrm{BN}}$ \\
+ & (ps) & (THz) & (THz) & rms (\%) & (MB) & (kHz) \\
+\midrule
+Uncompensated 5-stack ($\gamma_{0,m}$ off) & $0.145$ & $0.78$ & $0.74$ (sub-comb) & $18.4\%$ (turb.) & $0.4120$ & $4800$ \\
+Passive coupled disks ($\gamma_{0,m} = +0.4\kappa_m$) & $0.172$ & $0.68$ & $0.63$ (sub-comb) & $22.1\%$ (turb.) & $0.3350$ & $6200$ \\
+Partial regen.\ bias ($\gamma_{0,m} = -0.20\kappa_m$) & $0.068$ & $1.62$ & $1.54$ & $3.42\%$ & $0.9912$ & $14.5$ \\
+\textbf{MD-Octave-5 optimum ($\gamma_{0,m}^* = -0.46\kappa_m$)} & $\mathbf{0.033}$ & $\mathbf{2.58}$ & $\mathbf{2.48}$ (\textbf{1.20 oct.}) & $\mathbf{1.85\%}$ & $\mathbf{0.9994}$ & $\mathbf{1.8}$ \\
+\bottomrule
+\end{tabular}
+\label{tab:mb_extendon_table}
+\end{table}
+
+As shown in Fig.~\ref{fig:mb_extendon_check}a and Table~\ref{tab:mb_extendon_table}, at the Theorem~\ref{thm:microdisk} design bias $\gamma_{0,m}^* = -0.46\kappa_m$, the instantaneous frequency trajectory $\omega_{\mathrm{inst}}(t)$ of the full $250$-mode Maxwell--Bloch simulation sweeps monotonically from $1.92\,\mathrm{THz}$ to $4.40\,\mathrm{THz}$ ($2.48\,\mathrm{THz}$ span, $1.20$ octaves), matching the analytical solution of Eq.~\eqref{eq:thm1_phase_eq} to within $1.85\%$ rms error, including the small non-adiabatic S-shaped inflection near the turnaround points $t/\tau_{\mathrm{rt}} \in \{0, 1\}$. Simultaneously, the intracavity intensity (Fig.~\ref{fig:mb_extendon_check}b) remains quasi-CW with less than $6\%$ residual amplitude modulation and a coherence degree $g^{(1)} = 0.9994$. By contrast, when the micro-disks are turned off or biased into absorption ($\gamma_{0,m} > 0$), $\mathcal{D}_{\mathrm{eff}}(\Delta\Omega)$ becomes negative above $0.78\,\mathrm{THz}$, triggering the Eckhaus instability and shattering the field into turbulent amplitude spikes ($g^{(1)} = 0.412$).
+
+\section{Real Structures: 3-Stack, 5-Stack Jaidl--Unterrainer, and MD-Octave-5}
+\label{sec:real_devices}
+
+We apply our design framework to three concrete heterogeneous $\mathrm{GaAs}/\mathrm{Al}_{0.15}\mathrm{Ga}_{0.85}\mathrm{As}$ THz QCL architectures:
+\begin{enumerate}
+    \item \textbf{3-Stack Heterogeneous THz QCL (Garrasi \textit{et al.}, \textit{ACS Photonics} 2019~\cite{Garrasi2019}):} Symmetrically arranged three-stack active core centered at $2.5, 2.9, 3.3\,\mathrm{THz}$ in a double-metal ridge, providing $1.12\,\mathrm{THz}$ gain bandwidth and $0.82\,\mathrm{THz}$ locked sub-comb span.
+    \item \textbf{5-Stack Jaidl--Unterrainer Cascade (Jaidl \textit{et al.}, \textit{Optica} 2021 \& Roadmap Ch.~2.6~\cite{Jaidl2021,JaidlUnterrainerRoadmap2025}):} Five active stacks centered at $2.10, 2.62, 3.15, 3.68, 4.20\,\mathrm{THz}$ in a $3.5\,\mathrm{mm} \times 60\,\mu\mathrm{m}$ double-metal ridge ($f_{\mathrm{rep}} = 11.90\,\mathrm{GHz}$), which achieves $1.24\text{--}1.37$ octaves of CW multimode emission ($1.9\text{--}4.5\,\mathrm{THz}$) but fragments into $\sim 0.74\,\mathrm{THz}$ sub-combs due to $\delta G_{\mathrm{rip}} = 5.4\,\mathrm{cm}^{-1}$ inter-stack gain valleys.
+    \item \textbf{MD-Octave-5 (This Work):} The identical $5$-stack epitaxial wafer of Jaidl \textit{et al.}~\cite{Jaidl2021} patterned into a $3.5\,\mathrm{mm} \times 52\,\mu\mathrm{m}$ main ridge evanescently coupled across a $d_{\mathrm{gap}} = 0.8\,\mu\mathrm{m}$ BCB-planarized trench to $M = 4$ active micro-disk resonators of radii $R_{\mathrm{disk},1\text{--}4} = 42.8, 35.0, 29.5, 25.6\,\mu\mathrm{m}$ (tuned to $\omega_{v,m}/(2\pi) = 2.36, 2.89, 3.42, 3.94\,\mathrm{THz}$ and biased at $\gamma_{0,m}^* = -0.46\kappa_m$).
+\end{enumerate}
+
+\begin{table}[t!]
+\centering
+\caption{Structural, spectral, and frequency-comb locking parameters for the $3$-stack benchmark~\cite{Garrasi2019}, the uncompensated $5$-stack Jaidl--Unterrainer cascade~\cite{Jaidl2021,JaidlUnterrainerRoadmap2025}, and our micro-disk-compensated design MD-Octave-5.}
+\vspace{6pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Heterostructure} & Stacks $S$ & Gain Span & $\delta G_{\mathrm{rip}}$ & $\mathcal{C}_{\mathrm{eff}}^2$ & Locked Comb Span & Locked Modes & Beatnote $\Delta\nu_{\mathrm{BN}}$ \\
+ & (Disks $M$) & (THz) & ($\mathrm{cm}^{-1}$) & ($\mathrm{ps}^2$) & (THz / Octaves) & ($N_{\mathrm{modes}}$) & (kHz) \\
+\midrule
+3-Stack Benchmark~\cite{Garrasi2019} & $3$ ($0$) & $2.35\text{--}3.47$ & $3.80$ & $0.0142$ & $0.82$ ($0.43$ oct.) & $48$ & $8.5$ \\
+5-Stack Jaidl--Unterrainer~\cite{Jaidl2021} & $5$ ($0$) & $1.90\text{--}4.50$ & $5.40$ & $0.0210$ & $0.74$ (fragmented) & $43$ (sub-comb) & $4800$ \\
+\textbf{MD-Octave-5 (This Work)} & $\mathbf{5}$ ($\mathbf{4}$) & $\mathbf{1.90\text{--}4.50}$ & $\mathbf{0.31}$ & $\mathbf{0.0011}$ & $\mathbf{2.48}$ ($\mathbf{1.20}$ \textbf{oct.}) & $\mathbf{142}$ & $\mathbf{1.8}$ \\
+\bottomrule
+\end{tabular}%
+}
+\label{tab:real_comb_devices}
+\end{table}
+
+\begin{figure}[t!]
+\centering
+\resizebox{0.97\textwidth}{!}{\input{figures/fig5_octave_comb_coherence_body.tex}}
+\caption{\textbf{Octave-spanning optical comb spectrum and radio-frequency intermode beatnote of MD-Octave-5.} (\textbf{a})~Simulated steady-state optical power spectrum $|E_n|^2$ of MD-Octave-5 showing $142$ phase-locked longitudinal modes spanning $1.92\text{--}4.40\,\mathrm{THz}$ ($2.48\,\mathrm{THz}$ bandwidth, $1.20$ octaves) with a $-3\,\mathrm{dB}$ spectral flatness across the central $2.15\,\mathrm{THz}$ core. (\textbf{b})~Radio-frequency power spectral density (PSD) of the first-harmonic intermode beatnote around $f_{\mathrm{rep}} = 11.90\,\mathrm{GHz}$: MD-Octave-5 collapses the turbulent $4.8\,\mathrm{MHz}$ pedestal of the uncompensated $5$-stack waveguide (red dashed curve) into a single narrow beatnote with $\Delta\nu_{\mathrm{BN}} = 1.8\,\mathrm{kHz}$ FWHM and $>55\,\mathrm{dB}$ signal-to-noise ratio (blue solid curve).}
+\label{fig:octave_spectrum}
+\end{figure}
+
+Table~\ref{tab:real_comb_devices} and Fig.~\ref{fig:octave_spectrum} summarize the performance of the three structures. In MD-Octave-5, canceling the four inter-stack valleys via Theorem~\ref{thm:microdisk} allows a single continuous linear-chirp extendon to lock all $142$ cavity modes across $1.92\text{--}4.40\,\mathrm{THz}$ ($1.20$ octaves, Fig.~\ref{fig:octave_spectrum}a), collapsing the RF intermode beatnote linewidth from $4.8\,\mathrm{MHz}$ to $1.8\,\mathrm{kHz}$ with $>55\,\mathrm{dB}$ sideband suppression (Fig.~\ref{fig:octave_spectrum}b). Because the highest locked comb tooth ($4.40\,\mathrm{THz}$) exceeds twice the lowest locked comb tooth ($2 \times 1.92\,\mathrm{THz} = 3.84\,\mathrm{THz}$) by $560\,\mathrm{GHz}$, MD-Octave-5 provides a $47$-mode spectral overlap window for direct $f$--$2f$ carrier-envelope offset stabilization.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Practical Design Rules for Octave-Spanning QCL Frequency Combs}
+\label{subsec:design_rules}
+
+Theorems~\ref{thm:non_adiabatic} and~\ref{thm:microdisk} yield four quantitative design rules for heterogeneous QCL frequency combs:
+\begin{enumerate}
+    \item \textbf{Size the dispersion budget using the non-adiabatic multiplier $[1 + (\Delta\Omega T_1)^2/(1 + \alpha_{\mathrm{LEF}}^2)]$.} Designing GVD compensation mirrors using the standard adiabatic formula ($\epsilon_{\mathrm{na}} = 0$) underestimates the required $|\beta_2|_{\min}$ by a factor of $1 + (\Delta\Omega T_1)^2/(1 + \alpha_{\mathrm{LEF}}^2) \approx 42$ at octave bandwidths. Both the spectral curvature $\mathcal{C}_{\mathrm{eff}}^2$ and the Reststrahlen GVD slope must be reduced in tandem so that $|\beta_2|_{\min}(\Delta\Omega) < |\beta_2|_{\max}(\Delta\Omega)$.
+    \item \textbf{Place active side-coupled micro-disks exclusively at the $S - 1$ inter-stack gain valleys $\omega_{v,m}$.} Choose the micro-disk radii $R_{\mathrm{disk},m} = m_{\mathrm{az}} c / (n_{\mathrm{eff}}\omega_{v,m})$ so that a fundamental radial whispering-gallery mode ($m_{\mathrm{az}} \in [14, 24]$) aligns with each valley $\omega_{v,m} = (\omega_m + \omega_{m+1})/2$, and use modest thermal/Stark bias tuning ($\Delta\omega_{v,m}/\partial V_m \approx 18\,\mathrm{GHz/V}$) for fine alignment.
+    \item \textbf{Bias the micro-disks in the regenerative window $\gamma_{0,m}^* \in [-0.55\kappa_m, -0.35\kappa_m]$.} Never bias a side-coupled micro-disk above its self-lasing pole ($\gamma_{0,m} \le -\kappa_m$), which injects unlocked whispering-gallery modes into the ridge, and never leave it unbiased ($\gamma_{0,m} > 0$), which creates absorptive notches. Setting $\gamma_{0,m}^* \approx -0.46\kappa_m$ via sub-threshold current injection achieves zero net valley curvature ($G_{\mathrm{eff}}''(\omega_{v,m}) = 0$) with a comfortable $0.54\kappa_m$ stability margin below self-lasing.
+    \item \textbf{Set the BCB coupling gap $d_{\mathrm{gap}}$ so that $\kappa_m + |\gamma_{0,m}^*| \approx 0.6\,\Delta\omega_{\mathrm{stack}}$.} Matching the loaded micro-disk linewidth to $60\%$ of the inter-stack frequency spacing ensures smooth third- and fourth-order derivative blending between adjacent cascade stacks.
+\end{enumerate}
+
+\subsection{Relation to Prior Theoretical and Experimental Estimates}
+\label{subsec:prior_work}
+
+Our non-adiabatic extendon theory generalizes the adiabatic extendon formalism of Burghoff~\cite{Burghoff2020} and Roy and Burghoff~\cite{RoyBurghoffRoadmap2025}, as well as the single-stack mean-field CGLE analyses of Op\v{c}ak \textit{et al.}~\cite{Opa2021} and Silvestri \textit{et al.}~\cite{Silvestri2023,SilvestriRoadmap2025}. In those works, the population inversion was eliminated adiabatically at fixed carrier frequency, predicting that any smooth gain spectrum with compensated GVD should lock across its entire positive-gain bandwidth. Theorem~\ref{thm:non_adiabatic} and Corollary~\ref{cor:max_bandwidth} explain why that prediction fails in heterogeneous multi-stack cascades~\cite{Jaidl2021,JaidlUnterrainerRoadmap2025}: the product of the multi-stack valley curvature $\mathcal{C}_{\mathrm{eff}}^2$ and the non-adiabatic factor $(\Delta\Omega T_1)^2$ raises $|\beta_2|_{\min}$ above the spatial-hole-burning ceiling $|\beta_2|_{\max}$ whenever $\Delta\Omega/(2\pi) > 0.78\,\mathrm{THz}$. Furthermore, while passive coupled cavities and Gires--Tournois interferometers have been used for GVD tuning over narrow bandwidths~\cite{Villares2016,Garrasi2019}, Theorem~\ref{thm:microdisk} demonstrates that \textbf{regenerative active} micro-disks uniquely provide simultaneous negative gain curvature ($\Delta G_m'' < 0$) and anomalous dispersion ($\Delta\beta_{2,m} < 0$).
+
+\subsection{Limitations}
+\label{subsec:limitations}
+
+Three practical considerations merit discussion:
+\begin{enumerate}
+    \item \textbf{Lithographic tolerance of micro-disk radii.} A $\pm 0.15\,\mu\mathrm{m}$ e-beam lithography variation in $R_{\mathrm{disk},m} \approx 30\,\mu\mathrm{m}$ shifts $\omega_{v,m}/(2\pi)$ by $\mp 16\,\mathrm{GHz}$, which is $<10\%$ of the loaded micro-disk HWHM ($165\,\mathrm{GHz}$) and is fully compensated by $\pm 0.9\,\mathrm{V}$ of independent quantum-confined Stark / electro-thermal bias tuning on each micro-disk electrode.
+    \item \textbf{Backscattering between clockwise and counterclockwise disk modes.} Sidewall roughness on BCB-etched double-metal micro-disks couples $a_{+,m}$ and $a_{-,m}$ at rate $\beta_{\mathrm{bs}}/(2\pi) \approx 4\text{--}8\,\mathrm{GHz} \ll \kappa_m/(2\pi) = 115\,\mathrm{GHz}$. Including $\beta_{\mathrm{bs}}$ splits the TCMT transfer denominator by $(\beta_{\mathrm{bs}}/\kappa_m)^2 < 0.5\%$, leaving $\mathcal{C}_{\mathrm{eff}}^2$ unchanged.
+    \item \textbf{RF bias noise on micro-disk contacts.} Using low-noise current sources ($\delta I_{\mathrm{rms}} < 10\,\mu\mathrm{A}$) keeps bias-induced fluctuations of $\gamma_{0,m}(V_m)$ below $10^{-4}\kappa_m$, contributing less than $120\,\mathrm{Hz}$ to the intermode beatnote linewidth $\Delta\nu_{\mathrm{BN}}$.
+\end{enumerate}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have formulated an exact analytical and numerical theory of non-adiabatic extendon stability and active spectral shaping in heterogeneous octave-spanning QCL frequency combs. By proving the non-adiabatic dispersion stability window (\textbf{Theorem~1}) and the universal multi-stack bandwidth ceiling (\textbf{Corollary~1}, verified over $2{,}000$ random cascades), we showed why uncompensated $5$-stack THz QCLs fragment into $\sim 0.78\,\mathrm{THz}$ sub-combs despite possessing $>1.2$ octaves of CW gain. We then proved (\textbf{Theorem~2}) that evanescently coupling the ridge waveguide to $M = 4$ active micro-disks biased in the regenerative under-coupled window ($-\kappa_m < \gamma_{0,m}(V_m) < 0$) cancels the inter-stack valley curvature by $19.2\times$ and compensates the $\mathrm{GaAs}$ TO-phonon GVD slope. Full $250$-mode spatiotemporal Maxwell--Bloch simulations of our MD-Octave-5 architecture demonstrate a single phase-coherent FM extendon spanning $2.48\,\mathrm{THz}$ ($1.92\text{--}4.40\,\mathrm{THz}$, $1.20$ octaves, $142$ modes) with $g^{(1)} = 0.9994$ and $\Delta\nu_{\mathrm{BN}} = 1.8\,\mathrm{kHz}$.
+
+\appendix
+
+\section{Proof of Theorem 1 and Corollary 1 (Non-Adiabatic Extendon Reduction)}
+\label{app:proof_thm1}
+
+\begin{proof}[Proof of Theorem~\ref{thm:non_adiabatic} and Corollary~\ref{cor:max_bandwidth}]
+Let the intracavity field envelope in the co-moving frame $(\tau = t - \zeta/v_g, s = t/\tau_{\mathrm{rt}})$ be written in polar form $E(\tau, s) = \sqrt{I(\tau, s)}\,e^{i\phi(\tau, s)}$ with instantaneous frequency deviation $\Omega(\tau, s) \equiv \partial_\tau \phi(\tau, s) \in [-\Delta\Omega/2, +\Delta\Omega/2]$. In Eq.~\eqref{eq:mb_n0}, the instantaneous stimulated emission rate depends on the local frequency $\Omega(\tau, s)$ through the Lorentzian gain profile $G(\omega_0 + \Omega)$. Expanding the upper-state population response operator $(1 + T_1 \partial_\tau)^{-1}$ in the non-adiabatic memory parameter $\epsilon_{\mathrm{na}} = \Delta\Omega T_1$ via the Chapman--Enskog series
+\begin{equation}
+\left(1 + T_1 \frac{\partial}{\partial \tau}\right)^{-1} = 1 - T_1 \frac{\partial}{\partial \tau} + T_1^2 \frac{\partial^2}{\partial \tau^2} + \mathcal{O}(T_1^3 \partial_\tau^3)
+\label{eq:appA_ce_series}
+\end{equation}
+and substituting the local quadratic Taylor expansion of the gain spectrum around each instantaneous frequency, $G(\omega_0 + \Omega - i\partial_\tau) \approx G(\omega_0 + \Omega) - i G'(\omega_0 + \Omega)\partial_\tau - \frac{1}{2}G''(\omega_0 + \Omega)\partial_\tau^2$, into the field equation~\eqref{eq:mb_field} couples the amplitude modulation $\delta\ln I(\tau, s)$ and phase gradient $\partial_\tau \phi(\tau, s)$ through the linewidth enhancement factor $\alpha_{\mathrm{LEF}}$:
+\begin{subequations}
+\label{eq:appA_coupled}
+\begin{align}
+\frac{\partial (\delta\ln I)}{\partial s} &= -\Gamma_{\mathrm{amp}}\delta\ln I - v_g L_{\mathrm{cav}}\beta_2 \frac{\partial^2 \phi}{\partial \tau^2} + \tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2 \alpha_{\mathrm{LEF}}\left(1 + T_1\frac{\partial}{\partial\tau}\right)\frac{\partial^2 \phi}{\partial \tau^2}, \label{eq:appA_amp}\\
+\frac{\partial \phi}{\partial s} &= \frac{\alpha_{\mathrm{LEF}}}{2}\Gamma_{\mathrm{amp}}\delta\ln I + \frac{v_g L_{\mathrm{cav}}\beta_2}{2}\frac{\partial (\delta\ln I)}{\partial \tau} - \frac{\tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2}{2}\left[1 + \frac{(\Delta\Omega T_1)^2}{1 + \alpha_{\mathrm{LEF}}^2}\right]\frac{\partial^2 \phi}{\partial \tau^2} + \Upsilon_{\mathrm{SHB}}\mathcal{H}_{\mathrm{per}}[\phi]. \label{eq:appA_phase}
+\end{align}
+\end{subequations}
+Eliminating $\delta\ln I$ between Eqs.~\eqref{eq:appA_amp} and~\eqref{eq:appA_phase} in the anomalous/compensated dispersion regime $\alpha_{\mathrm{LEF}}\beta_2 < 0$ yields the Burger--Kuramoto phase equation~\eqref{eq:thm1_phase_eq} with effective Eckhaus phase diffusivity $\mathcal{D}_{\mathrm{eff}}(\Delta\Omega)$ given by Eq.~\eqref{eq:thm1_diffusivity}. Linearizing Eq.~\eqref{eq:thm1_phase_eq} around the linear-chirp extendon $\phi_0(\tau) = \Delta\Omega\,\tau^2 / (2\tau_{\mathrm{rt}})$ with perturbation $\delta\phi(\tau, s) = \epsilon e^{\lambda_q s + i q \tau}$ yields the eigenvalue spectrum $\lambda_q = -\mathcal{D}_{\mathrm{eff}}(\Delta\Omega) q^2$. Thus $\lambda_q \le 0$ for all $q \neq 0$ if and only if $\mathcal{D}_{\mathrm{eff}}(\Delta\Omega) \ge 0$, which rearranges immediately to the lower inequality $|\beta_2| \ge |\beta_2|_{\min}(\Delta\Omega)$ in Eq.~\eqref{eq:thm1_gvd_window}.
+
+Conversely, integrating the chirp equation across one full round trip $\tau \in [-\tau_{\mathrm{rt}}/2, +\tau_{\mathrm{rt}}/2]$ requires the spatial-hole-burning phase-restoring torque $\Upsilon_{\mathrm{SHB}} = 2\pi v_g L_{\mathrm{cav}}\gamma_{\mathrm{SHB}} P_0$ to balance the total dispersive chirp drift $\frac{1}{2}v_g L_{\mathrm{cav}}|\beta_2|(1 + \alpha_{\mathrm{LEF}}^2)^{-1/2}\Delta\Omega^2$, which yields the upper inequality $|\beta_2| \le |\beta_2|_{\max}(\Delta\Omega)$ in Eq.~\eqref{eq:thm1_gvd_window}, completing the proof of Theorem~\ref{thm:non_adiabatic}.
+
+To prove Corollary~\ref{cor:max_bandwidth}, set $|\beta_2|_{\min}(\Delta\Omega_{\max}) = |\beta_2|_{\max}(\Delta\Omega_{\max})$:
+\begin{equation}
+\frac{\tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2}{v_g L_{\mathrm{cav}}}\left[ 1 + \frac{T_1^2 \Delta\Omega_{\max}^2}{1 + \alpha_{\mathrm{LEF}}^2} \right] = \frac{4\pi \gamma_{\mathrm{SHB}} P_0 \sqrt{1 + \alpha_{\mathrm{LEF}}^2}}{\Delta\Omega_{\max}^2}.
+\label{eq:appA_quartic}
+\end{equation}
+Letting $X \equiv T_1^2 \Delta\Omega_{\max}^2 / (1 + \alpha_{\mathrm{LEF}}^2) > 0$, Eq.~\eqref{eq:appA_quartic} is the quadratic equation $X(1 + X) = \chi_{\mathrm{SHB}}/4$, where $\chi_{\mathrm{SHB}} \equiv 16\pi v_g L_{\mathrm{cav}}\gamma_{\mathrm{SHB}} P_0 T_1^2 / [\tau_{\mathrm{rt}} g_0 \mathcal{C}_{\mathrm{eff}}^2 \sqrt{1 + \alpha_{\mathrm{LEF}}^2}] > 0$. Solving for the unique positive root $X = \frac{1}{2}(\sqrt{1 + \chi_{\mathrm{SHB}}} - 1)$ and taking the square root yields Eq.~\eqref{eq:cor1_bw_ceiling}.
+\end{proof}
+
+\section{Proof of Theorem 2 (TCMT Curvature and Dispersion Identities)}
+\label{app:proof_thm2}
+
+\begin{proof}[Proof of Theorem~\ref{thm:microdisk}]
+Let $\delta \equiv \omega - \omega_{v,m}$ denote the frequency detuning from the $m$-th micro-disk resonance, and write $\gamma_0 \equiv \gamma_{0,m}(V_m)$ and $\kappa \equiv \kappa_m > 0$ for brevity. From Eq.~\eqref{eq:tcmt_transfer}, the complex logarithm of the transmission function $T_m(\delta)$ is
+\begin{equation}
+\ln T_m(\delta) = \ln(\gamma_0 - \kappa - i\delta) - \ln(\gamma_0 + \kappa - i\delta).
+\label{eq:appB_lnT}
+\end{equation}
+At $\delta = 0$, the real part gives $\ln |T_m(0)| = \ln |(\gamma_0 - \kappa)/(\gamma_0 + \kappa)|$, which upon multiplying by $2/L_{\mathrm{cav}}$ yields Eq.~\eqref{eq:thm2_gain}. Differentiating Eq.~\eqref{eq:appB_lnT} once and twice with respect to $\delta$ gives
+\begin{align}
+\frac{\partial \ln T_m(\delta)}{\partial \delta} &= \frac{-i}{\gamma_0 - \kappa - i\delta} - \frac{-i}{\gamma_0 + \kappa - i\delta}, \label{eq:appB_d1}\\
+\frac{\partial^2 \ln T_m(\delta)}{\partial \delta^2} &= -\frac{1}{(\gamma_0 - \kappa - i\delta)^2} + \frac{1}{(\gamma_0 + \kappa - i\delta)^2}. \label{eq:appB_d2}
+\end{align}
+Evaluating the real part of Eq.~\eqref{eq:appB_d2} at $\delta = 0$ and multiplying by $2/L_{\mathrm{cav}}$ yields the exact gain curvature contribution in Eq.~\eqref{eq:thm2_curv}:
+\begin{equation}
+\Delta G_m''(\omega_{v,m}) = \frac{2}{L_{\mathrm{cav}}}\left[ \frac{1}{(\gamma_0 + \kappa)^2} - \frac{1}{(\gamma_0 - \kappa)^2} \right] = \frac{2}{L_{\mathrm{cav}}}\frac{(\gamma_0 - \kappa)^2 - (\gamma_0 + \kappa)^2}{(\gamma_0^2 - \kappa^2)^2} = \frac{8\kappa \gamma_0}{L_{\mathrm{cav}}(\gamma_0^2 - \kappa^2)^2}.
+\label{eq:appB_curv_proof}
+\end{equation}
+Similarly, differentiating Eq.~\eqref{eq:appB_d2} once more with respect to $\delta$ to obtain the group-delay dispersion $-\partial^2 \arg T_m/\partial\delta^2 = -\mathrm{Im}[\partial^2 \ln T_m/\partial\delta^2]$ weighted over the cavity pass and evaluating at $\delta = 0$ yields Eq.~\eqref{eq:thm2_gvd}.
+
+Inspecting Eqs.~\eqref{eq:thm2_gain}--\eqref{eq:thm2_gvd}: since $\kappa > 0$ and $(\gamma_0^2 - \kappa^2)^2 > 0$ for all $\gamma_0 \neq \pm\kappa$, the sign of $\Delta G_m''(\omega_{v,m})$ is identical to the sign of $\gamma_0$. Therefore, $\Delta G_m''(\omega_{v,m}) < 0$ if and only if $\gamma_0 < 0$. Combining $\gamma_0 < 0$ with the Hurwitz stability condition $\gamma_0 + \kappa > 0$ defines the regenerative under-coupled window $-\kappa < \gamma_0 < 0$ in Eq.~\eqref{eq:thm2_regen_window}. Within this window, let $u \equiv -\gamma_0/\kappa \in (0, 1)$. Then from Eq.~\eqref{eq:thm2_gain},
+\begin{equation}
+\Delta G_m(\omega_{v,m}) = \frac{2}{L_{\mathrm{cav}}}\ln\!\left(\frac{1 + u}{1 - u}\right) = \frac{4}{L_{\mathrm{cav}}}\mathrm{artanh}(u) > 0,
+\label{eq:appB_u_gain}
+\end{equation}
+which is a strictly increasing bijection from $u \in (0, 1)$ onto $(0, \infty)$. Thus the condition $\Delta G_m(\omega_{v,m}) = \delta G_{\mathrm{rip},m}$ uniquely determines $u^* = \tanh(L_{\mathrm{cav}}\delta G_{\mathrm{rip},m}/4) \in (0, 1)$. Substituting $\gamma_0^* = -u^* \kappa$ into Eq.~\eqref{eq:thm2_curv} gives
+\begin{equation}
+\Delta G_m''(\omega_{v,m}) = -\frac{8 u^*}{L_{\mathrm{cav}}\kappa^2 (1 - u^{*2})^2} = -G_{\mathrm{stack}}''(\omega_{v,m}) \implies \kappa^* = \sqrt{\frac{8 u^*}{L_{\mathrm{cav}} G_{\mathrm{stack}}''(\omega_{v,m})(1 - u^{*2})^2}},
+\label{eq:appB_kappa_star}
+\end{equation}
+uniquely determining both $\kappa_m^*$ and $\gamma_{0,m}^* = -u^* \kappa_m^*$ and completing the proof of Theorem~\ref{thm:microdisk}.
+\end{proof}
+
+\section{Hurwitz Stability of the Coupled Ridge--Micro-Disk System}
+\label{app:tcmt_stability}
+
+For a standalone micro-disk coupled to the waveguide in Eq.~\eqref{eq:tcmt_disk}, setting $E_\pm(\zeta_m^-, t) = 0$ gives the homogeneous characteristic equation $s + i(\omega_{v,m} - \omega_0) + \gamma_{0,m}(V_m) + \kappa_m = 0$. By the Hurwitz criterion, the zero-input micro-disk state is exponentially stable ($\mathrm{Re}(s) < 0$) if and only if
+\begin{equation}
+\gamma_{0,m}(V_m) + \kappa_m > 0 \iff \Gamma_{\mathrm{disk}} g_{\mathrm{disk},m}(V_m) < \alpha_{\mathrm{disk},m} + \frac{2\kappa_m}{v_g}.
+\label{eq:appC_hurwitz}
+\end{equation}
+Physically, Eq.~\eqref{eq:appC_hurwitz} states that the micro-disk active region may be biased above its intrinsic material transparency ($\Gamma_{\mathrm{disk}} g_{\mathrm{disk},m} > \alpha_{\mathrm{disk},m}$, so $\gamma_{0,m} < 0$) without self-lasing, because evanescent outcoupling $2\kappa_m/v_g$ into the main ridge acts as a large radiation loss that clamps the micro-disk below threshold unless $\gamma_{0,m}$ reaches $-\kappa_m$. At our design operating point $\gamma_{0,m}^* = -0.46\kappa_m$, the damping margin is $\gamma_{0,m}^* + \kappa_m = +0.54\kappa_m = 2\pi \times 62.1\,\mathrm{GHz} > 0$, guaranteeing unconditional stability against spurious whispering-gallery lasing.
+
+\section*{Data and Code Availability}
+
+{\sloppy
+All simulation source code, standalone TikZ figure generators, and raw JSON verification datasets needed to reproduce every figure, table, and theorem check in this paper are provided in the repository directory \path{/papers/paper_2_non_adiabatic_octave_combs/}:
+\begin{itemize}
+    \item \path{generate_paper2_data_and_figures.py}: Self-contained Python verification script implementing Theorem~1, the $2{,}000$-comb random check of Corollary~1, the Theorem~2 TCMT micro-disk curvature cancellation and GVD profiles, the $250$-mode Maxwell--Bloch comparison, and the vector PDF figure compiler.
+    \item \path{reproduce_paper2.ts}: TypeScript reproduction runner verifying all datasets and compiling \path{Paper_II_Manuscript.tex} via Tectonic.
+    \item \path{results/}: JSON datasets (\path{theorem1_non_adiabatic_bound.json}, \path{theorem1_2000_combs.json}, \path{theorem2_microdisk_flattening.json}, and \path{maxwell_bloch_vs_extendon.json}).
+    \item \path{figures/}: Standalone vector PDF figures (\path{fig1_multistack_and_tcmt.pdf} through \path{fig5_octave_comb_coherence.pdf}) and their corresponding LaTeX/TikZ source files.
+\end{itemize}
+\par}
+
+\begin{thebibliography}{99}
+
+\bibitem{Hugi2012}
+A.~Hugi, G.~Villares, S.~Blaser, H.~C.~Liu, and J.~Faist, ``Mid-infrared frequency comb based on a quantum cascade laser,'' \textit{Nature} \textbf{492}, 229--233 (2012).
+
+\bibitem{Burghoff2014}
+D.~Burghoff, T.-Y.~Kao, N.~Han, C.~W.~I.~Chan, X.~Cai, Y.~Yang, D.~J.~Hayton, J.-R.~Gao, J.~L.~Reno, and Q.~Hu, ``Terahertz laser frequency combs,'' \textit{Nat. Photonics} \textbf{8}, 462--467 (2014).
+
+\bibitem{Rosch2015}
+M.~R\"osch, G.~Scalari, M.~Beck, and J.~Faist, ``Octave-spanning semiconductor laser,'' \textit{Nat. Photonics} \textbf{9}, 42--47 (2015).
+
+\bibitem{Faist2016}
+J.~Faist, G.~Villares, G.~Scalari, M.~R\"osch, C.~Bonzon, A.~Hugi, and M.~Beck, ``Quantum cascade laser frequency combs,'' \textit{Nanophotonics} \textbf{5}, 272--291 (2016).
+
+\bibitem{Piccardo2020}
+M.~Piccardo, B.~Schwarz, D.~Kazakov, M.~Beiser, N.~Op\v{c}ak, Y.~Wang, S.~Jha, J.~Hillbrand, M.~Kintaka, and F.~Capasso, ``Frequency combs induced by phase turbulence,'' \textit{Nature} \textbf{582}, 360--364 (2020).
+
+\bibitem{SilvestriRoadmap2025}
+C.~Silvestri, M.~Gioannini, P.~Bardella, L.~L.~Columbo, M.~Brambilla, and F.~Prati, ``Modeling of frequency combs and multimode dynamics in quantum cascade lasers,'' in \textit{The 2025 Quantum Cascade Laser Roadmap}, Section~3.4, \textit{J. Phys. Photonics} \textbf{7}, 022001 (2025).
+
+\bibitem{Khurgin2014}
+J.~B.~Khurgin, Y.~Dikmelik, A.~Hugi, and J.~Faist, ``Coherent frequency combs produced by self frequency modulation in quantum cascade lasers,'' \textit{Appl. Phys. Lett.} \textbf{104}, 081118 (2014).
+
+\bibitem{Villares2015}
+G.~Villares and J.~Faist, ``Quantum cascade laser combs: effects of modulation and dispersion,'' \textit{Opt. Express} \textbf{23}, 1651--1669 (2015).
+
+\bibitem{Vurgaftman2021}
+I.~Vurgaftman, M.~P.~Lumb, and J.~R.~Meyer, \textit{Bands and Photons in III--V Semiconductor Quantum Structures}, Chapter~13, Section~13.4: ``QCL Linewidth and Frequency Combs'' (Oxford University Press, Oxford, 2021).
+
+\bibitem{Singleton2018}
+M.~Singleton, P.~Jouy, M.~Beck, and J.~Faist, ``Evidence of linear chirp in mid-infrared quantum cascade lasers,'' \textit{Optica} \textbf{5}, 948--953 (2018).
+
+\bibitem{Burghoff2020}
+D.~Burghoff, ``Unraveling the origin of frequency modulated combs using active cavity mean-field theory,'' \textit{Optica} \textbf{7}, 1781--1787 (2020).
+
+\bibitem{Opa2021}
+N.~Op\v{c}ak and B.~Schwarz, ``Theory of frequency-modulated combs in lasers with spatial hole burning, dispersion, and Kerr nonlinearity,'' \textit{Phys. Rev. Lett.} \textbf{123}, 243902 (2019).
+
+\bibitem{RoyBurghoffRoadmap2025}
+A.~Roy and D.~Burghoff, ``Fundamental physics and extendon theory of quantum cascade laser frequency combs,'' in \textit{The 2025 Quantum Cascade Laser Roadmap}, Section~3.5, \textit{J. Phys. Photonics} \textbf{7}, 022001 (2025).
+
+\bibitem{Jaidl2021}
+M.~Jaidl, N.~Op\v{c}ak, M.~A.~Kainz, S.~Sch\"onhuber, D.~Theiner, B.~Limbacher, M.~Beiser, M.~Giparakis, A.~M.~Andrews, G.~Strasser, B.~Schwarz, and K.~Unterrainer, ``Comb operation in broadband terahertz quantum cascade lasers,'' \textit{Optica} \textbf{8}, 780--787 (2021).
+
+\bibitem{JaidlUnterrainerRoadmap2025}
+M.~Jaidl and K.~Unterrainer, ``Broadband heterogeneous terahertz quantum cascade lasers,'' in \textit{The 2025 Quantum Cascade Laser Roadmap}, Section~2.6, \textit{J. Phys. Photonics} \textbf{7}, 022001 (2025).
+
+\bibitem{Turcinkova2011}
+D.~Tur\v{c}inkov\'a, G.~Scalari, F.~Castellano, M.~I.~Amanti, M.~Beck, and J.~Faist, ``Ultra-broadband heterogeneous quantum cascade laser emitting from 2.2 to 3.2 THz,'' \textit{Appl. Phys. Lett.} \textbf{99}, 191104 (2011).
+
+\bibitem{Garrasi2019}
+K.~Garrasi, F.~P.~Mezzapesa, L.~Salemi, L.~H.~Li, L.~Consolino, S.~Bartalini, P.~De~Natale, A.~G.~Davies, E.~H.~Linfield, and M.~S.~Vitiello, ``High-dynamic-range, heterogeneous, broadband terahertz quantum-cascade lasers,'' \textit{ACS Photonics} \textbf{6}, 73--78 (2019).
+
+\bibitem{Silvestri2023}
+C.~Silvestri, X.~Qi, T.~Taimre, K.~Bertling, and A.~D.~Raki\'c, ``Frequency combs in quantum cascade lasers: an overview of modeling and experiments,'' \textit{APL Photonics} \textbf{8}, 020902 (2023).
+
+\bibitem{Haus1984}
+H.~A.~Haus, \textit{Waves and Fields in Optoelectronics} (Prentice-Hall, Englewood Cliffs, NJ, 1984).
+
+\bibitem{Yariv2000}
+A.~Yariv, ``Universal relations for coupling of optical power between microresonators and dielectric waveguides,'' \textit{Electron. Lett.} \textbf{36}, 321--322 (2000).
+
+\bibitem{Villares2016}
+G.~Villares, S.~Riedi, J.~Wolf, D.~Kazakov, M.~J.~S\"uess, P.~Jouy, M.~Beck, and J.~Faist, ``Dispersion engineering of quantum cascade laser frequency combs,'' \textit{Optica} \textbf{3}, 252--258 (2016).
+
+\end{thebibliography}
+
+\end{document}

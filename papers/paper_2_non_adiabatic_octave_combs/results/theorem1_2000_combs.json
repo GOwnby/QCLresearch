@@ -1,0 +1,967 @@
+{
+  "total_combs": 2000,
+  "bound_violations": 0,
+  "max_ratio_bw_over_bwmax": 0.9609,
+  "sample_subset": [
+    {
+      "T1_ps": 0.774,
+      "alpha_LEF": 1.165,
+      "C_eff_ps": 0.0554,
+      "bw_bound_THz": 0.859,
+      "bw_num_THz": 0.79,
+      "ratio": 0.9198
+    },
+    {
+      "T1_ps": 0.422,
+      "alpha_LEF": 1.325,
+      "C_eff_ps": 0.0813,
+      "bw_bound_THz": 0.712,
+      "bw_num_THz": 0.609,
+      "ratio": 0.8551
+    },
+    {
+      "T1_ps": 0.485,
+      "alpha_LEF": 0.591,
+      "C_eff_ps": 0.0853,
+      "bw_bound_THz": 0.67,
+      "bw_num_THz": 0.623,
+      "ratio": 0.9298
+    },
+    {
+      "T1_ps": 0.933,
+      "alpha_LEF": 0.258,
+      "C_eff_ps": 0.173,
+      "bw_bound_THz": 0.329,
+      "bw_num_THz": 0.308,
+      "ratio": 0.9372
+    },
+    {
+      "T1_ps": 0.394,
+      "alpha_LEF": 0.973,
+      "C_eff_ps": 0.0345,
+      "bw_bound_THz": 1.055,
+      "bw_num_THz": 0.804,
+      "ratio": 0.7626
+    },
+    {
+      "T1_ps": 1.312,
+      "alpha_LEF": 0.791,
+      "C_eff_ps": 0.0281,
+      "bw_bound_THz": 0.751,
+      "bw_num_THz": 0.565,
+      "ratio": 0.7524
+    },
+    {
+      "T1_ps": 0.813,
+      "alpha_LEF": 0.913,
+      "C_eff_ps": 0.0599,
+      "bw_bound_THz": 0.683,
+      "bw_num_THz": 0.576,
+      "ratio": 0.8432
+    },
+    {
+      "T1_ps": 0.401,
+      "alpha_LEF": 0.528,
+      "C_eff_ps": 0.1214,
+      "bw_bound_THz": 0.413,
+      "bw_num_THz": 0.301,
+      "ratio": 0.728
+    },
+    {
+      "T1_ps": 1.312,
+      "alpha_LEF": 0.562,
+      "C_eff_ps": 0.1046,
+      "bw_bound_THz": 0.351,
+      "bw_num_THz": 0.285,
+      "ratio": 0.8101
+    },
+    {
+      "T1_ps": 0.628,
+      "alpha_LEF": 0.87,
+      "C_eff_ps": 0.034,
+      "bw_bound_THz": 1.158,
+      "bw_num_THz": 0.993,
+      "ratio": 0.8581
+    },
+    {
+      "T1_ps": 0.43,
+      "alpha_LEF": 0.643,
+      "C_eff_ps": 0.0345,
+      "bw_bound_THz": 1.144,
+      "bw_num_THz": 0.91,
+      "ratio": 0.7954
+    },
+    {
+      "T1_ps": 0.74,
+      "alpha_LEF": 0.441,
+      "C_eff_ps": 0.1274,
+      "bw_bound_THz": 0.419,
+      "bw_num_THz": 0.359,
+      "ratio": 0.8564
+    },
+    {
+      "T1_ps": 0.524,
+      "alpha_LEF": 0.153,
+      "C_eff_ps": 0.1184,
+      "bw_bound_THz": 0.477,
+      "bw_num_THz": 0.366,
+      "ratio": 0.7673
+    },
+    {
+      "T1_ps": 0.767,
+      "alpha_LEF": 0.628,
+      "C_eff_ps": 0.0697,
+      "bw_bound_THz": 0.614,
+      "bw_num_THz": 0.518,
+      "ratio": 0.8438
+    },
+    {
+      "T1_ps": 0.351,
+      "alpha_LEF": 0.946,
+      "C_eff_ps": 0.0437,
+      "bw_bound_THz": 1.133,
+      "bw_num_THz": 1.005,
+      "ratio": 0.8873
+    },
+    {
+      "T1_ps": 0.805,
+      "alpha_LEF": 1.355,
+      "C_eff_ps": 0.1273,
+      "bw_bound_THz": 0.459,
+      "bw_num_THz": 0.396,
+      "ratio": 0.8639
+    },
+    {
+      "T1_ps": 0.558,
+      "alpha_LEF": 0.408,
+      "C_eff_ps": 0.1772,
+      "bw_bound_THz": 0.345,
+      "bw_num_THz": 0.291,
+      "ratio": 0.8438
+    },
+    {
+      "T1_ps": 0.512,
+      "alpha_LEF": 0.775,
+      "C_eff_ps": 0.1654,
+      "bw_bound_THz": 0.462,
+      "bw_num_THz": 0.345,
+      "ratio": 0.7474
+    },
+    {
+      "T1_ps": 0.557,
+      "alpha_LEF": 0.735,
+      "C_eff_ps": 0.093,
+      "bw_bound_THz": 0.521,
+      "bw_num_THz": 0.401,
+      "ratio": 0.7695
+    },
+    {
+      "T1_ps": 0.6,
+      "alpha_LEF": 0.407,
+      "C_eff_ps": 0.0289,
+      "bw_bound_THz": 1.004,
+      "bw_num_THz": 0.921,
+      "ratio": 0.9181
+    },
+    {
+      "T1_ps": 1.303,
+      "alpha_LEF": 1.352,
+      "C_eff_ps": 0.1089,
+      "bw_bound_THz": 0.422,
+      "bw_num_THz": 0.283,
+      "ratio": 0.6693
+    },
+    {
+      "T1_ps": 1.076,
+      "alpha_LEF": 1.262,
+      "C_eff_ps": 0.0721,
+      "bw_bound_THz": 0.583,
+      "bw_num_THz": 0.538,
+      "ratio": 0.9214
+    },
+    {
+      "T1_ps": 1.029,
+      "alpha_LEF": 0.907,
+      "C_eff_ps": 0.1027,
+      "bw_bound_THz": 0.437,
+      "bw_num_THz": 0.42,
+      "ratio": 0.9606
+    },
+    {
+      "T1_ps": 1.002,
+      "alpha_LEF": 1.357,
+      "C_eff_ps": 0.1288,
+      "bw_bound_THz": 0.457,
+      "bw_num_THz": 0.325,
+      "ratio": 0.7115
+    },
+    {
+      "T1_ps": 0.759,
+      "alpha_LEF": 0.561,
+      "C_eff_ps": 0.1024,
+      "bw_bound_THz": 0.511,
+      "bw_num_THz": 0.438,
+      "ratio": 0.8586
+    },
+    {
+      "T1_ps": 0.36,
+      "alpha_LEF": 0.408,
+      "C_eff_ps": 0.1291,
+      "bw_bound_THz": 0.533,
+      "bw_num_THz": 0.38,
+      "ratio": 0.7123
+    },
+    {
+      "T1_ps": 1.144,
+      "alpha_LEF": 1.066,
+      "C_eff_ps": 0.1174,
+      "bw_bound_THz": 0.356,
+      "bw_num_THz": 0.235,
+      "ratio": 0.6606
+    },
+    {
+      "T1_ps": 1.32,
+      "alpha_LEF": 0.18,
+      "C_eff_ps": 0.1622,
+      "bw_bound_THz": 0.256,
+      "bw_num_THz": 0.178,
+      "ratio": 0.6962
+    },
+    {
+      "T1_ps": 1.329,
+      "alpha_LEF": 0.232,
+      "C_eff_ps": 0.0973,
+      "bw_bound_THz": 0.306,
+      "bw_num_THz": 0.224,
+      "ratio": 0.7297
+    },
+    {
+      "T1_ps": 1.135,
+      "alpha_LEF": 1.024,
+      "C_eff_ps": 0.0821,
+      "bw_bound_THz": 0.513,
+      "bw_num_THz": 0.411,
+      "ratio": 0.8016
+    },
+    {
+      "T1_ps": 0.607,
+      "alpha_LEF": 0.356,
+      "C_eff_ps": 0.0387,
+      "bw_bound_THz": 0.875,
+      "bw_num_THz": 0.835,
+      "ratio": 0.9546
+    },
+    {
+      "T1_ps": 1.101,
+      "alpha_LEF": 0.962,
+      "C_eff_ps": 0.1296,
+      "bw_bound_THz": 0.344,
+      "bw_num_THz": 0.292,
+      "ratio": 0.8479
+    },
+    {
+      "T1_ps": 0.824,
+      "alpha_LEF": 0.662,
+      "C_eff_ps": 0.16,
+      "bw_bound_THz": 0.371,
+      "bw_num_THz": 0.233,
+      "ratio": 0.6271
+    },
+    {
+      "T1_ps": 0.402,
+      "alpha_LEF": 0.152,
+      "C_eff_ps": 0.1534,
+      "bw_bound_THz": 0.461,
+      "bw_num_THz": 0.427,
+      "ratio": 0.9259
+    },
+    {
+      "T1_ps": 0.504,
+      "alpha_LEF": 0.704,
+      "C_eff_ps": 0.049,
+      "bw_bound_THz": 0.961,
+      "bw_num_THz": 0.808,
+      "ratio": 0.8409
+    },
+    {
+      "T1_ps": 0.703,
+      "alpha_LEF": 1.089,
+      "C_eff_ps": 0.1619,
+      "bw_bound_THz": 0.378,
+      "bw_num_THz": 0.293,
+      "ratio": 0.7766
+    },
+    {
+      "T1_ps": 0.762,
+      "alpha_LEF": 1.343,
+      "C_eff_ps": 0.1746,
+      "bw_bound_THz": 0.383,
+      "bw_num_THz": 0.365,
+      "ratio": 0.9528
+    },
+    {
+      "T1_ps": 1.048,
+      "alpha_LEF": 0.769,
+      "C_eff_ps": 0.1403,
+      "bw_bound_THz": 0.351,
+      "bw_num_THz": 0.304,
+      "ratio": 0.8646
+    },
+    {
+      "T1_ps": 1.271,
+      "alpha_LEF": 0.674,
+      "C_eff_ps": 0.1238,
+      "bw_bound_THz": 0.377,
+      "bw_num_THz": 0.36,
+      "ratio": 0.9565
+    },
+    {
+      "T1_ps": 1.131,
+      "alpha_LEF": 0.223,
+      "C_eff_ps": 0.0452,
+      "bw_bound_THz": 0.615,
+      "bw_num_THz": 0.585,
+      "ratio": 0.9515
+    },
+    {
+      "T1_ps": 0.407,
+      "alpha_LEF": 1.225,
+      "C_eff_ps": 0.0921,
+      "bw_bound_THz": 0.879,
+      "bw_num_THz": 0.721,
+      "ratio": 0.8205
+    },
+    {
+      "T1_ps": 0.679,
+      "alpha_LEF": 0.923,
+      "C_eff_ps": 0.1234,
+      "bw_bound_THz": 0.415,
+      "bw_num_THz": 0.367,
+      "ratio": 0.8844
+    },
+    {
+      "T1_ps": 0.592,
+      "alpha_LEF": 0.773,
+      "C_eff_ps": 0.1269,
+      "bw_bound_THz": 0.432,
+      "bw_num_THz": 0.365,
+      "ratio": 0.8432
+    },
+    {
+      "T1_ps": 1.032,
+      "alpha_LEF": 1.056,
+      "C_eff_ps": 0.1203,
+      "bw_bound_THz": 0.449,
+      "bw_num_THz": 0.417,
+      "ratio": 0.9271
+    },
+    {
+      "T1_ps": 0.376,
+      "alpha_LEF": 0.89,
+      "C_eff_ps": 0.0424,
+      "bw_bound_THz": 1.303,
+      "bw_num_THz": 1.033,
+      "ratio": 0.7927
+    },
+    {
+      "T1_ps": 0.374,
+      "alpha_LEF": 0.684,
+      "C_eff_ps": 0.0782,
+      "bw_bound_THz": 0.67,
+      "bw_num_THz": 0.507,
+      "ratio": 0.7577
+    },
+    {
+      "T1_ps": 0.489,
+      "alpha_LEF": 1.254,
+      "C_eff_ps": 0.048,
+      "bw_bound_THz": 1.242,
+      "bw_num_THz": 0.819,
+      "ratio": 0.659
+    },
+    {
+      "T1_ps": 0.796,
+      "alpha_LEF": 0.938,
+      "C_eff_ps": 0.0538,
+      "bw_bound_THz": 0.741,
+      "bw_num_THz": 0.546,
+      "ratio": 0.7372
+    },
+    {
+      "T1_ps": 0.943,
+      "alpha_LEF": 0.158,
+      "C_eff_ps": 0.1773,
+      "bw_bound_THz": 0.299,
+      "bw_num_THz": 0.191,
+      "ratio": 0.6386
+    },
+    {
+      "T1_ps": 0.59,
+      "alpha_LEF": 0.531,
+      "C_eff_ps": 0.0626,
+      "bw_bound_THz": 0.735,
+      "bw_num_THz": 0.531,
+      "ratio": 0.7234
+    },
+    {
+      "T1_ps": 0.885,
+      "alpha_LEF": 1.007,
+      "C_eff_ps": 0.1303,
+      "bw_bound_THz": 0.447,
+      "bw_num_THz": 0.335,
+      "ratio": 0.7491
+    },
+    {
+      "T1_ps": 1.305,
+      "alpha_LEF": 0.735,
+      "C_eff_ps": 0.0905,
+      "bw_bound_THz": 0.386,
+      "bw_num_THz": 0.333,
+      "ratio": 0.8614
+    },
+    {
+      "T1_ps": 0.455,
+      "alpha_LEF": 0.158,
+      "C_eff_ps": 0.1672,
+      "bw_bound_THz": 0.347,
+      "bw_num_THz": 0.239,
+      "ratio": 0.6898
+    },
+    {
+      "T1_ps": 0.859,
+      "alpha_LEF": 1.1,
+      "C_eff_ps": 0.0824,
+      "bw_bound_THz": 0.592,
+      "bw_num_THz": 0.555,
+      "ratio": 0.9382
+    },
+    {
+      "T1_ps": 0.707,
+      "alpha_LEF": 0.984,
+      "C_eff_ps": 0.0807,
+      "bw_bound_THz": 0.715,
+      "bw_num_THz": 0.649,
+      "ratio": 0.9073
+    },
+    {
+      "T1_ps": 0.433,
+      "alpha_LEF": 0.194,
+      "C_eff_ps": 0.1597,
+      "bw_bound_THz": 0.312,
+      "bw_num_THz": 0.256,
+      "ratio": 0.8217
+    },
+    {
+      "T1_ps": 1.105,
+      "alpha_LEF": 0.796,
+      "C_eff_ps": 0.1688,
+      "bw_bound_THz": 0.361,
+      "bw_num_THz": 0.284,
+      "ratio": 0.7877
+    },
+    {
+      "T1_ps": 1.165,
+      "alpha_LEF": 0.243,
+      "C_eff_ps": 0.0523,
+      "bw_bound_THz": 0.502,
+      "bw_num_THz": 0.464,
+      "ratio": 0.924
+    },
+    {
+      "T1_ps": 0.78,
+      "alpha_LEF": 0.63,
+      "C_eff_ps": 0.1354,
+      "bw_bound_THz": 0.394,
+      "bw_num_THz": 0.334,
+      "ratio": 0.846
+    },
+    {
+      "T1_ps": 0.945,
+      "alpha_LEF": 0.272,
+      "C_eff_ps": 0.0851,
+      "bw_bound_THz": 0.492,
+      "bw_num_THz": 0.37,
+      "ratio": 0.7519
+    },
+    {
+      "T1_ps": 1.139,
+      "alpha_LEF": 0.387,
+      "C_eff_ps": 0.0726,
+      "bw_bound_THz": 0.456,
+      "bw_num_THz": 0.402,
+      "ratio": 0.8823
+    },
+    {
+      "T1_ps": 1.123,
+      "alpha_LEF": 0.218,
+      "C_eff_ps": 0.0307,
+      "bw_bound_THz": 0.662,
+      "bw_num_THz": 0.57,
+      "ratio": 0.8613
+    },
+    {
+      "T1_ps": 0.998,
+      "alpha_LEF": 1.156,
+      "C_eff_ps": 0.0316,
+      "bw_bound_THz": 1.058,
+      "bw_num_THz": 0.763,
+      "ratio": 0.7208
+    },
+    {
+      "T1_ps": 0.663,
+      "alpha_LEF": 0.207,
+      "C_eff_ps": 0.1648,
+      "bw_bound_THz": 0.374,
+      "bw_num_THz": 0.281,
+      "ratio": 0.7528
+    },
+    {
+      "T1_ps": 1.27,
+      "alpha_LEF": 0.894,
+      "C_eff_ps": 0.1632,
+      "bw_bound_THz": 0.319,
+      "bw_num_THz": 0.294,
+      "ratio": 0.9236
+    },
+    {
+      "T1_ps": 0.648,
+      "alpha_LEF": 0.393,
+      "C_eff_ps": 0.1769,
+      "bw_bound_THz": 0.27,
+      "bw_num_THz": 0.202,
+      "ratio": 0.7482
+    },
+    {
+      "T1_ps": 0.466,
+      "alpha_LEF": 0.883,
+      "C_eff_ps": 0.1503,
+      "bw_bound_THz": 0.467,
+      "bw_num_THz": 0.392,
+      "ratio": 0.8399
+    },
+    {
+      "T1_ps": 1.184,
+      "alpha_LEF": 1.173,
+      "C_eff_ps": 0.1203,
+      "bw_bound_THz": 0.423,
+      "bw_num_THz": 0.325,
+      "ratio": 0.7694
+    },
+    {
+      "T1_ps": 0.828,
+      "alpha_LEF": 0.872,
+      "C_eff_ps": 0.1022,
+      "bw_bound_THz": 0.482,
+      "bw_num_THz": 0.409,
+      "ratio": 0.8486
+    },
+    {
+      "T1_ps": 0.821,
+      "alpha_LEF": 0.308,
+      "C_eff_ps": 0.1212,
+      "bw_bound_THz": 0.356,
+      "bw_num_THz": 0.237,
+      "ratio": 0.6672
+    },
+    {
+      "T1_ps": 1.137,
+      "alpha_LEF": 1.408,
+      "C_eff_ps": 0.1128,
+      "bw_bound_THz": 0.426,
+      "bw_num_THz": 0.301,
+      "ratio": 0.7068
+    },
+    {
+      "T1_ps": 1.238,
+      "alpha_LEF": 1.307,
+      "C_eff_ps": 0.1291,
+      "bw_bound_THz": 0.438,
+      "bw_num_THz": 0.337,
+      "ratio": 0.7691
+    },
+    {
+      "T1_ps": 1.232,
+      "alpha_LEF": 0.375,
+      "C_eff_ps": 0.0343,
+      "bw_bound_THz": 0.58,
+      "bw_num_THz": 0.398,
+      "ratio": 0.687
+    },
+    {
+      "T1_ps": 1.038,
+      "alpha_LEF": 0.161,
+      "C_eff_ps": 0.0545,
+      "bw_bound_THz": 0.588,
+      "bw_num_THz": 0.547,
+      "ratio": 0.9305
+    },
+    {
+      "T1_ps": 0.837,
+      "alpha_LEF": 0.736,
+      "C_eff_ps": 0.1299,
+      "bw_bound_THz": 0.348,
+      "bw_num_THz": 0.233,
+      "ratio": 0.6695
+    },
+    {
+      "T1_ps": 1.217,
+      "alpha_LEF": 0.722,
+      "C_eff_ps": 0.1412,
+      "bw_bound_THz": 0.362,
+      "bw_num_THz": 0.291,
+      "ratio": 0.8025
+    },
+    {
+      "T1_ps": 1.24,
+      "alpha_LEF": 0.641,
+      "C_eff_ps": 0.0604,
+      "bw_bound_THz": 0.561,
+      "bw_num_THz": 0.488,
+      "ratio": 0.8699
+    },
+    {
+      "T1_ps": 0.86,
+      "alpha_LEF": 0.517,
+      "C_eff_ps": 0.0345,
+      "bw_bound_THz": 0.83,
+      "bw_num_THz": 0.624,
+      "ratio": 0.7516
+    },
+    {
+      "T1_ps": 1.244,
+      "alpha_LEF": 0.542,
+      "C_eff_ps": 0.0299,
+      "bw_bound_THz": 0.728,
+      "bw_num_THz": 0.506,
+      "ratio": 0.6951
+    },
+    {
+      "T1_ps": 0.444,
+      "alpha_LEF": 0.827,
+      "C_eff_ps": 0.1183,
+      "bw_bound_THz": 0.458,
+      "bw_num_THz": 0.328,
+      "ratio": 0.7145
+    },
+    {
+      "T1_ps": 0.403,
+      "alpha_LEF": 1.222,
+      "C_eff_ps": 0.0737,
+      "bw_bound_THz": 0.986,
+      "bw_num_THz": 0.748,
+      "ratio": 0.7584
+    },
+    {
+      "T1_ps": 0.533,
+      "alpha_LEF": 0.858,
+      "C_eff_ps": 0.0906,
+      "bw_bound_THz": 0.683,
+      "bw_num_THz": 0.646,
+      "ratio": 0.9452
+    },
+    {
+      "T1_ps": 0.975,
+      "alpha_LEF": 0.625,
+      "C_eff_ps": 0.0682,
+      "bw_bound_THz": 0.506,
+      "bw_num_THz": 0.473,
+      "ratio": 0.9346
+    },
+    {
+      "T1_ps": 0.924,
+      "alpha_LEF": 0.911,
+      "C_eff_ps": 0.062,
+      "bw_bound_THz": 0.554,
+      "bw_num_THz": 0.431,
+      "ratio": 0.7788
+    },
+    {
+      "T1_ps": 0.827,
+      "alpha_LEF": 1.201,
+      "C_eff_ps": 0.026,
+      "bw_bound_THz": 1.167,
+      "bw_num_THz": 1.039,
+      "ratio": 0.8897
+    },
+    {
+      "T1_ps": 0.667,
+      "alpha_LEF": 1.354,
+      "C_eff_ps": 0.0657,
+      "bw_bound_THz": 0.801,
+      "bw_num_THz": 0.763,
+      "ratio": 0.952
+    },
+    {
+      "T1_ps": 1.301,
+      "alpha_LEF": 0.357,
+      "C_eff_ps": 0.1614,
+      "bw_bound_THz": 0.274,
+      "bw_num_THz": 0.257,
+      "ratio": 0.9399
+    },
+    {
+      "T1_ps": 0.401,
+      "alpha_LEF": 0.973,
+      "C_eff_ps": 0.0306,
+      "bw_bound_THz": 1.446,
+      "bw_num_THz": 1.045,
+      "ratio": 0.7227
+    },
+    {
+      "T1_ps": 1.235,
+      "alpha_LEF": 1.201,
+      "C_eff_ps": 0.0466,
+      "bw_bound_THz": 0.784,
+      "bw_num_THz": 0.59,
+      "ratio": 0.7519
+    },
+    {
+      "T1_ps": 0.359,
+      "alpha_LEF": 1.008,
+      "C_eff_ps": 0.0961,
+      "bw_bound_THz": 0.775,
+      "bw_num_THz": 0.602,
+      "ratio": 0.7774
+    },
+    {
+      "T1_ps": 1.163,
+      "alpha_LEF": 0.841,
+      "C_eff_ps": 0.0747,
+      "bw_bound_THz": 0.473,
+      "bw_num_THz": 0.329,
+      "ratio": 0.6946
+    },
+    {
+      "T1_ps": 0.755,
+      "alpha_LEF": 1.132,
+      "C_eff_ps": 0.1264,
+      "bw_bound_THz": 0.455,
+      "bw_num_THz": 0.317,
+      "ratio": 0.6981
+    },
+    {
+      "T1_ps": 1.054,
+      "alpha_LEF": 1.17,
+      "C_eff_ps": 0.0885,
+      "bw_bound_THz": 0.555,
+      "bw_num_THz": 0.464,
+      "ratio": 0.8358
+    },
+    {
+      "T1_ps": 1.237,
+      "alpha_LEF": 0.266,
+      "C_eff_ps": 0.1342,
+      "bw_bound_THz": 0.289,
+      "bw_num_THz": 0.259,
+      "ratio": 0.8952
+    },
+    {
+      "T1_ps": 0.754,
+      "alpha_LEF": 1.28,
+      "C_eff_ps": 0.1422,
+      "bw_bound_THz": 0.439,
+      "bw_num_THz": 0.359,
+      "ratio": 0.8167
+    },
+    {
+      "T1_ps": 1.138,
+      "alpha_LEF": 0.928,
+      "C_eff_ps": 0.0873,
+      "bw_bound_THz": 0.457,
+      "bw_num_THz": 0.294,
+      "ratio": 0.6441
+    },
+    {
+      "T1_ps": 0.516,
+      "alpha_LEF": 0.974,
+      "C_eff_ps": 0.0717,
+      "bw_bound_THz": 0.758,
+      "bw_num_THz": 0.705,
+      "ratio": 0.9304
+    },
+    {
+      "T1_ps": 0.932,
+      "alpha_LEF": 0.18,
+      "C_eff_ps": 0.0522,
+      "bw_bound_THz": 0.632,
+      "bw_num_THz": 0.606,
+      "ratio": 0.9582
+    },
+    {
+      "T1_ps": 0.63,
+      "alpha_LEF": 0.841,
+      "C_eff_ps": 0.0584,
+      "bw_bound_THz": 0.802,
+      "bw_num_THz": 0.506,
+      "ratio": 0.6306
+    },
+    {
+      "T1_ps": 1.284,
+      "alpha_LEF": 0.171,
+      "C_eff_ps": 0.0368,
+      "bw_bound_THz": 0.562,
+      "bw_num_THz": 0.351,
+      "ratio": 0.6241
+    },
+    {
+      "T1_ps": 0.374,
+      "alpha_LEF": 1.344,
+      "C_eff_ps": 0.0481,
+      "bw_bound_THz": 1.392,
+      "bw_num_THz": 0.933,
+      "ratio": 0.6702
+    },
+    {
+      "T1_ps": 0.778,
+      "alpha_LEF": 0.317,
+      "C_eff_ps": 0.1482,
+      "bw_bound_THz": 0.331,
+      "bw_num_THz": 0.248,
+      "ratio": 0.7484
+    },
+    {
+      "T1_ps": 0.502,
+      "alpha_LEF": 0.511,
+      "C_eff_ps": 0.0735,
+      "bw_bound_THz": 0.706,
+      "bw_num_THz": 0.453,
+      "ratio": 0.6409
+    },
+    {
+      "T1_ps": 1.234,
+      "alpha_LEF": 0.793,
+      "C_eff_ps": 0.0801,
+      "bw_bound_THz": 0.407,
+      "bw_num_THz": 0.263,
+      "ratio": 0.6468
+    },
+    {
+      "T1_ps": 0.716,
+      "alpha_LEF": 1.082,
+      "C_eff_ps": 0.1076,
+      "bw_bound_THz": 0.509,
+      "bw_num_THz": 0.392,
+      "ratio": 0.7693
+    },
+    {
+      "T1_ps": 0.929,
+      "alpha_LEF": 1.267,
+      "C_eff_ps": 0.0401,
+      "bw_bound_THz": 0.926,
+      "bw_num_THz": 0.826,
+      "ratio": 0.8918
+    },
+    {
+      "T1_ps": 0.504,
+      "alpha_LEF": 1.297,
+      "C_eff_ps": 0.0347,
+      "bw_bound_THz": 1.356,
+      "bw_num_THz": 1.047,
+      "ratio": 0.7723
+    },
+    {
+      "T1_ps": 0.514,
+      "alpha_LEF": 0.968,
+      "C_eff_ps": 0.1431,
+      "bw_bound_THz": 0.501,
+      "bw_num_THz": 0.324,
+      "ratio": 0.6469
+    },
+    {
+      "T1_ps": 0.8,
+      "alpha_LEF": 0.995,
+      "C_eff_ps": 0.1795,
+      "bw_bound_THz": 0.397,
+      "bw_num_THz": 0.378,
+      "ratio": 0.9529
+    },
+    {
+      "T1_ps": 0.837,
+      "alpha_LEF": 1.388,
+      "C_eff_ps": 0.0922,
+      "bw_bound_THz": 0.612,
+      "bw_num_THz": 0.522,
+      "ratio": 0.8521
+    },
+    {
+      "T1_ps": 1.04,
+      "alpha_LEF": 0.811,
+      "C_eff_ps": 0.0997,
+      "bw_bound_THz": 0.502,
+      "bw_num_THz": 0.472,
+      "ratio": 0.9399
+    },
+    {
+      "T1_ps": 1.114,
+      "alpha_LEF": 0.466,
+      "C_eff_ps": 0.0364,
+      "bw_bound_THz": 0.55,
+      "bw_num_THz": 0.432,
+      "ratio": 0.7857
+    },
+    {
+      "T1_ps": 1.23,
+      "alpha_LEF": 1.013,
+      "C_eff_ps": 0.1038,
+      "bw_bound_THz": 0.451,
+      "bw_num_THz": 0.373,
+      "ratio": 0.8273
+    },
+    {
+      "T1_ps": 0.951,
+      "alpha_LEF": 0.54,
+      "C_eff_ps": 0.1292,
+      "bw_bound_THz": 0.349,
+      "bw_num_THz": 0.275,
+      "ratio": 0.7867
+    },
+    {
+      "T1_ps": 0.546,
+      "alpha_LEF": 1.341,
+      "C_eff_ps": 0.1589,
+      "bw_bound_THz": 0.577,
+      "bw_num_THz": 0.365,
+      "ratio": 0.6332
+    },
+    {
+      "T1_ps": 0.647,
+      "alpha_LEF": 0.517,
+      "C_eff_ps": 0.1648,
+      "bw_bound_THz": 0.295,
+      "bw_num_THz": 0.281,
+      "ratio": 0.9504
+    },
+    {
+      "T1_ps": 1.338,
+      "alpha_LEF": 1.152,
+      "C_eff_ps": 0.0966,
+      "bw_bound_THz": 0.404,
+      "bw_num_THz": 0.333,
+      "ratio": 0.8224
+    },
+    {
+      "T1_ps": 0.998,
+      "alpha_LEF": 0.677,
+      "C_eff_ps": 0.0371,
+      "bw_bound_THz": 0.768,
+      "bw_num_THz": 0.72,
+      "ratio": 0.9385
+    },
+    {
+      "T1_ps": 1.135,
+      "alpha_LEF": 0.687,
+      "C_eff_ps": 0.1295,
+      "bw_bound_THz": 0.351,
+      "bw_num_THz": 0.314,
+      "ratio": 0.8931
+    },
+    {
+      "T1_ps": 0.978,
+      "alpha_LEF": 0.617,
+      "C_eff_ps": 0.0703,
+      "bw_bound_THz": 0.424,
+      "bw_num_THz": 0.335,
+      "ratio": 0.7891
+    }
+  ]
+}

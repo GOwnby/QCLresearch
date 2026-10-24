@@ -615,6 +615,17 @@ ${paper.manuscriptOutline
                     <span>Paper I PDF (Compiled)</span>
                   </a>
                 )}
+                {selectedPaper.id === 'paper-2' && (
+                  <a
+                    href="/Paper_II_Manuscript.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-slate-900 rounded-md hover:bg-slate-800 transition-colors whitespace-nowrap shrink-0"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Paper II PDF (Compiled)</span>
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={() => handleExportManuscript(selectedPaper, 'tex')}
