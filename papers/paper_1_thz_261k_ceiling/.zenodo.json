@@ -1,0 +1,20 @@
+{
+  "title": "Interface-roughness bound and over-resonant phonon limits of high-temperature terahertz quantum cascade lasers (Code, Data, and LaTeX Source)",
+  "upload_type": "software",
+  "description": "Self-contained mathematical verification suite, nonparabolic BenDaniel-Duke and 6-level Liouville-von Neumann density-matrix solver, standalone TikZ vector figure generators, JSON datasets, and single-column LaTeX manuscript for Paper I.",
+  "creators": [
+    {
+      "name": "Ownby, Gracen",
+      "affiliation": "University of Oklahoma, Norman, Oklahoma, USA"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "terahertz quantum cascade lasers",
+    "interface roughness scattering",
+    "step-graded barriers",
+    "Kazarinov-Suris transport",
+    "over-resonant LO phonon depopulation",
+    "density matrix formalism"
+  ]
+}

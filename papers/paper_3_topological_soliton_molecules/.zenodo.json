@@ -1,0 +1,20 @@
+{
+  "title": "Deterministic phase-kink addressing of dissipative soliton molecules and sub-picosecond pulse compression in active-injector racetrack quantum cascade lasers (Code, Data, and LaTeX Source)",
+  "upload_type": "software",
+  "description": "Self-contained mathematical verification suite, driven cubic-quintic CGLE and 512-mode Maxwell-Bloch + GNLSE solver, standalone TikZ vector figure generators, JSON datasets, and single-column LaTeX manuscript for Paper III.",
+  "creators": [
+    {
+      "name": "Ownby, Gracen",
+      "affiliation": "University of Oklahoma, Norman, Oklahoma, USA"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dissipative Kerr solitons",
+    "soliton molecules",
+    "complex Ginzburg-Landau equation",
+    "topological phase kinks",
+    "ring quantum cascade lasers",
+    "sub-picosecond pulse compression"
+  ]
+}

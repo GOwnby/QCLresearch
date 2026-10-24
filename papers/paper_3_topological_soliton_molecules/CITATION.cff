@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, datasets, or mathematical proofs, please cite both the article and the archived repository."
+authors:
+  - family-names: "Ownby"
+    given-names: "Gracen"
+    affiliation: "University of Oklahoma, Norman, Oklahoma, USA"
+title: "Deterministic phase-kink addressing of dissipative soliton molecules and sub-picosecond pulse compression in active-injector racetrack quantum cascade lasers"
+version: 1.0.0
+date-released: 2026-10-24
+license: MIT
+repository-code: "https://github.com/gracenownby/paper-3-topological-soliton-molecules"

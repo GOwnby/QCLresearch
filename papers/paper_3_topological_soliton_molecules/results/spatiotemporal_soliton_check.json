@@ -1,0 +1,8 @@
+{
+  "input_FWHM_fs": 1850.0,
+  "compressed_FWHM_fs": 380.0,
+  "compressed_pulse_energy_pJ": 115.4,
+  "compressed_peak_power_W": 285.2,
+  "cw_suppression_SBR_dB": 26.4,
+  "erasure_round_trips": 2.4
+}

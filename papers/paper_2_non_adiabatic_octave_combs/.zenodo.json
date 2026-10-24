@@ -1,0 +1,20 @@
+{
+  "title": "Non-adiabatic extendon stability and active micro-disk gain shaping in heterogeneous octave-spanning quantum cascade laser frequency combs (Code, Data, and LaTeX Source)",
+  "upload_type": "software",
+  "description": "Self-contained mathematical verification suite, bidirectional multi-stack Maxwell-Bloch and temporal coupled-mode theory (TCMT) solver, standalone TikZ vector figure generators, JSON datasets, and single-column LaTeX manuscript for Paper II.",
+  "creators": [
+    {
+      "name": "Ownby, Gracen",
+      "affiliation": "University of Oklahoma, Norman, Oklahoma, USA"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "quantum cascade laser frequency combs",
+    "extendon theory",
+    "non-adiabatic Maxwell-Bloch dynamics",
+    "temporal coupled-mode theory",
+    "octave-spanning terahertz combs",
+    "micro-disk resonators"
+  ]
+}
