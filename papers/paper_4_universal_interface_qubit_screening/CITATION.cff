@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this theoretical framework, proofs, or verification code, please cite it as below."
+authors:
+  - family-names: "Ownby"
+    given-names: "Gracen"
+    affiliation: "University of Oklahoma, Norman, Oklahoma, USA"
+title: "Universal step-graded interface screening and Schrieffer-Wolff quasiparticle bounds in Si/SiGe spin-valley qubits and superconducting Josephson circuits"
+version: 1.0.0
+date-released: 2026-10-24
+license: MIT
+repository-code: "https://github.com/gracen-ownby/universal-interface-qubit-screening"
+keywords:
+  - silicon spin qubits
+  - valley splitting
+  - superconducting qubits
+  - quasiparticle poisoning
+  - Schrieffer-Wolff transformation
+  - step-graded interfaces

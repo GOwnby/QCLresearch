@@ -1,0 +1,27 @@
+{
+  "title": "Non-Reciprocal Chiral Dissipative Soliton Time Crystals and Sub-Picosecond Topological Ising Machines in Driven Nonlinear Ring Resonators",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "publication_date": "2026-10-25",
+  "creators": [
+    {
+      "name": "Ownby, Gracen",
+      "affiliation": "University of Oklahoma, Norman, Oklahoma, USA"
+    }
+  ],
+  "description": "Complete analytical proofs, reproducible simulation scripts, 2,000-cavity Monte Carlo verification datasets, standalone TikZ vector figures, and compiled LaTeX manuscript for Paper VI of the 6-Paper Theoretical Physics & Quantum Engineering Series. Establishes Theorem 1 (non-reciprocal asymmetric soliton wake eigenvalues kappa_+ != kappa_-, broken action-reaction F_{1->2} != -F_{2->1}, and non-Hermitian Hopf-Turing bifurcation to a Chiral Dissipative Soliton Time Crystal with odd elasticity), Corollary 1 (exact recovery of Paper III Theorem 1b at A_nr -> 0 and closed-cycle odd-elastic work identity across 2,000 cavities with zero violations), and Theorem 2 (global Lyapunov convergence of phase-kink-addressed topological soliton Ising / XY spin-glass machines within 38 ps with 96.4% ground-state success probability on 100-vertex MAX-CUT graphs).",
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "Dissipative Solitons",
+    "Non-Reciprocal Active Matter",
+    "Time Crystals",
+    "Odd Elasticity",
+    "Coherent Ising Machine",
+    "Spin Glass",
+    "Complex Ginzburg-Landau Equation",
+    "Quantum Cascade Lasers",
+    "Kerr Microresonators",
+    "Josephson Metamaterials"
+  ]
+}

@@ -1,0 +1,646 @@
+{
+  "paper": "Paper VI",
+  "theorem": "Theorem 1 \u2014 Non-Reciprocal Asymmetric Soliton Wake Force & Chiral Time-Crystal Bifurcation",
+  "parameters": {
+    "mu_eff": 0.42,
+    "delta_eff": 2.35,
+    "d_R": 0.14,
+    "d_I": -0.46,
+    "tau_rt_ps": 34.5,
+    "kappa_R_0": 0.521305,
+    "kappa_I_0": 2.166342,
+    "A_crit": 0.184,
+    "omega_TC_GHz": 28.5
+  },
+  "quantized_spacings": [
+    {
+      "n": 1,
+      "delta_theta_rad": 0.9705,
+      "delta_tau_ps": 5.42,
+      "spin_coupling_sign": "Antiferromagnetic (J_ij < 0)"
+    },
+    {
+      "n": 2,
+      "delta_theta_rad": 3.8708,
+      "delta_tau_ps": 9.18,
+      "spin_coupling_sign": "Ferromagnetic (J_ij > 0)"
+    },
+    {
+      "n": 3,
+      "delta_theta_rad": 6.7712,
+      "delta_tau_ps": 12.94,
+      "spin_coupling_sign": "Antiferromagnetic (J_ij < 0)"
+    },
+    {
+      "n": 4,
+      "delta_theta_rad": 9.6716,
+      "delta_tau_ps": 16.7,
+      "spin_coupling_sign": "Ferromagnetic (J_ij > 0)"
+    }
+  ],
+  "bifurcation_curve": [
+    {
+      "A_nr": 0.0,
+      "kappa_R_plus": 0.5213,
+      "kappa_R_minus": 0.5213,
+      "K_odd": 0.0,
+      "v_drift_rad_per_rt": 0.0,
+      "max_re_eigenvalue": -0.38,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 28.5,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.015,
+      "kappa_R_plus": 0.5291,
+      "kappa_R_minus": 0.5135,
+      "K_odd": 0.068,
+      "v_drift_rad_per_rt": 0.2141,
+      "max_re_eigenvalue": -0.37874,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 28.438,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.03,
+      "kappa_R_plus": 0.5369,
+      "kappa_R_minus": 0.5057,
+      "K_odd": 0.136,
+      "v_drift_rad_per_rt": 0.4305,
+      "max_re_eigenvalue": -0.37492,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 28.253,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.045,
+      "kappa_R_plus": 0.5448,
+      "kappa_R_minus": 0.4978,
+      "K_odd": 0.2042,
+      "v_drift_rad_per_rt": 0.6491,
+      "max_re_eigenvalue": -0.36846,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 27.94,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.06,
+      "kappa_R_plus": 0.5526,
+      "kappa_R_minus": 0.49,
+      "K_odd": 0.2725,
+      "v_drift_rad_per_rt": 0.8699,
+      "max_re_eigenvalue": -0.35923,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 27.497,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.075,
+      "kappa_R_plus": 0.5604,
+      "kappa_R_minus": 0.4822,
+      "K_odd": 0.341,
+      "v_drift_rad_per_rt": 1.093,
+      "max_re_eigenvalue": -0.347,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 26.917,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.09,
+      "kappa_R_plus": 0.5682,
+      "kappa_R_minus": 0.4744,
+      "K_odd": 0.4098,
+      "v_drift_rad_per_rt": 1.3183,
+      "max_re_eigenvalue": -0.33144,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 26.19,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.105,
+      "kappa_R_plus": 0.576,
+      "kappa_R_minus": 0.4666,
+      "K_odd": 0.4789,
+      "v_drift_rad_per_rt": 1.5458,
+      "max_re_eigenvalue": -0.31205,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 25.305,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.12,
+      "kappa_R_plus": 0.5839,
+      "kappa_R_minus": 0.4587,
+      "K_odd": 0.5484,
+      "v_drift_rad_per_rt": 1.7756,
+      "max_re_eigenvalue": -0.28807,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 24.242,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.135,
+      "kappa_R_plus": 0.5917,
+      "kappa_R_minus": 0.4509,
+      "K_odd": 0.6183,
+      "v_drift_rad_per_rt": 2.0076,
+      "max_re_eigenvalue": -0.2582,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 22.979,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.15,
+      "kappa_R_plus": 0.5995,
+      "kappa_R_minus": 0.4431,
+      "K_odd": 0.6886,
+      "v_drift_rad_per_rt": 2.2418,
+      "max_re_eigenvalue": -0.22008,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 21.48,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.165,
+      "kappa_R_plus": 0.6073,
+      "kappa_R_minus": 0.4353,
+      "K_odd": 0.7595,
+      "v_drift_rad_per_rt": 2.4783,
+      "max_re_eigenvalue": -0.16817,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 19.69,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.18,
+      "kappa_R_plus": 0.6151,
+      "kappa_R_minus": 0.4275,
+      "K_odd": 0.831,
+      "v_drift_rad_per_rt": 2.717,
+      "max_re_eigenvalue": -0.0788,
+      "time_crystal_amplitude_ps": 0.0,
+      "time_crystal_freq_GHz": 17.521,
+      "regime": "Stationary Chiral Molecule"
+    },
+    {
+      "A_nr": 0.195,
+      "kappa_R_plus": 0.623,
+      "kappa_R_minus": 0.4197,
+      "K_odd": 0.9031,
+      "v_drift_rad_per_rt": 2.958,
+      "max_re_eigenvalue": 0.00676,
+      "time_crystal_amplitude_ps": 0.2014,
+      "time_crystal_freq_GHz": 16.956,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.21,
+      "kappa_R_plus": 0.6308,
+      "kappa_R_minus": 0.4118,
+      "K_odd": 0.9759,
+      "v_drift_rad_per_rt": 3.2012,
+      "max_re_eigenvalue": 0.01579,
+      "time_crystal_amplitude_ps": 0.3096,
+      "time_crystal_freq_GHz": 17.148,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.225,
+      "kappa_R_plus": 0.6386,
+      "kappa_R_minus": 0.404,
+      "K_odd": 1.0495,
+      "v_drift_rad_per_rt": 3.4466,
+      "max_re_eigenvalue": 0.02461,
+      "time_crystal_amplitude_ps": 0.3888,
+      "time_crystal_freq_GHz": 17.341,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.24,
+      "kappa_R_plus": 0.6464,
+      "kappa_R_minus": 0.3962,
+      "K_odd": 1.1239,
+      "v_drift_rad_per_rt": 3.6943,
+      "max_re_eigenvalue": 0.03323,
+      "time_crystal_amplitude_ps": 0.4544,
+      "time_crystal_freq_GHz": 17.533,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.255,
+      "kappa_R_plus": 0.6542,
+      "kappa_R_minus": 0.3884,
+      "K_odd": 1.1991,
+      "v_drift_rad_per_rt": 3.9442,
+      "max_re_eigenvalue": 0.04165,
+      "time_crystal_amplitude_ps": 0.5116,
+      "time_crystal_freq_GHz": 17.726,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.27,
+      "kappa_R_plus": 0.6621,
+      "kappa_R_minus": 0.3806,
+      "K_odd": 1.2753,
+      "v_drift_rad_per_rt": 4.1963,
+      "max_re_eigenvalue": 0.04989,
+      "time_crystal_amplitude_ps": 0.5631,
+      "time_crystal_freq_GHz": 17.918,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.285,
+      "kappa_R_plus": 0.6699,
+      "kappa_R_minus": 0.3727,
+      "K_odd": 1.3524,
+      "v_drift_rad_per_rt": 4.4507,
+      "max_re_eigenvalue": 0.05794,
+      "time_crystal_amplitude_ps": 0.6102,
+      "time_crystal_freq_GHz": 18.11,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.3,
+      "kappa_R_plus": 0.6777,
+      "kappa_R_minus": 0.3649,
+      "K_odd": 1.4306,
+      "v_drift_rad_per_rt": 4.7073,
+      "max_re_eigenvalue": 0.06581,
+      "time_crystal_amplitude_ps": 0.6539,
+      "time_crystal_freq_GHz": 18.303,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.315,
+      "kappa_R_plus": 0.6855,
+      "kappa_R_minus": 0.3571,
+      "K_odd": 1.5099,
+      "v_drift_rad_per_rt": 4.9661,
+      "max_re_eigenvalue": 0.07352,
+      "time_crystal_amplitude_ps": 0.6949,
+      "time_crystal_freq_GHz": 18.495,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.33,
+      "kappa_R_plus": 0.6933,
+      "kappa_R_minus": 0.3493,
+      "K_odd": 1.5904,
+      "v_drift_rad_per_rt": 5.2272,
+      "max_re_eigenvalue": 0.08105,
+      "time_crystal_amplitude_ps": 0.7336,
+      "time_crystal_freq_GHz": 18.687,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.345,
+      "kappa_R_plus": 0.7012,
+      "kappa_R_minus": 0.3415,
+      "K_odd": 1.6721,
+      "v_drift_rad_per_rt": 5.4906,
+      "max_re_eigenvalue": 0.08843,
+      "time_crystal_amplitude_ps": 0.7704,
+      "time_crystal_freq_GHz": 18.88,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.36,
+      "kappa_R_plus": 0.709,
+      "kappa_R_minus": 0.3336,
+      "K_odd": 1.755,
+      "v_drift_rad_per_rt": 5.7561,
+      "max_re_eigenvalue": 0.09565,
+      "time_crystal_amplitude_ps": 0.8055,
+      "time_crystal_freq_GHz": 19.072,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.375,
+      "kappa_R_plus": 0.7168,
+      "kappa_R_minus": 0.3258,
+      "K_odd": 1.8393,
+      "v_drift_rad_per_rt": 6.0239,
+      "max_re_eigenvalue": 0.10272,
+      "time_crystal_amplitude_ps": 0.8391,
+      "time_crystal_freq_GHz": 19.265,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.39,
+      "kappa_R_plus": 0.7246,
+      "kappa_R_minus": 0.318,
+      "K_odd": 1.9251,
+      "v_drift_rad_per_rt": 6.2939,
+      "max_re_eigenvalue": 0.10965,
+      "time_crystal_amplitude_ps": 0.8714,
+      "time_crystal_freq_GHz": 19.457,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.405,
+      "kappa_R_plus": 0.7324,
+      "kappa_R_minus": 0.3102,
+      "K_odd": 2.0123,
+      "v_drift_rad_per_rt": 6.5662,
+      "max_re_eigenvalue": 0.11643,
+      "time_crystal_amplitude_ps": 0.9026,
+      "time_crystal_freq_GHz": 19.649,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.42,
+      "kappa_R_plus": 0.7403,
+      "kappa_R_minus": 0.3024,
+      "K_odd": 2.1011,
+      "v_drift_rad_per_rt": 6.8407,
+      "max_re_eigenvalue": 0.12308,
+      "time_crystal_amplitude_ps": 0.9327,
+      "time_crystal_freq_GHz": 19.842,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.435,
+      "kappa_R_plus": 0.7481,
+      "kappa_R_minus": 0.2945,
+      "K_odd": 2.1914,
+      "v_drift_rad_per_rt": 7.1174,
+      "max_re_eigenvalue": 0.1296,
+      "time_crystal_amplitude_ps": 0.9619,
+      "time_crystal_freq_GHz": 20.034,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.45,
+      "kappa_R_plus": 0.7559,
+      "kappa_R_minus": 0.2867,
+      "K_odd": 2.2835,
+      "v_drift_rad_per_rt": 7.3964,
+      "max_re_eigenvalue": 0.13598,
+      "time_crystal_amplitude_ps": 0.9902,
+      "time_crystal_freq_GHz": 20.226,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.465,
+      "kappa_R_plus": 0.7637,
+      "kappa_R_minus": 0.2789,
+      "K_odd": 2.3774,
+      "v_drift_rad_per_rt": 7.6776,
+      "max_re_eigenvalue": 0.14224,
+      "time_crystal_amplitude_ps": 1.0178,
+      "time_crystal_freq_GHz": 20.419,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.48,
+      "kappa_R_plus": 0.7715,
+      "kappa_R_minus": 0.2711,
+      "K_odd": 2.473,
+      "v_drift_rad_per_rt": 7.9611,
+      "max_re_eigenvalue": 0.14838,
+      "time_crystal_amplitude_ps": 1.0446,
+      "time_crystal_freq_GHz": 20.611,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.495,
+      "kappa_R_plus": 0.7794,
+      "kappa_R_minus": 0.2633,
+      "K_odd": 2.5706,
+      "v_drift_rad_per_rt": 8.2468,
+      "max_re_eigenvalue": 0.1544,
+      "time_crystal_amplitude_ps": 1.0707,
+      "time_crystal_freq_GHz": 20.804,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.51,
+      "kappa_R_plus": 0.7872,
+      "kappa_R_minus": 0.2554,
+      "K_odd": 2.6701,
+      "v_drift_rad_per_rt": 8.5347,
+      "max_re_eigenvalue": 0.16031,
+      "time_crystal_amplitude_ps": 1.0963,
+      "time_crystal_freq_GHz": 20.996,
+      "regime": "Chiral Soliton Time Crystal"
+    },
+    {
+      "A_nr": 0.525,
+      "kappa_R_plus": 0.795,
+      "kappa_R_minus": 0.2476,
+      "K_odd": 2.7717,
+      "v_drift_rad_per_rt": 8.8249,
+      "max_re_eigenvalue": 0.16611,
+      "time_crystal_amplitude_ps": 1.1212,
+      "time_crystal_freq_GHz": 21.188,
+      "regime": "Chiral Soliton Time Crystal"
+    }
+  ],
+  "spatial_tail_profile": [
+    {
+      "xi_ps": -8.0,
+      "chiral_soliton_tail": 0.03744,
+      "reciprocal_paper3_tail": 0.00913
+    },
+    {
+      "xi_ps": -7.6,
+      "chiral_soliton_tail": 0.00184,
+      "reciprocal_paper3_tail": 0.01417
+    },
+    {
+      "xi_ps": -7.2,
+      "chiral_soliton_tail": -0.04561,
+      "reciprocal_paper3_tail": 0.01372
+    },
+    {
+      "xi_ps": -6.8,
+      "chiral_soliton_tail": -0.08983,
+      "reciprocal_paper3_tail": 0.00494
+    },
+    {
+      "xi_ps": -6.4,
+      "chiral_soliton_tail": -0.11231,
+      "reciprocal_paper3_tail": -0.01171
+    },
+    {
+      "xi_ps": -6.0,
+      "chiral_soliton_tail": -0.09735,
+      "reciprocal_paper3_tail": -0.03089
+    },
+    {
+      "xi_ps": -5.6,
+      "chiral_soliton_tail": -0.03916,
+      "reciprocal_paper3_tail": -0.04272
+    },
+    {
+      "xi_ps": -5.2,
+      "chiral_soliton_tail": 0.05271,
+      "reciprocal_paper3_tail": -0.03609
+    },
+    {
+      "xi_ps": -4.8,
+      "chiral_soliton_tail": 0.15244,
+      "reciprocal_paper3_tail": -0.00449
+    },
+    {
+      "xi_ps": -4.4,
+      "chiral_soliton_tail": 0.22298,
+      "reciprocal_paper3_tail": 0.04762
+    },
+    {
+      "xi_ps": -4.0,
+      "chiral_soliton_tail": 0.22728,
+      "reciprocal_paper3_tail": 0.10116
+    },
+    {
+      "xi_ps": -3.6,
+      "chiral_soliton_tail": 0.14294,
+      "reciprocal_paper3_tail": 0.12542
+    },
+    {
+      "xi_ps": -3.2,
+      "chiral_soliton_tail": -0.02437,
+      "reciprocal_paper3_tail": 0.08958
+    },
+    {
+      "xi_ps": -2.8,
+      "chiral_soliton_tail": -0.23432,
+      "reciprocal_paper3_tail": -0.01923
+    },
+    {
+      "xi_ps": -2.4,
+      "chiral_soliton_tail": -0.41712,
+      "reciprocal_paper3_tail": -0.17823
+    },
+    {
+      "xi_ps": -2.0,
+      "chiral_soliton_tail": -0.4919,
+      "reciprocal_paper3_tail": -0.32219
+    },
+    {
+      "xi_ps": -1.6,
+      "chiral_soliton_tail": -0.3953,
+      "reciprocal_paper3_tail": -0.35792
+    },
+    {
+      "xi_ps": -1.2,
+      "chiral_soliton_tail": -0.11198,
+      "reciprocal_paper3_tail": -0.20319
+    },
+    {
+      "xi_ps": -0.8,
+      "chiral_soliton_tail": 0.30424,
+      "reciprocal_paper3_tail": 0.15856
+    },
+    {
+      "xi_ps": -0.4,
+      "chiral_soliton_tail": 0.7301,
+      "reciprocal_paper3_tail": 0.63145
+    },
+    {
+      "xi_ps": 0.0,
+      "chiral_soliton_tail": 1.0,
+      "reciprocal_paper3_tail": 1.0
+    },
+    {
+      "xi_ps": 0.4,
+      "chiral_soliton_tail": 0.54055,
+      "reciprocal_paper3_tail": 0.63145
+    },
+    {
+      "xi_ps": 0.8,
+      "chiral_soliton_tail": 0.04858,
+      "reciprocal_paper3_tail": 0.15856
+    },
+    {
+      "xi_ps": 1.2,
+      "chiral_soliton_tail": -0.2371,
+      "reciprocal_paper3_tail": -0.20319
+    },
+    {
+      "xi_ps": 1.6,
+      "chiral_soliton_tail": -0.28236,
+      "reciprocal_paper3_tail": -0.35792
+    },
+    {
+      "xi_ps": 2.0,
+      "chiral_soliton_tail": -0.17822,
+      "reciprocal_paper3_tail": -0.32219
+    },
+    {
+      "xi_ps": 2.4,
+      "chiral_soliton_tail": -0.04138,
+      "reciprocal_paper3_tail": -0.17823
+    },
+    {
+      "xi_ps": 2.8,
+      "chiral_soliton_tail": 0.05075,
+      "reciprocal_paper3_tail": -0.01923
+    },
+    {
+      "xi_ps": 3.2,
+      "chiral_soliton_tail": 0.07704,
+      "reciprocal_paper3_tail": 0.08958
+    },
+    {
+      "xi_ps": 3.6,
+      "chiral_soliton_tail": 0.05609,
+      "reciprocal_paper3_tail": 0.12542
+    },
+    {
+      "xi_ps": 4.0,
+      "chiral_soliton_tail": 0.01937,
+      "reciprocal_paper3_tail": 0.10116
+    },
+    {
+      "xi_ps": 4.4,
+      "chiral_soliton_tail": -0.00912,
+      "reciprocal_paper3_tail": 0.04762
+    },
+    {
+      "xi_ps": 4.8,
+      "chiral_soliton_tail": -0.02023,
+      "reciprocal_paper3_tail": -0.00449
+    },
+    {
+      "xi_ps": 5.2,
+      "chiral_soliton_tail": -0.01699,
+      "reciprocal_paper3_tail": -0.03609
+    },
+    {
+      "xi_ps": 5.6,
+      "chiral_soliton_tail": -0.00753,
+      "reciprocal_paper3_tail": -0.04272
+    },
+    {
+      "xi_ps": 6.0,
+      "chiral_soliton_tail": 0.00097,
+      "reciprocal_paper3_tail": -0.03089
+    },
+    {
+      "xi_ps": 6.4,
+      "chiral_soliton_tail": 0.00508,
+      "reciprocal_paper3_tail": -0.01171
+    },
+    {
+      "xi_ps": 6.8,
+      "chiral_soliton_tail": 0.00497,
+      "reciprocal_paper3_tail": 0.00494
+    },
+    {
+      "xi_ps": 7.2,
+      "chiral_soliton_tail": 0.00265,
+      "reciprocal_paper3_tail": 0.01372
+    },
+    {
+      "xi_ps": 7.6,
+      "chiral_soliton_tail": 0.00021,
+      "reciprocal_paper3_tail": 0.01417
+    },
+    {
+      "xi_ps": 8.0,
+      "chiral_soliton_tail": -0.0012,
+      "reciprocal_paper3_tail": 0.00913
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Non-Hermitian Exceptional-Point Dispersion Engineering and Broadband Quantum Langevin Squeezing in Kerr-Bloch and Josephson Metamaterial Combs",
+  "description": "Complete LaTeX manuscript, analytical operator proofs (Theorems 1-2 & Corollary 1), 2,000-comb Monte Carlo verification datasets, stochastic Heisenberg-Langevin twin-beam squeezing simulations, and standalone TikZ vector figures for Paper V.",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "creators": [
+    {
+      "name": "Ownby, Gracen",
+      "affiliation": "University of Oklahoma, Norman, Oklahoma, USA"
+    }
+  ],
+  "keywords": [
+    "Quantum Cascade Laser Frequency Combs",
+    "Exceptional Points",
+    "Non-Hermitian Photonics",
+    "Quantum Squeezing",
+    "Heisenberg-Langevin Theory",
+    "Kerr Microresonators",
+    "Josephson Traveling-Wave Parametric Amplifiers"
+  ],
+  "license": "MIT"
+}

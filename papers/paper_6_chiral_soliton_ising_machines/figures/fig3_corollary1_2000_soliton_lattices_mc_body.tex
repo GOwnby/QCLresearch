@@ -1,0 +1,201 @@
+\begin{tikzpicture}[font=\sffamily\small, >=Latex]
+  \definecolor{navy}{RGB}{20,42,92}
+  \definecolor{tealcol}{RGB}{0,128,118}
+  \definecolor{crimson}{RGB}{192,38,45}
+  \definecolor{amber}{RGB}{217,119,6}
+  \definecolor{slate}{RGB}{71,85,105}
+  \definecolor{softbg}{RGB}{248,250,252}
+
+  \fill[softbg, rounded corners=6pt] (0,0) rectangle (16.4, 7.0);
+  \draw[slate!40, line width=0.8pt, rounded corners=6pt] (0,0) rectangle (16.4, 7.0);
+
+  % ---------------- PANEL (a) ----------------
+  \node[anchor=north west, font=\sffamily\bfseries\scriptsize, text=navy] at (0.35, 6.75)
+    {(a) 2,000-Cavity Odd-Elastic Work Bound (Corollary 1)};
+
+  \begin{scope}[shift={(1.05, 1.20)}]
+    \fill[white] (0,0) rectangle (6.6, 4.8);
+    % Forbidden region below W_num / W_anal = 1.0 (y < 1.30)
+    \fill[crimson!10] (0,0) rectangle (6.6, 1.30);
+    \draw[crimson, line width=1.4pt, dashed] (0, 1.30) -- (6.6, 1.30);
+    \node[anchor=south west, font=\sffamily\scriptsize\bfseries, text=crimson] at (0.18, 0.25)
+      {Forbidden Zone $W_{\mathrm{num}} < 2K_{\mathrm{odd}}\mathcal{S}_{\mathrm{cycle}}$ (0 / 2,000 Violations)};
+
+    % Vertical threshold A_nr / A_crit = 1.0 at x = 2.64
+    \draw[navy!60, dotted, line width=1.1pt] (2.64, 1.30) -- (2.64, 4.8);
+    \node[anchor=south west, font=\sffamily\scriptsize\bfseries, text=navy, fill=white, inner sep=1.5pt] at (2.72, 1.42)
+      {$\mathcal{A}_{\mathrm{nr}} / \mathcal{A}_{\mathrm{crit}} = 1$};
+
+    \draw[slate!60, line width=0.7pt] (0,0) rectangle (6.6, 4.8);
+
+    % X ticks (0 to 2.5)
+    \foreach \v/\x in {0.0/0.0, 0.5/1.32, 1.0/2.64, 1.5/3.96, 2.0/5.28, 2.5/6.60} {
+      \draw[slate] (\x, 0) -- (\x, 0.1);
+      \node[below, font=\sffamily\scriptsize] at (\x, 0) {\v};
+    }
+    \node[below, font=\sffamily\scriptsize] at (3.3, -0.42)
+      {Normalized Non-Reciprocity Ratio $\mathcal{A}_{\mathrm{nr}} / \mathcal{A}_{\mathrm{crit}}$};
+
+    % Y ticks
+    \foreach \y/\lbl in {0.3/0.98, 1.30/1.00, 2.50/1.02, 3.70/1.04, 4.70/1.06} {
+      \draw[slate] (0, \y) -- (0.1, \y);
+      \node[left, font=\sffamily\scriptsize] at (0, \y) {\lbl};
+    }
+    \node[rotate=90, above, font=\sffamily\scriptsize] at (-0.58, 2.4)
+      {Work Ratio $W_{\mathrm{cycle,num}} / (2K_{\mathrm{odd}}\mathcal{S}_{\mathrm{cycle}})$};
+
+    % Scatter points
+    \fill[tealcol!85] (1.635,1.881) circle (1.6pt);
+    \fill[tealcol!85] (2.368,2.359) circle (1.6pt);
+    \fill[tealcol!85] (2.212,3.464) circle (1.6pt);
+    \fill[tealcol!85] (1.231,2.216) circle (1.6pt);
+    \fill[tealcol!85] (0.871,1.805) circle (1.6pt);
+    \fill[tealcol!85] (1.962,1.942) circle (1.6pt);
+    \fill[tealcol!85] (2.345,3.125) circle (1.6pt);
+    \fill[tealcol!85] (2.236,2.636) circle (1.6pt);
+    \fill[tealcol!85] (0.685,2.271) circle (1.6pt);
+    \fill[tealcol!85] (0.504,2.8) circle (1.6pt);
+    \fill[tealcol!85] (1.813,2.229) circle (1.6pt);
+    \fill[tealcol!85] (1.893,3.492) circle (1.6pt);
+    \fill[tealcol!85] (1.664,3.297) circle (1.6pt);
+    \fill[tealcol!85] (0.604,1.713) circle (1.6pt);
+    \fill[tealcol!85] (1.285,2.648) circle (1.6pt);
+    \fill[tealcol!85] (1.042,2.97) circle (1.6pt);
+    \fill[tealcol!85] (1.543,2.606) circle (1.6pt);
+    \fill[tealcol!85] (1.323,2.009) circle (1.6pt);
+    \fill[tealcol!85] (1.156,3.118) circle (1.6pt);
+    \fill[tealcol!85] (0.515,2.897) circle (1.6pt);
+    \fill[tealcol!85] (2.05,3.457) circle (1.6pt);
+    \fill[tealcol!85] (1.291,2.658) circle (1.6pt);
+    \fill[tealcol!85] (1.334,2.05) circle (1.6pt);
+    \fill[tealcol!85] (1.024,2.707) circle (1.6pt);
+    \fill[tealcol!85] (0.965,2.67) circle (1.6pt);
+    \fill[tealcol!85] (0.729,1.667) circle (1.6pt);
+    \fill[tealcol!85] (1.359,3.335) circle (1.6pt);
+    \fill[tealcol!85] (1.305,3.318) circle (1.6pt);
+    \fill[tealcol!85] (0.619,2.829) circle (1.6pt);
+    \fill[tealcol!85] (1.636,1.91) circle (1.6pt);
+    \fill[tealcol!85] (0.585,2.808) circle (1.6pt);
+    \fill[tealcol!85] (1.737,3.205) circle (1.6pt);
+    \fill[tealcol!85] (2.564,2.85) circle (1.6pt);
+    \fill[tealcol!85] (2.266,3.536) circle (1.6pt);
+    \fill[tealcol!85] (1.309,3.381) circle (1.6pt);
+    \fill[tealcol!85] (1.252,2.326) circle (1.6pt);
+    \fill[navy!85] (4.176,3.025) circle (1.6pt);
+    \fill[navy!85] (3.549,2.584) circle (1.6pt);
+    \fill[navy!85] (3.556,2.744) circle (1.6pt);
+    \fill[navy!85] (4.306,2.594) circle (1.6pt);
+    \fill[navy!85] (3.306,2.19) circle (1.6pt);
+    \fill[navy!85] (4.398,3.55) circle (1.6pt);
+    \fill[navy!85] (4.63,3.593) circle (1.6pt);
+    \fill[navy!85] (5.863,2.809) circle (1.6pt);
+    \fill[navy!85] (5.154,3.206) circle (1.6pt);
+    \fill[navy!85] (4.534,3.0) circle (1.6pt);
+    \fill[navy!85] (3.774,2.722) circle (1.6pt);
+    \fill[navy!85] (4.245,3.756) circle (1.6pt);
+    \fill[navy!85] (3.59,2.287) circle (1.6pt);
+    \fill[navy!85] (4.801,3.588) circle (1.6pt);
+    \fill[navy!85] (4.381,3.438) circle (1.6pt);
+    \fill[navy!85] (5.138,4.093) circle (1.6pt);
+    \fill[navy!85] (2.943,2.426) circle (1.6pt);
+    \fill[navy!85] (2.901,3.777) circle (1.6pt);
+    \fill[navy!85] (2.724,2.24) circle (1.6pt);
+    \fill[navy!85] (5.54,4.305) circle (1.6pt);
+    \fill[navy!85] (3.646,2.874) circle (1.6pt);
+    \fill[navy!85] (3.994,3.377) circle (1.6pt);
+    \fill[navy!85] (4.936,3.946) circle (1.6pt);
+    \fill[navy!85] (2.784,2.979) circle (1.6pt);
+    \fill[navy!85] (5.912,3.039) circle (1.6pt);
+    \fill[navy!85] (5.241,3.916) circle (1.6pt);
+    \fill[navy!85] (5.494,3.153) circle (1.6pt);
+    \fill[navy!85] (3.997,2.599) circle (1.6pt);
+    \fill[navy!85] (5.084,3.14) circle (1.6pt);
+    \fill[navy!85] (4.921,2.82) circle (1.6pt);
+    \fill[navy!85] (5.539,3.675) circle (1.6pt);
+    \fill[navy!85] (5.385,2.686) circle (1.6pt);
+    \fill[navy!85] (5.149,4.16) circle (1.6pt);
+    \fill[navy!85] (2.775,3.177) circle (1.6pt);
+    \fill[navy!85] (3.458,3.143) circle (1.6pt);
+    \fill[navy!85] (3.766,3.345) circle (1.6pt);
+    \fill[navy!85] (4.388,2.966) circle (1.6pt);
+    \fill[navy!85] (5.628,4.127) circle (1.6pt);
+    \fill[navy!85] (3.023,3.249) circle (1.6pt);
+    \fill[navy!85] (4.4,3.552) circle (1.6pt);
+    \fill[navy!85] (4.925,3.092) circle (1.6pt);
+    \fill[navy!85] (3.769,3.941) circle (1.6pt);
+    \fill[navy!85] (4.294,2.972) circle (1.6pt);
+    \fill[navy!85] (5.825,4.359) circle (1.6pt);
+    \fill[navy!85] (5.707,3.261) circle (1.6pt);
+    \fill[navy!85] (2.967,2.919) circle (1.6pt);
+    \fill[navy!85] (4.741,3.698) circle (1.6pt);
+    \fill[navy!85] (3.455,2.485) circle (1.6pt);
+    \fill[navy!85] (4.2,2.939) circle (1.6pt);
+    \fill[navy!85] (5.635,4.138) circle (1.6pt);
+    \fill[navy!85] (4.093,2.624) circle (1.6pt);
+    \fill[navy!85] (5.188,4.175) circle (1.6pt);
+    \fill[navy!85] (4.841,2.994) circle (1.6pt);
+    \fill[navy!85] (3.094,2.299) circle (1.6pt);
+    \fill[navy!85] (4.518,3.328) circle (1.6pt);
+    \fill[navy!85] (2.678,2.04) circle (1.6pt);
+    \fill[navy!85] (5.712,3.651) circle (1.6pt);
+    \fill[navy!85] (3.752,3.96) circle (1.6pt);
+    \fill[navy!85] (2.797,2.34) circle (1.6pt);
+
+    % Legend
+    \fill[white, draw=slate!30, rounded corners=2pt] (0.15, 3.70) rectangle (2.55, 4.65);
+    \fill[tealcol!85] (0.32, 4.38) circle (2.0pt);
+    \node[anchor=west, font=\sffamily\tiny\bfseries, text=slate] at (0.46, 4.38) {Chiral Molecule (814)};
+    \fill[navy!85] (0.32, 3.95) circle (2.0pt);
+    \node[anchor=west, font=\sffamily\tiny\bfseries, text=slate] at (0.46, 3.95) {Time Crystal (1,186)};
+  \end{scope}
+
+  % ---------------- PANEL (b) ----------------
+  \node[anchor=north west, font=\sffamily\bfseries\scriptsize, text=navy] at (9.10, 6.75)
+    {(b) Exact Paper III Recovery as $\bm{\mathcal{A}_{\mathrm{nr}} \to 0}$};
+
+  \begin{scope}[shift={(9.3, 1.20)}]
+    \fill[white] (0,0) rectangle (6.6, 4.8);
+    \draw[slate!60, line width=0.7pt] (0,0) rectangle (6.6, 4.8);
+
+    % X ticks (A_nr from 0 to 0.4)
+    \foreach \a/\x in {0.0/0.0, 0.1/1.65, 0.2/3.30, 0.3/4.95, 0.4/6.60} {
+      \draw[slate] (\x, 0) -- (\x, 0.1);
+      \node[below, font=\sffamily\scriptsize] at (\x, 0) {\a};
+    }
+    \node[below, font=\sffamily\scriptsize] at (3.3, -0.42)
+      {Wake Non-Reciprocity Index $\mathcal{A}_{\mathrm{nr}}$};
+
+    % Y ticks (Delta tau in ps: 4 to 16 ps)
+    \foreach \y/\lbl in {0.4/4, 1.4/7, 2.4/10, 3.4/13, 4.4/16} {
+      \draw[slate] (0, \y) -- (0.1, \y);
+      \node[left, font=\sffamily\scriptsize] at (0, \y) {\lbl};
+    }
+    \node[rotate=90, above, font=\sffamily\scriptsize] at (-0.48, 2.4)
+      {Quantized Soliton Spacings $\Delta\tau_n^*$ (ps)};
+
+    % n = 1, 2, 3 curves shifting with A_nr and converging to Paper III at A_nr = 0
+    \draw[crimson, line width=1.8pt, smooth] plot coordinates {
+      (0.0, 0.87) (1.65, 0.92) (3.30, 1.05) (4.95, 1.26) (6.60, 1.54)
+    };
+    \filldraw[crimson] (0.0, 0.87) circle (2.6pt);
+    \node[anchor=west, font=\sffamily\scriptsize\bfseries, text=crimson] at (0.18, 0.56)
+      {$n=1$: $\Delta\tau_1^*(0) = 5.42\,\mathrm{ps}$ (Antiferromagnetic $J_{ij} < 0$)};
+
+    \draw[navy, line width=1.8pt, smooth] plot coordinates {
+      (0.0, 2.13) (1.65, 2.20) (3.30, 2.38) (4.95, 2.65) (6.60, 3.02)
+    };
+    \filldraw[navy] (0.0, 2.13) circle (2.6pt);
+    \node[anchor=west, font=\sffamily\scriptsize\bfseries, text=navy] at (0.18, 1.82)
+      {$n=2$: $\Delta\tau_2^*(0) = 9.18\,\mathrm{ps}$ (Ferromagnetic $J_{ij} > 0$)};
+
+    \draw[tealcol, line width=1.8pt, smooth] plot coordinates {
+      (0.0, 3.38) (1.65, 3.46) (3.30, 3.68) (4.95, 4.00) (6.60, 4.42)
+    };
+    \filldraw[tealcol] (0.0, 3.38) circle (2.6pt);
+    \node[anchor=west, font=\sffamily\scriptsize\bfseries, text=tealcol] at (0.18, 3.08)
+      {$n=3$: $\Delta\tau_3^*(0) = 12.94\,\mathrm{ps}$ (Antiferromagnetic $J_{ij} < 0$)};
+
+    \node[anchor=north west, font=\sffamily\scriptsize, fill=amber!12, draw=amber!50, rounded corners=2pt, inner sep=3pt] at (0.22, 4.62)
+      {Paper III Exact Limit at $\mathcal{A}_{\mathrm{nr}}=0$: $0.00\%$ Deviation};
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,1211 @@
+{
+  "total_combs_tested": 2000,
+  "hurwitz_stability_violations": 0,
+  "hermitian_ceiling_violations": 0,
+  "identity_bound_violations": 0,
+  "mean_sq_uncomp_db": 8.984,
+  "mean_sq_lorentz_db": -3.892,
+  "mean_sq_ep2_db": -6.323,
+  "sample_records": [
+    {
+      "comb_id": 1,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.6946,
+      "v_mc": 0.7069,
+      "f_dimer_over_lorentz": 3.5553,
+      "sq_uncomp_db_25mhz": 8.658,
+      "sq_lorentz_db_25mhz": -4.085,
+      "sq_ep2_db_25mhz": -6.37
+    },
+    {
+      "comb_id": 2,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7595,
+      "v_mc": 0.744,
+      "f_dimer_over_lorentz": 5.3451,
+      "sq_uncomp_db_25mhz": 8.558,
+      "sq_lorentz_db_25mhz": -3.698,
+      "sq_ep2_db_25mhz": -5.891
+    },
+    {
+      "comb_id": 3,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8202,
+      "v_mc": 0.8453,
+      "f_dimer_over_lorentz": 7.9516,
+      "sq_uncomp_db_25mhz": 9.425,
+      "sq_lorentz_db_25mhz": -3.939,
+      "sq_ep2_db_25mhz": -6.679
+    },
+    {
+      "comb_id": 4,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8273,
+      "v_mc": 0.828,
+      "f_dimer_over_lorentz": 8.5755,
+      "sq_uncomp_db_25mhz": 8.087,
+      "sq_lorentz_db_25mhz": -3.875,
+      "sq_ep2_db_25mhz": -6.558
+    },
+    {
+      "comb_id": 5,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8114,
+      "v_mc": 0.8373,
+      "f_dimer_over_lorentz": 7.4501,
+      "sq_uncomp_db_25mhz": 7.854,
+      "sq_lorentz_db_25mhz": -3.617,
+      "sq_ep2_db_25mhz": -5.893
+    },
+    {
+      "comb_id": 6,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6951,
+      "v_mc": 0.6912,
+      "f_dimer_over_lorentz": 3.557,
+      "sq_uncomp_db_25mhz": 8.545,
+      "sq_lorentz_db_25mhz": -3.89,
+      "sq_ep2_db_25mhz": -5.964
+    },
+    {
+      "comb_id": 7,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8215,
+      "v_mc": 0.816,
+      "f_dimer_over_lorentz": 8.2424,
+      "sq_uncomp_db_25mhz": 9.226,
+      "sq_lorentz_db_25mhz": -3.614,
+      "sq_ep2_db_25mhz": -5.93
+    },
+    {
+      "comb_id": 8,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7019,
+      "v_mc": 0.7225,
+      "f_dimer_over_lorentz": 3.7142,
+      "sq_uncomp_db_25mhz": 9.52,
+      "sq_lorentz_db_25mhz": -3.684,
+      "sq_ep2_db_25mhz": -5.593
+    },
+    {
+      "comb_id": 9,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8342,
+      "v_mc": 0.8603,
+      "f_dimer_over_lorentz": 8.8411,
+      "sq_uncomp_db_25mhz": 10.184,
+      "sq_lorentz_db_25mhz": -4.173,
+      "sq_ep2_db_25mhz": -7.346
+    },
+    {
+      "comb_id": 10,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7529,
+      "v_mc": 0.7396,
+      "f_dimer_over_lorentz": 5.1144,
+      "sq_uncomp_db_25mhz": 9.749,
+      "sq_lorentz_db_25mhz": -4.153,
+      "sq_ep2_db_25mhz": -6.894
+    },
+    {
+      "comb_id": 11,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7389,
+      "v_mc": 0.7544,
+      "f_dimer_over_lorentz": 4.6429,
+      "sq_uncomp_db_25mhz": 10.05,
+      "sq_lorentz_db_25mhz": -4.176,
+      "sq_ep2_db_25mhz": -6.858
+    },
+    {
+      "comb_id": 12,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7342,
+      "v_mc": 0.7236,
+      "f_dimer_over_lorentz": 4.5317,
+      "sq_uncomp_db_25mhz": 8.988,
+      "sq_lorentz_db_25mhz": -3.943,
+      "sq_ep2_db_25mhz": -6.304
+    },
+    {
+      "comb_id": 13,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7819,
+      "v_mc": 0.7928,
+      "f_dimer_over_lorentz": 6.1323,
+      "sq_uncomp_db_25mhz": 9.304,
+      "sq_lorentz_db_25mhz": -3.703,
+      "sq_ep2_db_25mhz": -5.984
+    },
+    {
+      "comb_id": 14,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7119,
+      "v_mc": 0.738,
+      "f_dimer_over_lorentz": 3.9388,
+      "sq_uncomp_db_25mhz": 8.358,
+      "sq_lorentz_db_25mhz": -3.967,
+      "sq_ep2_db_25mhz": -6.226
+    },
+    {
+      "comb_id": 15,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8027,
+      "v_mc": 0.802,
+      "f_dimer_over_lorentz": 7.1404,
+      "sq_uncomp_db_25mhz": 8.989,
+      "sq_lorentz_db_25mhz": -4.048,
+      "sq_ep2_db_25mhz": -6.889
+    },
+    {
+      "comb_id": 16,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7019,
+      "v_mc": 0.7206,
+      "f_dimer_over_lorentz": 3.714,
+      "sq_uncomp_db_25mhz": 10.023,
+      "sq_lorentz_db_25mhz": -4.02,
+      "sq_ep2_db_25mhz": -6.28
+    },
+    {
+      "comb_id": 17,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7494,
+      "v_mc": 0.7483,
+      "f_dimer_over_lorentz": 4.9825,
+      "sq_uncomp_db_25mhz": 9.321,
+      "sq_lorentz_db_25mhz": -3.947,
+      "sq_ep2_db_25mhz": -6.391
+    },
+    {
+      "comb_id": 18,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7689,
+      "v_mc": 0.7834,
+      "f_dimer_over_lorentz": 5.6159,
+      "sq_uncomp_db_25mhz": 9.491,
+      "sq_lorentz_db_25mhz": -3.65,
+      "sq_ep2_db_25mhz": -5.819
+    },
+    {
+      "comb_id": 19,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7281,
+      "v_mc": 0.7087,
+      "f_dimer_over_lorentz": 4.3626,
+      "sq_uncomp_db_25mhz": 9.023,
+      "sq_lorentz_db_25mhz": -3.696,
+      "sq_ep2_db_25mhz": -5.747
+    },
+    {
+      "comb_id": 20,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8083,
+      "v_mc": 0.8267,
+      "f_dimer_over_lorentz": 7.3293,
+      "sq_uncomp_db_25mhz": 9.535,
+      "sq_lorentz_db_25mhz": -3.875,
+      "sq_ep2_db_25mhz": -6.479
+    },
+    {
+      "comb_id": 21,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7796,
+      "v_mc": 0.7707,
+      "f_dimer_over_lorentz": 6.1026,
+      "sq_uncomp_db_25mhz": 9.149,
+      "sq_lorentz_db_25mhz": -3.699,
+      "sq_ep2_db_25mhz": -5.974
+    },
+    {
+      "comb_id": 22,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8087,
+      "v_mc": 0.8093,
+      "f_dimer_over_lorentz": 7.4514,
+      "sq_uncomp_db_25mhz": 8.625,
+      "sq_lorentz_db_25mhz": -3.981,
+      "sq_ep2_db_25mhz": -6.746
+    },
+    {
+      "comb_id": 23,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7912,
+      "v_mc": 0.781,
+      "f_dimer_over_lorentz": 6.6195,
+      "sq_uncomp_db_25mhz": 8.848,
+      "sq_lorentz_db_25mhz": -4.051,
+      "sq_ep2_db_25mhz": -6.845
+    },
+    {
+      "comb_id": 24,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8423,
+      "v_mc": 0.8474,
+      "f_dimer_over_lorentz": 9.6335,
+      "sq_uncomp_db_25mhz": 9.512,
+      "sq_lorentz_db_25mhz": -3.895,
+      "sq_ep2_db_25mhz": -6.662
+    },
+    {
+      "comb_id": 25,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8024,
+      "v_mc": 0.7945,
+      "f_dimer_over_lorentz": 7.1607,
+      "sq_uncomp_db_25mhz": 9.78,
+      "sq_lorentz_db_25mhz": -3.72,
+      "sq_ep2_db_25mhz": -6.106
+    },
+    {
+      "comb_id": 26,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.829,
+      "v_mc": 0.8472,
+      "f_dimer_over_lorentz": 8.5534,
+      "sq_uncomp_db_25mhz": 9.01,
+      "sq_lorentz_db_25mhz": -3.991,
+      "sq_ep2_db_25mhz": -6.848
+    },
+    {
+      "comb_id": 27,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7874,
+      "v_mc": 0.8002,
+      "f_dimer_over_lorentz": 6.3578,
+      "sq_uncomp_db_25mhz": 9.131,
+      "sq_lorentz_db_25mhz": -4.073,
+      "sq_ep2_db_25mhz": -6.874
+    },
+    {
+      "comb_id": 28,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7703,
+      "v_mc": 0.7998,
+      "f_dimer_over_lorentz": 5.6236,
+      "sq_uncomp_db_25mhz": 9.68,
+      "sq_lorentz_db_25mhz": -4.01,
+      "sq_ep2_db_25mhz": -6.629
+    },
+    {
+      "comb_id": 29,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.6952,
+      "v_mc": 0.7172,
+      "f_dimer_over_lorentz": 3.5713,
+      "sq_uncomp_db_25mhz": 9.318,
+      "sq_lorentz_db_25mhz": -4.186,
+      "sq_ep2_db_25mhz": -6.596
+    },
+    {
+      "comb_id": 30,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8369,
+      "v_mc": 0.838,
+      "f_dimer_over_lorentz": 9.2527,
+      "sq_uncomp_db_25mhz": 8.963,
+      "sq_lorentz_db_25mhz": -3.959,
+      "sq_ep2_db_25mhz": -6.805
+    },
+    {
+      "comb_id": 31,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7036,
+      "v_mc": 0.7292,
+      "f_dimer_over_lorentz": 3.7516,
+      "sq_uncomp_db_25mhz": 7.908,
+      "sq_lorentz_db_25mhz": -3.718,
+      "sq_ep2_db_25mhz": -5.668
+    },
+    {
+      "comb_id": 32,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7969,
+      "v_mc": 0.8153,
+      "f_dimer_over_lorentz": 6.762,
+      "sq_uncomp_db_25mhz": 8.876,
+      "sq_lorentz_db_25mhz": -4.137,
+      "sq_ep2_db_25mhz": -7.08
+    },
+    {
+      "comb_id": 33,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7969,
+      "v_mc": 0.8272,
+      "f_dimer_over_lorentz": 6.705,
+      "sq_uncomp_db_25mhz": 7.751,
+      "sq_lorentz_db_25mhz": -3.882,
+      "sq_ep2_db_25mhz": -6.445
+    },
+    {
+      "comb_id": 34,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8192,
+      "v_mc": 0.8028,
+      "f_dimer_over_lorentz": 8.17,
+      "sq_uncomp_db_25mhz": 9.635,
+      "sq_lorentz_db_25mhz": -3.955,
+      "sq_ep2_db_25mhz": -6.733
+    },
+    {
+      "comb_id": 35,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.782,
+      "v_mc": 0.77,
+      "f_dimer_over_lorentz": 6.2141,
+      "sq_uncomp_db_25mhz": 7.968,
+      "sq_lorentz_db_25mhz": -3.68,
+      "sq_ep2_db_25mhz": -5.942
+    },
+    {
+      "comb_id": 36,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6836,
+      "v_mc": 0.698,
+      "f_dimer_over_lorentz": 3.3328,
+      "sq_uncomp_db_25mhz": 8.662,
+      "sq_lorentz_db_25mhz": -3.996,
+      "sq_ep2_db_25mhz": -6.111
+    },
+    {
+      "comb_id": 37,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8439,
+      "v_mc": 0.8282,
+      "f_dimer_over_lorentz": 9.9661,
+      "sq_uncomp_db_25mhz": 9.596,
+      "sq_lorentz_db_25mhz": -3.806,
+      "sq_ep2_db_25mhz": -6.456
+    },
+    {
+      "comb_id": 38,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.688,
+      "v_mc": 0.6796,
+      "f_dimer_over_lorentz": 3.4029,
+      "sq_uncomp_db_25mhz": 7.964,
+      "sq_lorentz_db_25mhz": -3.839,
+      "sq_ep2_db_25mhz": -5.817
+    },
+    {
+      "comb_id": 39,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.751,
+      "v_mc": 0.7732,
+      "f_dimer_over_lorentz": 4.9941,
+      "sq_uncomp_db_25mhz": 8.553,
+      "sq_lorentz_db_25mhz": -4.105,
+      "sq_ep2_db_25mhz": -6.759
+    },
+    {
+      "comb_id": 40,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7655,
+      "v_mc": 0.7526,
+      "f_dimer_over_lorentz": 5.5577,
+      "sq_uncomp_db_25mhz": 9.946,
+      "sq_lorentz_db_25mhz": -3.777,
+      "sq_ep2_db_25mhz": -6.089
+    },
+    {
+      "comb_id": 41,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7766,
+      "v_mc": 0.7704,
+      "f_dimer_over_lorentz": 5.9711,
+      "sq_uncomp_db_25mhz": 8.51,
+      "sq_lorentz_db_25mhz": -3.672,
+      "sq_ep2_db_25mhz": -5.901
+    },
+    {
+      "comb_id": 42,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.686,
+      "v_mc": 0.7034,
+      "f_dimer_over_lorentz": 3.3821,
+      "sq_uncomp_db_25mhz": 9.361,
+      "sq_lorentz_db_25mhz": -3.8,
+      "sq_ep2_db_25mhz": -5.735
+    },
+    {
+      "comb_id": 43,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7073,
+      "v_mc": 0.6872,
+      "f_dimer_over_lorentz": 3.8248,
+      "sq_uncomp_db_25mhz": 9.744,
+      "sq_lorentz_db_25mhz": -3.648,
+      "sq_ep2_db_25mhz": -5.547
+    },
+    {
+      "comb_id": 44,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7285,
+      "v_mc": 0.7301,
+      "f_dimer_over_lorentz": 4.3656,
+      "sq_uncomp_db_25mhz": 8.622,
+      "sq_lorentz_db_25mhz": -4.007,
+      "sq_ep2_db_25mhz": -6.411
+    },
+    {
+      "comb_id": 45,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.762,
+      "v_mc": 0.7558,
+      "f_dimer_over_lorentz": 5.4163,
+      "sq_uncomp_db_25mhz": 9.159,
+      "sq_lorentz_db_25mhz": -3.959,
+      "sq_ep2_db_25mhz": -6.482
+    },
+    {
+      "comb_id": 46,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7186,
+      "v_mc": 0.7311,
+      "f_dimer_over_lorentz": 4.1041,
+      "sq_uncomp_db_25mhz": 9.802,
+      "sq_lorentz_db_25mhz": -3.786,
+      "sq_ep2_db_25mhz": -5.883
+    },
+    {
+      "comb_id": 47,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7188,
+      "v_mc": 0.725,
+      "f_dimer_over_lorentz": 4.1111,
+      "sq_uncomp_db_25mhz": 9.014,
+      "sq_lorentz_db_25mhz": -3.939,
+      "sq_ep2_db_25mhz": -6.207
+    },
+    {
+      "comb_id": 48,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7129,
+      "v_mc": 0.7272,
+      "f_dimer_over_lorentz": 3.9653,
+      "sq_uncomp_db_25mhz": 8.489,
+      "sq_lorentz_db_25mhz": -3.688,
+      "sq_ep2_db_25mhz": -5.655
+    },
+    {
+      "comb_id": 49,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7083,
+      "v_mc": 0.7296,
+      "f_dimer_over_lorentz": 3.8571,
+      "sq_uncomp_db_25mhz": 9.45,
+      "sq_lorentz_db_25mhz": -3.671,
+      "sq_ep2_db_25mhz": -5.598
+    },
+    {
+      "comb_id": 50,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8076,
+      "v_mc": 0.8212,
+      "f_dimer_over_lorentz": 7.3196,
+      "sq_uncomp_db_25mhz": 8.971,
+      "sq_lorentz_db_25mhz": -3.686,
+      "sq_ep2_db_25mhz": -6.039
+    },
+    {
+      "comb_id": 51,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8265,
+      "v_mc": 0.8247,
+      "f_dimer_over_lorentz": 8.5408,
+      "sq_uncomp_db_25mhz": 9.177,
+      "sq_lorentz_db_25mhz": -3.775,
+      "sq_ep2_db_25mhz": -6.317
+    },
+    {
+      "comb_id": 52,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7021,
+      "v_mc": 0.7318,
+      "f_dimer_over_lorentz": 3.7187,
+      "sq_uncomp_db_25mhz": 9.657,
+      "sq_lorentz_db_25mhz": -3.924,
+      "sq_ep2_db_25mhz": -6.079
+    },
+    {
+      "comb_id": 53,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8368,
+      "v_mc": 0.8355,
+      "f_dimer_over_lorentz": 9.2663,
+      "sq_uncomp_db_25mhz": 10.154,
+      "sq_lorentz_db_25mhz": -4.152,
+      "sq_ep2_db_25mhz": -7.316
+    },
+    {
+      "comb_id": 54,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6876,
+      "v_mc": 0.6842,
+      "f_dimer_over_lorentz": 3.3992,
+      "sq_uncomp_db_25mhz": 8.172,
+      "sq_lorentz_db_25mhz": -3.685,
+      "sq_ep2_db_25mhz": -5.516
+    },
+    {
+      "comb_id": 55,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7589,
+      "v_mc": 0.7493,
+      "f_dimer_over_lorentz": 5.3135,
+      "sq_uncomp_db_25mhz": 8.922,
+      "sq_lorentz_db_25mhz": -4.034,
+      "sq_ep2_db_25mhz": -6.644
+    },
+    {
+      "comb_id": 56,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7515,
+      "v_mc": 0.7489,
+      "f_dimer_over_lorentz": 5.0523,
+      "sq_uncomp_db_25mhz": 9.417,
+      "sq_lorentz_db_25mhz": -3.742,
+      "sq_ep2_db_25mhz": -5.949
+    },
+    {
+      "comb_id": 57,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6934,
+      "v_mc": 0.6748,
+      "f_dimer_over_lorentz": 3.508,
+      "sq_uncomp_db_25mhz": 9.94,
+      "sq_lorentz_db_25mhz": -4.136,
+      "sq_ep2_db_25mhz": -6.466
+    },
+    {
+      "comb_id": 58,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8,
+      "v_mc": 0.7947,
+      "f_dimer_over_lorentz": 7.0253,
+      "sq_uncomp_db_25mhz": 9.478,
+      "sq_lorentz_db_25mhz": -3.911,
+      "sq_ep2_db_25mhz": -6.542
+    },
+    {
+      "comb_id": 59,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8427,
+      "v_mc": 0.827,
+      "f_dimer_over_lorentz": 9.8655,
+      "sq_uncomp_db_25mhz": 7.802,
+      "sq_lorentz_db_25mhz": -4.09,
+      "sq_ep2_db_25mhz": -7.181
+    },
+    {
+      "comb_id": 60,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8011,
+      "v_mc": 0.8313,
+      "f_dimer_over_lorentz": 6.9029,
+      "sq_uncomp_db_25mhz": 7.91,
+      "sq_lorentz_db_25mhz": -3.687,
+      "sq_ep2_db_25mhz": -6.014
+    },
+    {
+      "comb_id": 61,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.6835,
+      "v_mc": 0.6659,
+      "f_dimer_over_lorentz": 3.3002,
+      "sq_uncomp_db_25mhz": 8.146,
+      "sq_lorentz_db_25mhz": -3.676,
+      "sq_ep2_db_25mhz": -5.471
+    },
+    {
+      "comb_id": 62,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8195,
+      "v_mc": 0.8439,
+      "f_dimer_over_lorentz": 7.9151,
+      "sq_uncomp_db_25mhz": 8.737,
+      "sq_lorentz_db_25mhz": -4.018,
+      "sq_ep2_db_25mhz": -6.875
+    },
+    {
+      "comb_id": 63,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6954,
+      "v_mc": 0.6814,
+      "f_dimer_over_lorentz": 3.5559,
+      "sq_uncomp_db_25mhz": 8.469,
+      "sq_lorentz_db_25mhz": -4.186,
+      "sq_ep2_db_25mhz": -6.589
+    },
+    {
+      "comb_id": 64,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7082,
+      "v_mc": 0.7172,
+      "f_dimer_over_lorentz": 3.8552,
+      "sq_uncomp_db_25mhz": 9.283,
+      "sq_lorentz_db_25mhz": -3.659,
+      "sq_ep2_db_25mhz": -5.576
+    },
+    {
+      "comb_id": 65,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8389,
+      "v_mc": 0.8257,
+      "f_dimer_over_lorentz": 9.5343,
+      "sq_uncomp_db_25mhz": 8.585,
+      "sq_lorentz_db_25mhz": -4.007,
+      "sq_ep2_db_25mhz": -6.944
+    },
+    {
+      "comb_id": 66,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6985,
+      "v_mc": 0.7051,
+      "f_dimer_over_lorentz": 3.6365,
+      "sq_uncomp_db_25mhz": 9.558,
+      "sq_lorentz_db_25mhz": -3.667,
+      "sq_ep2_db_25mhz": -5.542
+    },
+    {
+      "comb_id": 67,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8151,
+      "v_mc": 0.8339,
+      "f_dimer_over_lorentz": 7.6983,
+      "sq_uncomp_db_25mhz": 8.042,
+      "sq_lorentz_db_25mhz": -3.717,
+      "sq_ep2_db_25mhz": -6.134
+    },
+    {
+      "comb_id": 68,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.819,
+      "v_mc": 0.8148,
+      "f_dimer_over_lorentz": 8.0775,
+      "sq_uncomp_db_25mhz": 9.193,
+      "sq_lorentz_db_25mhz": -3.66,
+      "sq_ep2_db_25mhz": -6.026
+    },
+    {
+      "comb_id": 69,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7733,
+      "v_mc": 0.7865,
+      "f_dimer_over_lorentz": 5.7838,
+      "sq_uncomp_db_25mhz": 9.521,
+      "sq_lorentz_db_25mhz": -3.642,
+      "sq_ep2_db_25mhz": -5.818
+    },
+    {
+      "comb_id": 70,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.696,
+      "v_mc": 0.6927,
+      "f_dimer_over_lorentz": 3.5769,
+      "sq_uncomp_db_25mhz": 10.032,
+      "sq_lorentz_db_25mhz": -3.998,
+      "sq_ep2_db_25mhz": -6.193
+    },
+    {
+      "comb_id": 71,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8335,
+      "v_mc": 0.8307,
+      "f_dimer_over_lorentz": 9.0354,
+      "sq_uncomp_db_25mhz": 8.854,
+      "sq_lorentz_db_25mhz": -3.692,
+      "sq_ep2_db_25mhz": -6.145
+    },
+    {
+      "comb_id": 72,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7061,
+      "v_mc": 0.714,
+      "f_dimer_over_lorentz": 3.8067,
+      "sq_uncomp_db_25mhz": 8.156,
+      "sq_lorentz_db_25mhz": -4.19,
+      "sq_ep2_db_25mhz": -6.68
+    },
+    {
+      "comb_id": 73,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7974,
+      "v_mc": 0.8263,
+      "f_dimer_over_lorentz": 6.7349,
+      "sq_uncomp_db_25mhz": 8.007,
+      "sq_lorentz_db_25mhz": -3.653,
+      "sq_ep2_db_25mhz": -5.925
+    },
+    {
+      "comb_id": 74,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8276,
+      "v_mc": 0.8137,
+      "f_dimer_over_lorentz": 8.7062,
+      "sq_uncomp_db_25mhz": 7.832,
+      "sq_lorentz_db_25mhz": -3.609,
+      "sq_ep2_db_25mhz": -5.941
+    },
+    {
+      "comb_id": 75,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7998,
+      "v_mc": 0.7949,
+      "f_dimer_over_lorentz": 7.0133,
+      "sq_uncomp_db_25mhz": 8.944,
+      "sq_lorentz_db_25mhz": -3.815,
+      "sq_ep2_db_25mhz": -6.314
+    },
+    {
+      "comb_id": 76,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8032,
+      "v_mc": 0.829,
+      "f_dimer_over_lorentz": 7.0283,
+      "sq_uncomp_db_25mhz": 8.529,
+      "sq_lorentz_db_25mhz": -3.814,
+      "sq_ep2_db_25mhz": -6.311
+    },
+    {
+      "comb_id": 77,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7043,
+      "v_mc": 0.704,
+      "f_dimer_over_lorentz": 3.7635,
+      "sq_uncomp_db_25mhz": 8.602,
+      "sq_lorentz_db_25mhz": -3.988,
+      "sq_ep2_db_25mhz": -6.225
+    },
+    {
+      "comb_id": 78,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7198,
+      "v_mc": 0.7125,
+      "f_dimer_over_lorentz": 4.1388,
+      "sq_uncomp_db_25mhz": 9.241,
+      "sq_lorentz_db_25mhz": -3.837,
+      "sq_ep2_db_25mhz": -5.997
+    },
+    {
+      "comb_id": 79,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8052,
+      "v_mc": 0.8177,
+      "f_dimer_over_lorentz": 7.2004,
+      "sq_uncomp_db_25mhz": 8.065,
+      "sq_lorentz_db_25mhz": -3.828,
+      "sq_ep2_db_25mhz": -6.358
+    },
+    {
+      "comb_id": 80,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7276,
+      "v_mc": 0.7327,
+      "f_dimer_over_lorentz": 4.3394,
+      "sq_uncomp_db_25mhz": 8.587,
+      "sq_lorentz_db_25mhz": -3.82,
+      "sq_ep2_db_25mhz": -6.0
+    },
+    {
+      "comb_id": 81,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8297,
+      "v_mc": 0.825,
+      "f_dimer_over_lorentz": 8.7809,
+      "sq_uncomp_db_25mhz": 9.486,
+      "sq_lorentz_db_25mhz": -3.943,
+      "sq_ep2_db_25mhz": -6.739
+    },
+    {
+      "comb_id": 82,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.845,
+      "v_mc": 0.8511,
+      "f_dimer_over_lorentz": 9.8424,
+      "sq_uncomp_db_25mhz": 9.06,
+      "sq_lorentz_db_25mhz": -3.788,
+      "sq_ep2_db_25mhz": -6.407
+    },
+    {
+      "comb_id": 83,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7017,
+      "v_mc": 0.6843,
+      "f_dimer_over_lorentz": 3.6949,
+      "sq_uncomp_db_25mhz": 9.917,
+      "sq_lorentz_db_25mhz": -4.062,
+      "sq_ep2_db_25mhz": -6.364
+    },
+    {
+      "comb_id": 84,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.6852,
+      "v_mc": 0.6868,
+      "f_dimer_over_lorentz": 3.3546,
+      "sq_uncomp_db_25mhz": 9.754,
+      "sq_lorentz_db_25mhz": -3.781,
+      "sq_ep2_db_25mhz": -5.689
+    },
+    {
+      "comb_id": 85,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8427,
+      "v_mc": 0.8476,
+      "f_dimer_over_lorentz": 9.6673,
+      "sq_uncomp_db_25mhz": 9.098,
+      "sq_lorentz_db_25mhz": -3.84,
+      "sq_ep2_db_25mhz": -6.526
+    },
+    {
+      "comb_id": 86,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7418,
+      "v_mc": 0.749,
+      "f_dimer_over_lorentz": 4.7376,
+      "sq_uncomp_db_25mhz": 8.872,
+      "sq_lorentz_db_25mhz": -3.948,
+      "sq_ep2_db_25mhz": -6.351
+    },
+    {
+      "comb_id": 87,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7334,
+      "v_mc": 0.7367,
+      "f_dimer_over_lorentz": 4.4994,
+      "sq_uncomp_db_25mhz": 9.664,
+      "sq_lorentz_db_25mhz": -4.087,
+      "sq_ep2_db_25mhz": -6.622
+    },
+    {
+      "comb_id": 88,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8404,
+      "v_mc": 0.8588,
+      "f_dimer_over_lorentz": 9.36,
+      "sq_uncomp_db_25mhz": 9.265,
+      "sq_lorentz_db_25mhz": -4.081,
+      "sq_ep2_db_25mhz": -7.129
+    },
+    {
+      "comb_id": 89,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7225,
+      "v_mc": 0.7436,
+      "f_dimer_over_lorentz": 4.1974,
+      "sq_uncomp_db_25mhz": 8.038,
+      "sq_lorentz_db_25mhz": -3.725,
+      "sq_ep2_db_25mhz": -5.776
+    },
+    {
+      "comb_id": 90,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8099,
+      "v_mc": 0.8383,
+      "f_dimer_over_lorentz": 7.3553,
+      "sq_uncomp_db_25mhz": 9.867,
+      "sq_lorentz_db_25mhz": -3.975,
+      "sq_ep2_db_25mhz": -6.724
+    },
+    {
+      "comb_id": 91,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7762,
+      "v_mc": 0.7578,
+      "f_dimer_over_lorentz": 5.9894,
+      "sq_uncomp_db_25mhz": 8.491,
+      "sq_lorentz_db_25mhz": -3.808,
+      "sq_ep2_db_25mhz": -6.206
+    },
+    {
+      "comb_id": 92,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8355,
+      "v_mc": 0.8419,
+      "f_dimer_over_lorentz": 9.1028,
+      "sq_uncomp_db_25mhz": 8.372,
+      "sq_lorentz_db_25mhz": -3.925,
+      "sq_ep2_db_25mhz": -6.712
+    },
+    {
+      "comb_id": 93,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8235,
+      "v_mc": 0.8274,
+      "f_dimer_over_lorentz": 8.3036,
+      "sq_uncomp_db_25mhz": 8.004,
+      "sq_lorentz_db_25mhz": -4.147,
+      "sq_ep2_db_25mhz": -7.24
+    },
+    {
+      "comb_id": 94,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7724,
+      "v_mc": 0.7918,
+      "f_dimer_over_lorentz": 5.7312,
+      "sq_uncomp_db_25mhz": 10.198,
+      "sq_lorentz_db_25mhz": -4.134,
+      "sq_ep2_db_25mhz": -6.945
+    },
+    {
+      "comb_id": 95,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7373,
+      "v_mc": 0.74,
+      "f_dimer_over_lorentz": 4.6107,
+      "sq_uncomp_db_25mhz": 7.768,
+      "sq_lorentz_db_25mhz": -3.798,
+      "sq_ep2_db_25mhz": -6.002
+    },
+    {
+      "comb_id": 96,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.686,
+      "v_mc": 0.6679,
+      "f_dimer_over_lorentz": 3.3511,
+      "sq_uncomp_db_25mhz": 8.637,
+      "sq_lorentz_db_25mhz": -3.847,
+      "sq_ep2_db_25mhz": -5.818
+    },
+    {
+      "comb_id": 97,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8261,
+      "v_mc": 0.8246,
+      "f_dimer_over_lorentz": 8.512,
+      "sq_uncomp_db_25mhz": 8.163,
+      "sq_lorentz_db_25mhz": -4.061,
+      "sq_ep2_db_25mhz": -7.025
+    },
+    {
+      "comb_id": 98,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7152,
+      "v_mc": 0.7484,
+      "f_dimer_over_lorentz": 4.0128,
+      "sq_uncomp_db_25mhz": 8.423,
+      "sq_lorentz_db_25mhz": -4.183,
+      "sq_ep2_db_25mhz": -6.722
+    },
+    {
+      "comb_id": 99,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7651,
+      "v_mc": 0.7936,
+      "f_dimer_over_lorentz": 5.4426,
+      "sq_uncomp_db_25mhz": 9.863,
+      "sq_lorentz_db_25mhz": -3.713,
+      "sq_ep2_db_25mhz": -5.935
+    },
+    {
+      "comb_id": 100,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.6945,
+      "v_mc": 0.7112,
+      "f_dimer_over_lorentz": 3.5549,
+      "sq_uncomp_db_25mhz": 7.844,
+      "sq_lorentz_db_25mhz": -3.718,
+      "sq_ep2_db_25mhz": -5.622
+    },
+    {
+      "comb_id": 101,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7505,
+      "v_mc": 0.7429,
+      "f_dimer_over_lorentz": 5.0272,
+      "sq_uncomp_db_25mhz": 9.89,
+      "sq_lorentz_db_25mhz": -3.858,
+      "sq_ep2_db_25mhz": -6.197
+    },
+    {
+      "comb_id": 102,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.782,
+      "v_mc": 0.7835,
+      "f_dimer_over_lorentz": 6.1692,
+      "sq_uncomp_db_25mhz": 10.212,
+      "sq_lorentz_db_25mhz": -4.182,
+      "sq_ep2_db_25mhz": -7.125
+    },
+    {
+      "comb_id": 103,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8103,
+      "v_mc": 0.8214,
+      "f_dimer_over_lorentz": 7.4787,
+      "sq_uncomp_db_25mhz": 7.632,
+      "sq_lorentz_db_25mhz": -3.844,
+      "sq_ep2_db_25mhz": -6.417
+    },
+    {
+      "comb_id": 104,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.741,
+      "v_mc": 0.7217,
+      "f_dimer_over_lorentz": 4.7396,
+      "sq_uncomp_db_25mhz": 8.485,
+      "sq_lorentz_db_25mhz": -4.031,
+      "sq_ep2_db_25mhz": -6.541
+    },
+    {
+      "comb_id": 105,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7493,
+      "v_mc": 0.7741,
+      "f_dimer_over_lorentz": 4.9368,
+      "sq_uncomp_db_25mhz": 9.362,
+      "sq_lorentz_db_25mhz": -3.835,
+      "sq_ep2_db_25mhz": -6.133
+    },
+    {
+      "comb_id": 106,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7172,
+      "v_mc": 0.7139,
+      "f_dimer_over_lorentz": 4.0724,
+      "sq_uncomp_db_25mhz": 9.566,
+      "sq_lorentz_db_25mhz": -4.129,
+      "sq_ep2_db_25mhz": -6.617
+    },
+    {
+      "comb_id": 107,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.833,
+      "v_mc": 0.8241,
+      "f_dimer_over_lorentz": 9.0496,
+      "sq_uncomp_db_25mhz": 8.99,
+      "sq_lorentz_db_25mhz": -3.612,
+      "sq_ep2_db_25mhz": -5.963
+    },
+    {
+      "comb_id": 108,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7646,
+      "v_mc": 0.7578,
+      "f_dimer_over_lorentz": 5.5114,
+      "sq_uncomp_db_25mhz": 8.397,
+      "sq_lorentz_db_25mhz": -4.156,
+      "sq_ep2_db_25mhz": -6.968
+    },
+    {
+      "comb_id": 109,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.721,
+      "v_mc": 0.6999,
+      "f_dimer_over_lorentz": 4.1698,
+      "sq_uncomp_db_25mhz": 8.768,
+      "sq_lorentz_db_25mhz": -4.068,
+      "sq_ep2_db_25mhz": -6.504
+    },
+    {
+      "comb_id": 110,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7579,
+      "v_mc": 0.7591,
+      "f_dimer_over_lorentz": 5.2587,
+      "sq_uncomp_db_25mhz": 9.451,
+      "sq_lorentz_db_25mhz": -3.979,
+      "sq_ep2_db_25mhz": -6.505
+    },
+    {
+      "comb_id": 111,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.7967,
+      "v_mc": 0.8079,
+      "f_dimer_over_lorentz": 6.7863,
+      "sq_uncomp_db_25mhz": 9.808,
+      "sq_lorentz_db_25mhz": -3.693,
+      "sq_ep2_db_25mhz": -6.016
+    },
+    {
+      "comb_id": 112,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7835,
+      "v_mc": 0.801,
+      "f_dimer_over_lorentz": 6.1746,
+      "sq_uncomp_db_25mhz": 9.227,
+      "sq_lorentz_db_25mhz": -3.749,
+      "sq_ep2_db_25mhz": -6.091
+    },
+    {
+      "comb_id": 113,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.8336,
+      "v_mc": 0.8505,
+      "f_dimer_over_lorentz": 8.8773,
+      "sq_uncomp_db_25mhz": 9.847,
+      "sq_lorentz_db_25mhz": -4.103,
+      "sq_ep2_db_25mhz": -7.159
+    },
+    {
+      "comb_id": 114,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8169,
+      "v_mc": 0.809,
+      "f_dimer_over_lorentz": 7.9734,
+      "sq_uncomp_db_25mhz": 8.107,
+      "sq_lorentz_db_25mhz": -3.938,
+      "sq_ep2_db_25mhz": -6.678
+    },
+    {
+      "comb_id": 115,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.8257,
+      "v_mc": 0.8159,
+      "f_dimer_over_lorentz": 8.5466,
+      "sq_uncomp_db_25mhz": 9.885,
+      "sq_lorentz_db_25mhz": -4.129,
+      "sq_ep2_db_25mhz": -7.208
+    },
+    {
+      "comb_id": 116,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.813,
+      "v_mc": 0.8194,
+      "f_dimer_over_lorentz": 7.6566,
+      "sq_uncomp_db_25mhz": 10.021,
+      "sq_lorentz_db_25mhz": -4.153,
+      "sq_ep2_db_25mhz": -7.205
+    },
+    {
+      "comb_id": 117,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.716,
+      "v_mc": 0.7008,
+      "f_dimer_over_lorentz": 4.0412,
+      "sq_uncomp_db_25mhz": 9.682,
+      "sq_lorentz_db_25mhz": -3.65,
+      "sq_ep2_db_25mhz": -5.594
+    },
+    {
+      "comb_id": 118,
+      "platform": "MIR_QCL_Harmonic",
+      "eta_mc": 0.7804,
+      "v_mc": 0.7694,
+      "f_dimer_over_lorentz": 6.1428,
+      "sq_uncomp_db_25mhz": 9.831,
+      "sq_lorentz_db_25mhz": -3.86,
+      "sq_ep2_db_25mhz": -6.341
+    },
+    {
+      "comb_id": 119,
+      "platform": "Si3N4_Kerr_Microcomb",
+      "eta_mc": 0.7267,
+      "v_mc": 0.7549,
+      "f_dimer_over_lorentz": 4.2988,
+      "sq_uncomp_db_25mhz": 10.119,
+      "sq_lorentz_db_25mhz": -4.149,
+      "sq_ep2_db_25mhz": -6.718
+    },
+    {
+      "comb_id": 120,
+      "platform": "NbTiN_JTWPA_Metamaterial",
+      "eta_mc": 0.8153,
+      "v_mc": 0.8052,
+      "f_dimer_over_lorentz": 7.891,
+      "sq_uncomp_db_25mhz": 8.109,
+      "sq_lorentz_db_25mhz": -3.625,
+      "sq_ep2_db_25mhz": -5.937
+    }
+  ]
+}

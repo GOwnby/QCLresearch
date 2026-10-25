@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this theoretical framework, datasets, or verification code, please cite it as below."
+authors:
+  - family-names: "Ownby"
+    given-names: "Gracen"
+    affiliation: "University of Oklahoma, Norman, Oklahoma, USA"
+title: "Non-Hermitian Exceptional-Point Dispersion Engineering and Broadband Quantum Langevin Squeezing in Kerr-Bloch and Josephson Metamaterial Combs"
+version: 1.0.0
+date-released: 2026-10-24
+license: MIT

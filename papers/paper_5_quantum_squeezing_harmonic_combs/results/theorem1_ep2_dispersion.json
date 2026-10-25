@@ -1,0 +1,602 @@
+{
+  "theorem": "Theorem 1 & Corollary 1: Hurwitz-Stable Under-Coupled EP2 Resolvent Dispersion Identity",
+  "design_point": {
+    "eta_star": 0.795918,
+    "f_ep2_over_f_lorentz": 6.8,
+    "hermitian_anomalous_ceiling": 0.5625,
+    "improvement_over_hermitian_ceiling": 12.0889,
+    "hurwitz_damping_margin_norm": 1.0
+  },
+  "ep2_vs_hermitian_curve": [
+    {
+      "eta": 0.0,
+      "f_ep2_over_lorentz": 1.0,
+      "f_hermitian_over_lorentz": 1.0,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.02,
+      "f_ep2_over_lorentz": 0.95918,
+      "f_hermitian_over_lorentz": 0.998,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.04,
+      "f_ep2_over_lorentz": 0.91667,
+      "f_hermitian_over_lorentz": 0.99202,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.06,
+      "f_ep2_over_lorentz": 0.87234,
+      "f_hermitian_over_lorentz": 0.98212,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.08,
+      "f_ep2_over_lorentz": 0.82609,
+      "f_hermitian_over_lorentz": 0.96837,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.1,
+      "f_ep2_over_lorentz": 0.77778,
+      "f_hermitian_over_lorentz": 0.95089,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.12,
+      "f_ep2_over_lorentz": 0.72727,
+      "f_hermitian_over_lorentz": 0.92983,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.14,
+      "f_ep2_over_lorentz": 0.67442,
+      "f_hermitian_over_lorentz": 0.90536,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.16,
+      "f_ep2_over_lorentz": 0.61905,
+      "f_hermitian_over_lorentz": 0.87769,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.18,
+      "f_ep2_over_lorentz": 0.56098,
+      "f_hermitian_over_lorentz": 0.84702,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.2,
+      "f_ep2_over_lorentz": 0.5,
+      "f_hermitian_over_lorentz": 0.81361,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.22,
+      "f_ep2_over_lorentz": 0.4359,
+      "f_hermitian_over_lorentz": 0.7777,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.24,
+      "f_ep2_over_lorentz": 0.36842,
+      "f_hermitian_over_lorentz": 0.73955,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.26,
+      "f_ep2_over_lorentz": 0.2973,
+      "f_hermitian_over_lorentz": 0.69944,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.28,
+      "f_ep2_over_lorentz": 0.22222,
+      "f_hermitian_over_lorentz": 0.65764,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.3,
+      "f_ep2_over_lorentz": 0.14286,
+      "f_hermitian_over_lorentz": 0.61443,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.32,
+      "f_ep2_over_lorentz": 0.05882,
+      "f_hermitian_over_lorentz": 0.57007,
+      "anomalous_sign": false
+    },
+    {
+      "eta": 0.34,
+      "f_ep2_over_lorentz": 0.0303,
+      "f_hermitian_over_lorentz": 0.52484,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.36,
+      "f_ep2_over_lorentz": 0.125,
+      "f_hermitian_over_lorentz": 0.479,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.38,
+      "f_ep2_over_lorentz": 0.22581,
+      "f_hermitian_over_lorentz": 0.43279,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.4,
+      "f_ep2_over_lorentz": 0.33333,
+      "f_hermitian_over_lorentz": 0.38644,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.42,
+      "f_ep2_over_lorentz": 0.44828,
+      "f_hermitian_over_lorentz": 0.34019,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.44,
+      "f_ep2_over_lorentz": 0.57143,
+      "f_hermitian_over_lorentz": 0.29424,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.46,
+      "f_ep2_over_lorentz": 0.7037,
+      "f_hermitian_over_lorentz": 0.24878,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.48,
+      "f_ep2_over_lorentz": 0.84615,
+      "f_hermitian_over_lorentz": 0.20398,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.5,
+      "f_ep2_over_lorentz": 1.0,
+      "f_hermitian_over_lorentz": 0.16,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.52,
+      "f_ep2_over_lorentz": 1.16667,
+      "f_hermitian_over_lorentz": 0.11698,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.54,
+      "f_ep2_over_lorentz": 1.34783,
+      "f_hermitian_over_lorentz": 0.07505,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.56,
+      "f_ep2_over_lorentz": 1.54545,
+      "f_hermitian_over_lorentz": 0.03431,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.58,
+      "f_ep2_over_lorentz": 1.7619,
+      "f_hermitian_over_lorentz": 0.00515,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.6,
+      "f_ep2_over_lorentz": 2.0,
+      "f_hermitian_over_lorentz": 0.04325,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.62,
+      "f_ep2_over_lorentz": 2.26316,
+      "f_hermitian_over_lorentz": 0.07993,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.64,
+      "f_ep2_over_lorentz": 2.55556,
+      "f_hermitian_over_lorentz": 0.11515,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.66,
+      "f_ep2_over_lorentz": 2.88235,
+      "f_hermitian_over_lorentz": 0.14886,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.68,
+      "f_ep2_over_lorentz": 3.25,
+      "f_hermitian_over_lorentz": 0.18105,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.7,
+      "f_ep2_over_lorentz": 3.66667,
+      "f_hermitian_over_lorentz": 0.2117,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.72,
+      "f_ep2_over_lorentz": 4.14286,
+      "f_hermitian_over_lorentz": 0.24081,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.74,
+      "f_ep2_over_lorentz": 4.69231,
+      "f_hermitian_over_lorentz": 0.26839,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.76,
+      "f_ep2_over_lorentz": 5.33333,
+      "f_hermitian_over_lorentz": 0.29444,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.78,
+      "f_ep2_over_lorentz": 6.09091,
+      "f_hermitian_over_lorentz": 0.31899,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.8,
+      "f_ep2_over_lorentz": 7.0,
+      "f_hermitian_over_lorentz": 0.34206,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.82,
+      "f_ep2_over_lorentz": 8.11111,
+      "f_hermitian_over_lorentz": 0.36369,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.84,
+      "f_ep2_over_lorentz": 9.5,
+      "f_hermitian_over_lorentz": 0.3839,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.86,
+      "f_ep2_over_lorentz": 11.28571,
+      "f_hermitian_over_lorentz": 0.40275,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.88,
+      "f_ep2_over_lorentz": 13.66667,
+      "f_hermitian_over_lorentz": 0.42026,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.9,
+      "f_ep2_over_lorentz": 17.0,
+      "f_hermitian_over_lorentz": 0.43649,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.92,
+      "f_ep2_over_lorentz": 22.0,
+      "f_hermitian_over_lorentz": 0.45149,
+      "anomalous_sign": true
+    },
+    {
+      "eta": 0.94,
+      "f_ep2_over_lorentz": 30.33333,
+      "f_hermitian_over_lorentz": 0.46528,
+      "anomalous_sign": true
+    }
+  ],
+  "octave_gvd_profiles": [
+    {
+      "freq_thz": 1.8,
+      "beta2_bare_fs2_mm": 1670.0,
+      "beta2_lorentz_fs2_mm": 146.82,
+      "beta2_ep2_fs2_mm": -4.93
+    },
+    {
+      "freq_thz": 1.86,
+      "beta2_bare_fs2_mm": 1546.79,
+      "beta2_lorentz_fs2_mm": 119.07,
+      "beta2_ep2_fs2_mm": -0.71
+    },
+    {
+      "freq_thz": 1.92,
+      "beta2_bare_fs2_mm": 1433.27,
+      "beta2_lorentz_fs2_mm": 83.83,
+      "beta2_ep2_fs2_mm": 3.99
+    },
+    {
+      "freq_thz": 1.98,
+      "beta2_bare_fs2_mm": 1328.82,
+      "beta2_lorentz_fs2_mm": 45.52,
+      "beta2_ep2_fs2_mm": 7.79
+    },
+    {
+      "freq_thz": 2.04,
+      "beta2_bare_fs2_mm": 1232.85,
+      "beta2_lorentz_fs2_mm": 9.41,
+      "beta2_ep2_fs2_mm": 9.46
+    },
+    {
+      "freq_thz": 2.1,
+      "beta2_bare_fs2_mm": 1144.79,
+      "beta2_lorentz_fs2_mm": -19.37,
+      "beta2_ep2_fs2_mm": 8.38
+    },
+    {
+      "freq_thz": 2.16,
+      "beta2_bare_fs2_mm": 1064.11,
+      "beta2_lorentz_fs2_mm": -36.86,
+      "beta2_ep2_fs2_mm": 4.73
+    },
+    {
+      "freq_thz": 2.22,
+      "beta2_bare_fs2_mm": 990.28,
+      "beta2_lorentz_fs2_mm": -41.06,
+      "beta2_ep2_fs2_mm": -0.53
+    },
+    {
+      "freq_thz": 2.28,
+      "beta2_bare_fs2_mm": 922.83,
+      "beta2_lorentz_fs2_mm": -32.33,
+      "beta2_ep2_fs2_mm": -5.88
+    },
+    {
+      "freq_thz": 2.34,
+      "beta2_bare_fs2_mm": 861.29,
+      "beta2_lorentz_fs2_mm": -13.34,
+      "beta2_ep2_fs2_mm": -9.72
+    },
+    {
+      "freq_thz": 2.4,
+      "beta2_bare_fs2_mm": 805.25,
+      "beta2_lorentz_fs2_mm": 11.45,
+      "beta2_ep2_fs2_mm": -10.82
+    },
+    {
+      "freq_thz": 2.46,
+      "beta2_bare_fs2_mm": 754.28,
+      "beta2_lorentz_fs2_mm": 36.56,
+      "beta2_ep2_fs2_mm": -8.73
+    },
+    {
+      "freq_thz": 2.52,
+      "beta2_bare_fs2_mm": 708.03,
+      "beta2_lorentz_fs2_mm": 56.6,
+      "beta2_ep2_fs2_mm": -3.98
+    },
+    {
+      "freq_thz": 2.58,
+      "beta2_bare_fs2_mm": 666.14,
+      "beta2_lorentz_fs2_mm": 67.26,
+      "beta2_ep2_fs2_mm": 2.13
+    },
+    {
+      "freq_thz": 2.64,
+      "beta2_bare_fs2_mm": 628.29,
+      "beta2_lorentz_fs2_mm": 66.11,
+      "beta2_ep2_fs2_mm": 7.79
+    },
+    {
+      "freq_thz": 2.7,
+      "beta2_bare_fs2_mm": 594.18,
+      "beta2_lorentz_fs2_mm": 53.08,
+      "beta2_ep2_fs2_mm": 11.3
+    },
+    {
+      "freq_thz": 2.76,
+      "beta2_bare_fs2_mm": 563.57,
+      "beta2_lorentz_fs2_mm": 30.43,
+      "beta2_ep2_fs2_mm": 11.56
+    },
+    {
+      "freq_thz": 2.82,
+      "beta2_bare_fs2_mm": 536.2,
+      "beta2_lorentz_fs2_mm": 2.35,
+      "beta2_ep2_fs2_mm": 8.41
+    },
+    {
+      "freq_thz": 2.88,
+      "beta2_bare_fs2_mm": 511.86,
+      "beta2_lorentz_fs2_mm": -25.91,
+      "beta2_ep2_fs2_mm": 2.72
+    },
+    {
+      "freq_thz": 2.94,
+      "beta2_bare_fs2_mm": 490.38,
+      "beta2_lorentz_fs2_mm": -49.0,
+      "beta2_ep2_fs2_mm": -3.87
+    },
+    {
+      "freq_thz": 3.0,
+      "beta2_bare_fs2_mm": 471.59,
+      "beta2_lorentz_fs2_mm": -62.56,
+      "beta2_ep2_fs2_mm": -9.41
+    },
+    {
+      "freq_thz": 3.06,
+      "beta2_bare_fs2_mm": 455.38,
+      "beta2_lorentz_fs2_mm": -64.03,
+      "beta2_ep2_fs2_mm": -12.26
+    },
+    {
+      "freq_thz": 3.12,
+      "beta2_bare_fs2_mm": 441.63,
+      "beta2_lorentz_fs2_mm": -53.15,
+      "beta2_ep2_fs2_mm": -11.53
+    },
+    {
+      "freq_thz": 3.18,
+      "beta2_bare_fs2_mm": 430.28,
+      "beta2_lorentz_fs2_mm": -32.05,
+      "beta2_ep2_fs2_mm": -7.43
+    },
+    {
+      "freq_thz": 3.24,
+      "beta2_bare_fs2_mm": 421.27,
+      "beta2_lorentz_fs2_mm": -4.78,
+      "beta2_ep2_fs2_mm": -1.14
+    },
+    {
+      "freq_thz": 3.3,
+      "beta2_bare_fs2_mm": 414.6,
+      "beta2_lorentz_fs2_mm": 23.4,
+      "beta2_ep2_fs2_mm": 5.49
+    },
+    {
+      "freq_thz": 3.36,
+      "beta2_bare_fs2_mm": 410.27,
+      "beta2_lorentz_fs2_mm": 47.1,
+      "beta2_ep2_fs2_mm": 10.5
+    },
+    {
+      "freq_thz": 3.42,
+      "beta2_bare_fs2_mm": 408.32,
+      "beta2_lorentz_fs2_mm": 61.75,
+      "beta2_ep2_fs2_mm": 12.43
+    },
+    {
+      "freq_thz": 3.48,
+      "beta2_bare_fs2_mm": 408.8,
+      "beta2_lorentz_fs2_mm": 64.56,
+      "beta2_ep2_fs2_mm": 10.73
+    },
+    {
+      "freq_thz": 3.54,
+      "beta2_bare_fs2_mm": 411.82,
+      "beta2_lorentz_fs2_mm": 55.02,
+      "beta2_ep2_fs2_mm": 5.93
+    },
+    {
+      "freq_thz": 3.6,
+      "beta2_bare_fs2_mm": 417.5,
+      "beta2_lorentz_fs2_mm": 35.0,
+      "beta2_ep2_fs2_mm": -0.53
+    },
+    {
+      "freq_thz": 3.66,
+      "beta2_bare_fs2_mm": 425.96,
+      "beta2_lorentz_fs2_mm": 8.41,
+      "beta2_ep2_fs2_mm": -6.73
+    },
+    {
+      "freq_thz": 3.72,
+      "beta2_bare_fs2_mm": 437.4,
+      "beta2_lorentz_fs2_mm": -19.55,
+      "beta2_ep2_fs2_mm": -10.87
+    },
+    {
+      "freq_thz": 3.78,
+      "beta2_bare_fs2_mm": 452.02,
+      "beta2_lorentz_fs2_mm": -43.39,
+      "beta2_ep2_fs2_mm": -11.78
+    },
+    {
+      "freq_thz": 3.84,
+      "beta2_bare_fs2_mm": 470.03,
+      "beta2_lorentz_fs2_mm": -58.36,
+      "beta2_ep2_fs2_mm": -9.27
+    },
+    {
+      "freq_thz": 3.9,
+      "beta2_bare_fs2_mm": 491.71,
+      "beta2_lorentz_fs2_mm": -61.38,
+      "beta2_ep2_fs2_mm": -4.15
+    },
+    {
+      "freq_thz": 3.96,
+      "beta2_bare_fs2_mm": 517.32,
+      "beta2_lorentz_fs2_mm": -51.59,
+      "beta2_ep2_fs2_mm": 2.01
+    },
+    {
+      "freq_thz": 4.02,
+      "beta2_bare_fs2_mm": 547.19,
+      "beta2_lorentz_fs2_mm": -30.53,
+      "beta2_ep2_fs2_mm": 7.39
+    },
+    {
+      "freq_thz": 4.08,
+      "beta2_bare_fs2_mm": 581.64,
+      "beta2_lorentz_fs2_mm": -1.81,
+      "beta2_ep2_fs2_mm": 10.47
+    },
+    {
+      "freq_thz": 4.14,
+      "beta2_bare_fs2_mm": 621.06,
+      "beta2_lorentz_fs2_mm": 29.59,
+      "beta2_ep2_fs2_mm": 10.43
+    },
+    {
+      "freq_thz": 4.2,
+      "beta2_bare_fs2_mm": 665.82,
+      "beta2_lorentz_fs2_mm": 58.28,
+      "beta2_ep2_fs2_mm": 7.4
+    },
+    {
+      "freq_thz": 4.26,
+      "beta2_bare_fs2_mm": 716.35,
+      "beta2_lorentz_fs2_mm": 79.52,
+      "beta2_ep2_fs2_mm": 2.39
+    },
+    {
+      "freq_thz": 4.32,
+      "beta2_bare_fs2_mm": 773.11,
+      "beta2_lorentz_fs2_mm": 90.18,
+      "beta2_ep2_fs2_mm": -3.09
+    },
+    {
+      "freq_thz": 4.38,
+      "beta2_bare_fs2_mm": 836.55,
+      "beta2_lorentz_fs2_mm": 89.3,
+      "beta2_ep2_fs2_mm": -7.42
+    },
+    {
+      "freq_thz": 4.44,
+      "beta2_bare_fs2_mm": 907.2,
+      "beta2_lorentz_fs2_mm": 78.34,
+      "beta2_ep2_fs2_mm": -9.42
+    },
+    {
+      "freq_thz": 4.5,
+      "beta2_bare_fs2_mm": 985.57,
+      "beta2_lorentz_fs2_mm": 60.92,
+      "beta2_ep2_fs2_mm": -8.63
+    },
+    {
+      "freq_thz": 4.56,
+      "beta2_bare_fs2_mm": 1072.23,
+      "beta2_lorentz_fs2_mm": 42.11,
+      "beta2_ep2_fs2_mm": -5.43
+    },
+    {
+      "freq_thz": 4.62,
+      "beta2_bare_fs2_mm": 1167.76,
+      "beta2_lorentz_fs2_mm": 27.51,
+      "beta2_ep2_fs2_mm": -0.87
+    },
+    {
+      "freq_thz": 4.68,
+      "beta2_bare_fs2_mm": 1272.78,
+      "beta2_lorentz_fs2_mm": 22.21,
+      "beta2_ep2_fs2_mm": 3.66
+    },
+    {
+      "freq_thz": 4.74,
+      "beta2_bare_fs2_mm": 1387.92,
+      "beta2_lorentz_fs2_mm": 29.79,
+      "beta2_ep2_fs2_mm": 6.86
+    }
+  ]
+}

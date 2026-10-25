@@ -1,0 +1,115 @@
+\begin{tikzpicture}[font=\sffamily\small, >=Latex]
+  \definecolor{navy}{RGB}{20,42,92}
+  \definecolor{tealcol}{RGB}{0,128,118}
+  \definecolor{crimson}{RGB}{192,38,45}
+  \definecolor{amber}{RGB}{217,119,6}
+  \definecolor{slate}{RGB}{71,85,105}
+  \definecolor{softbg}{RGB}{248,250,252}
+
+  \fill[softbg, rounded corners=6pt] (0,0) rectangle (16.4, 7.0);
+  \draw[slate!40, line width=0.8pt, rounded corners=6pt] (0,0) rectangle (16.4, 7.0);
+
+  % ---------------- PANEL (a) ----------------
+  \node[anchor=north west, font=\sffamily\bfseries\scriptsize, text=navy] at (0.35, 6.75)
+    {(a) Programmable Oscillatory Tail Coupling $\bm{J_{ij}(\Delta\tau_{ij}^*)}$};
+
+  \begin{scope}[shift={(1.05, 1.20)}]
+    \fill[white] (0,0) rectangle (6.6, 4.8);
+    \draw[slate!60, line width=0.7pt] (0,0) rectangle (6.6, 4.8);
+    \draw[slate!45, dashed] (0, 2.4) -- (6.6, 2.4);
+
+    % X ticks (Delta tau from 3 to 18 ps)
+    \foreach \t/\x in {3/0.0, 6/1.32, 9/2.64, 12/3.96, 15/5.28, 18/6.60} {
+      \draw[slate] (\x, 0) -- (\x, 0.1);
+      \node[below, font=\sffamily\scriptsize] at (\x, 0) {\t};
+    }
+    \node[below, font=\sffamily\scriptsize] at (3.3, -0.42)
+      {Inter-Soliton Separation $\Delta\tau_{ij} = \tau_{\mathrm{rt}}|\theta_i - \theta_j|/(2\pi)$ (ps)};
+
+    % Y ticks (-1.0 to +1.0)
+    \foreach \y/\lbl in {0.4/-1.0, 1.4/-0.5, 2.4/0.0, 3.4/+0.5, 4.4/+1.0} {
+      \draw[slate] (0, \y) -- (0.1, \y);
+      \node[left, font=\sffamily\scriptsize] at (0, \y) {\lbl};
+    }
+    \node[rotate=90, above, font=\sffamily\scriptsize] at (-0.55, 2.4)
+      {Normalized Exchange $J_{ij} / J_0$};
+
+    % Oscillatory tail exchange curve J_ij(Delta tau)
+    \draw[navy, line width=1.8pt, smooth] plot coordinates {
+      (0.20, 3.85) (0.65, 2.40) (1.06, 0.72) (1.55, 1.45) (2.10, 2.85)
+      (2.72, 3.68) (3.30, 2.75) (3.85, 1.62) (4.37, 1.42) (4.95, 2.15)
+      (5.55, 2.98) (6.03, 3.05) (6.50, 2.55)
+    };
+
+    % Quantized minima/maxima points
+    \filldraw[crimson] (1.06, 0.72) circle (3.0pt);
+    \node[below right, font=\sffamily\scriptsize\bfseries, text=crimson] at (1.08, 0.70)
+      {$\Delta\tau_1^* = 5.42\,\mathrm{ps}$ ($J_{ij} < 0$, AFM)};
+
+    \filldraw[tealcol] (2.72, 3.68) circle (3.0pt);
+    \node[above, font=\sffamily\scriptsize\bfseries, text=tealcol] at (2.85, 3.76)
+      {$\Delta\tau_2^* = 9.18\,\mathrm{ps}$ ($J_{ij} > 0$, FM)};
+
+    \filldraw[crimson] (4.37, 1.42) circle (3.0pt);
+    \node[below, font=\sffamily\scriptsize\bfseries, text=crimson] at (4.65, 1.35)
+      {$\Delta\tau_3^* = 12.94\,\mathrm{ps}$ (AFM)};
+
+    \filldraw[tealcol] (6.03, 3.05) circle (3.0pt);
+  \end{scope}
+
+  % ---------------- PANEL (b) ----------------
+  \node[anchor=north west, font=\sffamily\bfseries\scriptsize, text=navy] at (9.10, 6.75)
+    {(b) Cross-Platform Time-to-Solution vs.\ Energy Benchmark};
+
+  \begin{scope}[shift={(9.3, 1.20)}]
+    \fill[white] (0,0) rectangle (6.6, 4.8);
+    \draw[slate!60, line width=0.7pt] (0,0) rectangle (6.6, 4.8);
+
+    % Log10 Time-to-solution on X: 10^1 ps (x=0.6) to 10^7 ps (x=6.0) -> 0.9 units per decade
+    \foreach \x/\lbl in {0.6/10^{1}, 1.5/10^{2}, 2.4/10^{3}, 3.3/10^{4}, 4.2/10^{5}, 5.1/10^{6}, 6.0/10^{7}} {
+      \draw[slate] (\x, 0) -- (\x, 0.1);
+      \node[below, font=\sffamily\scriptsize] at (\x, 0) {$\lbl$};
+    }
+    \node[below, font=\sffamily\scriptsize] at (3.3, -0.42)
+      {Convergence Time $t_{\mathrm{conv}}$ (ps) [Log Scale]};
+
+    % Log10 Energy per solution on Y: 10^-2 fJ (y=0.4) to 10^7 fJ (y=4.45)
+    \foreach \y/\lbl in {0.4/10^{-2}, 1.3/10^{0}, 2.2/10^{2}, 3.1/10^{4}, 4.0/10^{6}} {
+      \draw[slate] (0, \y) -- (0.1, \y);
+      \node[left, font=\sffamily\scriptsize] at (0, \y) {$\lbl$};
+    }
+    \node[rotate=90, above, font=\sffamily\scriptsize] at (-0.62, 2.4)
+      {Energy per Solution $E_{\mathrm{sol}}$ (fJ) [Log]};
+
+    % Shaded Monolithic Soliton Ising Advantage Region
+    \fill[tealcol!10, rounded corners=4pt] (0.25, 0.25) rectangle (4.05, 2.95);
+    \draw[tealcol!60, dashed, rounded corners=4pt] (0.25, 0.25) rectangle (4.05, 2.95);
+    \node[anchor=north west, font=\sffamily\scriptsize\bfseries, text=tealcol] at (0.35, 2.88)
+      {Monolithic Soliton Ising Regime};
+
+    % Point 2: InP Mid-IR Racetrack QCL (38.0 ps, 42.0 fJ) -> x = 1.12, y = 2.15
+    \filldraw[fill=navy, draw=white, line width=0.8pt] (1.12, 2.15) circle (3.4pt);
+    \node[anchor=west, font=\sffamily\scriptsize\bfseries, text=navy] at (1.26, 2.15)
+      {InP Racetrack QCL ($38.0\,\mathrm{ps}$)};
+
+    % Point 1: Si3N4 / LiNbO3 Kerr Microresonator (14.5 ps, 11.8 fJ) -> x = 0.74, y = 1.52
+    \filldraw[fill=crimson, draw=white, line width=0.8pt] (0.74, 1.52) circle (3.4pt);
+    \node[anchor=west, font=\sffamily\scriptsize\bfseries, text=crimson] at (0.88, 1.52)
+      {$\mathrm{Si_3N_4}$ Kerr Comb ($14.5\,\mathrm{ps}$)};
+
+    % Point 3: Josephson TWPA Ring (480 ps, 0.045 fJ) -> x = 2.11, y = 0.68
+    \filldraw[fill=tealcol, draw=white, line width=0.8pt] (2.11, 0.68) circle (3.4pt);
+    \node[anchor=west, font=\sffamily\scriptsize\bfseries, text=tealcol] at (2.25, 0.68)
+      {Josephson Ring ($0.045\,\mathrm{fJ}$)};
+
+    % Point 4: Fiber DOPO Coherent Ising Machine (10^7 ps = 10 us, 8.5e6 fJ) -> x = 5.95, y = 4.30
+    \filldraw[fill=slate, draw=white, line width=0.8pt] (5.95, 4.30) circle (3.4pt);
+    \node[anchor=east, font=\sffamily\scriptsize\bfseries, text=slate] at (5.80, 4.35)
+      {2 km Fiber DOPO CIM ($10\,\mu\mathrm{s}$)};
+
+    % Arrow showing >250,000x speedup pointing cleanly to edge of monolithic box
+    \draw[->, amber!90!black, line width=1.6pt, dashed] (5.80, 4.10) -- (3.65, 2.75)
+      node[midway, above, sloped, font=\sffamily\scriptsize\bfseries, text=amber!90!black]
+      {$>250{,}000\times$ Speedup};
+  \end{scope}
+\end{tikzpicture}

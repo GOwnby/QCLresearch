@@ -1,0 +1,37 @@
+{
+  "platforms": [
+    {
+      "id": "EP2-QCL-4p6",
+      "name": "Mid-IR Harmonic QCL Comb (InGaAs/InAlAs, lambda = 4.6 um)",
+      "center_freq": "65.2 THz",
+      "alpha_lef": 1.24,
+      "f_ep2_enhancement": 6.8,
+      "uncomp_inpsd_20mhz_db": 6.02,
+      "ep2_inpsd_20mhz_db": -6.4,
+      "variance_reduction_pct": 77.1,
+      "crossover_freq_mhz": 1.8
+    },
+    {
+      "id": "EP2-Si3N4-1p55",
+      "name": "Monolithic Si3N4 Kerr Microresonator Comb (lambda = 1.55 um)",
+      "center_freq": "193.4 THz",
+      "alpha_lef": 0.0,
+      "f_ep2_enhancement": 7.15,
+      "uncomp_inpsd_20mhz_db": 3.4,
+      "ep2_inpsd_20mhz_db": -7.85,
+      "variance_reduction_pct": 83.6,
+      "crossover_freq_mhz": 0.85
+    },
+    {
+      "id": "EP2-JTWPA-6p8G",
+      "name": "Superconducting NbTiN Josephson Metamaterial Comb (f0 = 6.8 GHz)",
+      "center_freq": "6.8 GHz",
+      "alpha_lef": 0.0,
+      "f_ep2_enhancement": 7.4,
+      "uncomp_inpsd_20mhz_db": 2.1,
+      "ep2_inpsd_20mhz_db": -9.2,
+      "variance_reduction_pct": 88.0,
+      "crossover_freq_mhz": 0.32
+    }
+  ]
+}

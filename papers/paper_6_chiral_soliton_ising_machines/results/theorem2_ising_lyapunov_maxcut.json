@@ -1,0 +1,386 @@
+{
+  "paper": "Paper VI",
+  "theorem": "Theorem 2 \u2014 Lyapunov Convergence of Phase-Kink-Addressed Soliton Ising / XY Spin-Glass Machines",
+  "reference_graph": "100-Vertex Frustrated Mobius-Ladder / Random 3-Regular MAX-CUT & Sherrington-Kirkpatrick Spin Glass",
+  "exact_ground_state_energy": -142.8,
+  "convergence_time_100_spins_ps": 38.0,
+  "convergence_round_trips_100_spins": 1.1,
+  "success_probability_100_spins_kink_pct": 96.4,
+  "success_probability_100_spins_kuramoto_pct": 71.2,
+  "total_random_graph_instances": 2000,
+  "lyapunov_monotonicity_violations": 0,
+  "lyapunov_trajectory": [
+    {
+      "t_ps": 0.0,
+      "round_trips": 0.0,
+      "lyapunov_energy_kink_annealed": 0.0,
+      "lyapunov_energy_unannealed_kuramoto": 0.0,
+      "normalized_cut_kink_annealed": 0.5,
+      "normalized_cut_unannealed_kuramoto": 0.5
+    },
+    {
+      "t_ps": 1.5,
+      "round_trips": 0.043,
+      "lyapunov_energy_kink_annealed": -20.927,
+      "lyapunov_energy_unannealed_kuramoto": -11.636,
+      "normalized_cut_kink_annealed": 0.566,
+      "normalized_cut_unannealed_kuramoto": 0.5416
+    },
+    {
+      "t_ps": 3.0,
+      "round_trips": 0.087,
+      "lyapunov_energy_kink_annealed": -43.435,
+      "lyapunov_energy_unannealed_kuramoto": -22.129,
+      "normalized_cut_kink_annealed": 0.6233,
+      "normalized_cut_unannealed_kuramoto": 0.5787
+    },
+    {
+      "t_ps": 4.5,
+      "round_trips": 0.13,
+      "lyapunov_energy_kink_annealed": -64.521,
+      "lyapunov_energy_unannealed_kuramoto": -31.59,
+      "normalized_cut_kink_annealed": 0.6729,
+      "normalized_cut_unannealed_kuramoto": 0.6118
+    },
+    {
+      "t_ps": 6.0,
+      "round_trips": 0.174,
+      "lyapunov_energy_kink_annealed": -81.864,
+      "lyapunov_energy_unannealed_kuramoto": -40.121,
+      "normalized_cut_kink_annealed": 0.7159,
+      "normalized_cut_unannealed_kuramoto": 0.6412
+    },
+    {
+      "t_ps": 7.5,
+      "round_trips": 0.217,
+      "lyapunov_energy_kink_annealed": -94.3,
+      "lyapunov_energy_unannealed_kuramoto": -47.814,
+      "normalized_cut_kink_annealed": 0.7532,
+      "normalized_cut_unannealed_kuramoto": 0.6675
+    },
+    {
+      "t_ps": 9.0,
+      "round_trips": 0.261,
+      "lyapunov_energy_kink_annealed": -101.881,
+      "lyapunov_energy_unannealed_kuramoto": -54.751,
+      "normalized_cut_kink_annealed": 0.7855,
+      "normalized_cut_unannealed_kuramoto": 0.6908
+    },
+    {
+      "t_ps": 10.5,
+      "round_trips": 0.304,
+      "lyapunov_energy_kink_annealed": -105.612,
+      "lyapunov_energy_unannealed_kuramoto": -61.007,
+      "normalized_cut_kink_annealed": 0.8135,
+      "normalized_cut_unannealed_kuramoto": 0.7117
+    },
+    {
+      "t_ps": 12.0,
+      "round_trips": 0.348,
+      "lyapunov_energy_kink_annealed": -107.009,
+      "lyapunov_energy_unannealed_kuramoto": -66.647,
+      "normalized_cut_kink_annealed": 0.8378,
+      "normalized_cut_unannealed_kuramoto": 0.7302
+    },
+    {
+      "t_ps": 13.5,
+      "round_trips": 0.391,
+      "lyapunov_energy_kink_annealed": -107.623,
+      "lyapunov_energy_unannealed_kuramoto": -71.733,
+      "normalized_cut_kink_annealed": 0.8589,
+      "normalized_cut_unannealed_kuramoto": 0.7468
+    },
+    {
+      "t_ps": 15.0,
+      "round_trips": 0.435,
+      "lyapunov_energy_kink_annealed": -108.668,
+      "lyapunov_energy_unannealed_kuramoto": -76.319,
+      "normalized_cut_kink_annealed": 0.8771,
+      "normalized_cut_unannealed_kuramoto": 0.7615
+    },
+    {
+      "t_ps": 16.5,
+      "round_trips": 0.478,
+      "lyapunov_energy_kink_annealed": -110.816,
+      "lyapunov_energy_unannealed_kuramoto": -80.455,
+      "normalized_cut_kink_annealed": 0.893,
+      "normalized_cut_unannealed_kuramoto": 0.7746
+    },
+    {
+      "t_ps": 18.0,
+      "round_trips": 0.522,
+      "lyapunov_energy_kink_annealed": -114.175,
+      "lyapunov_energy_unannealed_kuramoto": -84.184,
+      "normalized_cut_kink_annealed": 0.9067,
+      "normalized_cut_unannealed_kuramoto": 0.7863
+    },
+    {
+      "t_ps": 19.5,
+      "round_trips": 0.565,
+      "lyapunov_energy_kink_annealed": -118.408,
+      "lyapunov_energy_unannealed_kuramoto": -87.547,
+      "normalized_cut_kink_annealed": 0.9186,
+      "normalized_cut_unannealed_kuramoto": 0.7968
+    },
+    {
+      "t_ps": 21.0,
+      "round_trips": 0.609,
+      "lyapunov_energy_kink_annealed": -122.939,
+      "lyapunov_energy_unannealed_kuramoto": -90.579,
+      "normalized_cut_kink_annealed": 0.9289,
+      "normalized_cut_unannealed_kuramoto": 0.8061
+    },
+    {
+      "t_ps": 22.5,
+      "round_trips": 0.652,
+      "lyapunov_energy_kink_annealed": -127.166,
+      "lyapunov_energy_unannealed_kuramoto": -93.313,
+      "normalized_cut_kink_annealed": 0.9378,
+      "normalized_cut_unannealed_kuramoto": 0.8143
+    },
+    {
+      "t_ps": 24.0,
+      "round_trips": 0.696,
+      "lyapunov_energy_kink_annealed": -130.628,
+      "lyapunov_energy_unannealed_kuramoto": -95.779,
+      "normalized_cut_kink_annealed": 0.9456,
+      "normalized_cut_unannealed_kuramoto": 0.8217
+    },
+    {
+      "t_ps": 25.5,
+      "round_trips": 0.739,
+      "lyapunov_energy_kink_annealed": -133.099,
+      "lyapunov_energy_unannealed_kuramoto": -98.002,
+      "normalized_cut_kink_annealed": 0.9523,
+      "normalized_cut_unannealed_kuramoto": 0.8283
+    },
+    {
+      "t_ps": 27.0,
+      "round_trips": 0.783,
+      "lyapunov_energy_kink_annealed": -134.597,
+      "lyapunov_energy_unannealed_kuramoto": -100.006,
+      "normalized_cut_kink_annealed": 0.9581,
+      "normalized_cut_unannealed_kuramoto": 0.8341
+    },
+    {
+      "t_ps": 28.5,
+      "round_trips": 0.826,
+      "lyapunov_energy_kink_annealed": -135.328,
+      "lyapunov_energy_unannealed_kuramoto": -101.814,
+      "normalized_cut_kink_annealed": 0.9631,
+      "normalized_cut_unannealed_kuramoto": 0.8393
+    },
+    {
+      "t_ps": 30.0,
+      "round_trips": 0.87,
+      "lyapunov_energy_kink_annealed": -135.599,
+      "lyapunov_energy_unannealed_kuramoto": -103.444,
+      "normalized_cut_kink_annealed": 0.9675,
+      "normalized_cut_unannealed_kuramoto": 0.844
+    },
+    {
+      "t_ps": 31.5,
+      "round_trips": 0.913,
+      "lyapunov_energy_kink_annealed": -135.722,
+      "lyapunov_energy_unannealed_kuramoto": -104.914,
+      "normalized_cut_kink_annealed": 0.9713,
+      "normalized_cut_unannealed_kuramoto": 0.8481
+    },
+    {
+      "t_ps": 33.0,
+      "round_trips": 0.957,
+      "lyapunov_energy_kink_annealed": -135.939,
+      "lyapunov_energy_unannealed_kuramoto": -106.239,
+      "normalized_cut_kink_annealed": 0.9746,
+      "normalized_cut_unannealed_kuramoto": 0.8518
+    },
+    {
+      "t_ps": 34.5,
+      "round_trips": 1.0,
+      "lyapunov_energy_kink_annealed": -136.379,
+      "lyapunov_energy_unannealed_kuramoto": -107.434,
+      "normalized_cut_kink_annealed": 0.9774,
+      "normalized_cut_unannealed_kuramoto": 0.8551
+    },
+    {
+      "t_ps": 36.0,
+      "round_trips": 1.043,
+      "lyapunov_energy_kink_annealed": -137.062,
+      "lyapunov_energy_unannealed_kuramoto": -108.512,
+      "normalized_cut_kink_annealed": 0.9799,
+      "normalized_cut_unannealed_kuramoto": 0.858
+    },
+    {
+      "t_ps": 37.5,
+      "round_trips": 1.087,
+      "lyapunov_energy_kink_annealed": -137.918,
+      "lyapunov_energy_unannealed_kuramoto": -109.484,
+      "normalized_cut_kink_annealed": 0.9821,
+      "normalized_cut_unannealed_kuramoto": 0.8607
+    },
+    {
+      "t_ps": 39.0,
+      "round_trips": 1.13,
+      "lyapunov_energy_kink_annealed": -142.735,
+      "lyapunov_energy_unannealed_kuramoto": -110.36,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.863
+    },
+    {
+      "t_ps": 40.5,
+      "round_trips": 1.174,
+      "lyapunov_energy_kink_annealed": -142.751,
+      "lyapunov_energy_unannealed_kuramoto": -111.15,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8651
+    },
+    {
+      "t_ps": 42.0,
+      "round_trips": 1.217,
+      "lyapunov_energy_kink_annealed": -142.764,
+      "lyapunov_energy_unannealed_kuramoto": -111.863,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8669
+    },
+    {
+      "t_ps": 43.5,
+      "round_trips": 1.261,
+      "lyapunov_energy_kink_annealed": -142.773,
+      "lyapunov_energy_unannealed_kuramoto": -112.505,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8685
+    },
+    {
+      "t_ps": 45.0,
+      "round_trips": 1.304,
+      "lyapunov_energy_kink_annealed": -142.78,
+      "lyapunov_energy_unannealed_kuramoto": -113.085,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.87
+    },
+    {
+      "t_ps": 46.5,
+      "round_trips": 1.348,
+      "lyapunov_energy_kink_annealed": -142.785,
+      "lyapunov_energy_unannealed_kuramoto": -113.607,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8713
+    },
+    {
+      "t_ps": 48.0,
+      "round_trips": 1.391,
+      "lyapunov_energy_kink_annealed": -142.789,
+      "lyapunov_energy_unannealed_kuramoto": -114.078,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8725
+    },
+    {
+      "t_ps": 49.5,
+      "round_trips": 1.435,
+      "lyapunov_energy_kink_annealed": -142.792,
+      "lyapunov_energy_unannealed_kuramoto": -114.503,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8735
+    },
+    {
+      "t_ps": 51.0,
+      "round_trips": 1.478,
+      "lyapunov_energy_kink_annealed": -142.794,
+      "lyapunov_energy_unannealed_kuramoto": -114.886,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8744
+    },
+    {
+      "t_ps": 52.5,
+      "round_trips": 1.522,
+      "lyapunov_energy_kink_annealed": -142.796,
+      "lyapunov_energy_unannealed_kuramoto": -115.231,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8753
+    },
+    {
+      "t_ps": 54.0,
+      "round_trips": 1.565,
+      "lyapunov_energy_kink_annealed": -142.797,
+      "lyapunov_energy_unannealed_kuramoto": -115.543,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.876
+    },
+    {
+      "t_ps": 55.5,
+      "round_trips": 1.609,
+      "lyapunov_energy_kink_annealed": -142.798,
+      "lyapunov_energy_unannealed_kuramoto": -115.823,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8767
+    },
+    {
+      "t_ps": 57.0,
+      "round_trips": 1.652,
+      "lyapunov_energy_kink_annealed": -142.798,
+      "lyapunov_energy_unannealed_kuramoto": -116.077,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8772
+    },
+    {
+      "t_ps": 58.5,
+      "round_trips": 1.696,
+      "lyapunov_energy_kink_annealed": -142.799,
+      "lyapunov_energy_unannealed_kuramoto": -116.305,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8778
+    },
+    {
+      "t_ps": 60.0,
+      "round_trips": 1.739,
+      "lyapunov_energy_kink_annealed": -142.799,
+      "lyapunov_energy_unannealed_kuramoto": -116.511,
+      "normalized_cut_kink_annealed": 0.9964,
+      "normalized_cut_unannealed_kuramoto": 0.8782
+    }
+  ],
+  "graph_scaling_benchmarks": [
+    {
+      "M_spins": 16,
+      "instances": 400,
+      "p_success_kink_pct": 99.8,
+      "p_success_kuramoto_pct": 88.5,
+      "t_conv_ps": 19.4
+    },
+    {
+      "M_spins": 32,
+      "instances": 400,
+      "p_success_kink_pct": 99.1,
+      "p_success_kuramoto_pct": 82.0,
+      "t_conv_ps": 24.8
+    },
+    {
+      "M_spins": 64,
+      "instances": 400,
+      "p_success_kink_pct": 97.8,
+      "p_success_kuramoto_pct": 76.4,
+      "t_conv_ps": 31.6
+    },
+    {
+      "M_spins": 100,
+      "instances": 400,
+      "p_success_kink_pct": 96.4,
+      "p_success_kuramoto_pct": 71.2,
+      "t_conv_ps": 38.0
+    },
+    {
+      "M_spins": 128,
+      "instances": 200,
+      "p_success_kink_pct": 94.6,
+      "p_success_kuramoto_pct": 66.8,
+      "t_conv_ps": 43.2
+    },
+    {
+      "M_spins": 256,
+      "instances": 200,
+      "p_success_kink_pct": 91.2,
+      "p_success_kuramoto_pct": 58.4,
+      "t_conv_ps": 54.5
+    }
+  ]
+}

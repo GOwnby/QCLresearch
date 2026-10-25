@@ -1,0 +1,22 @@
+{
+  "title": "Universal step-graded interface screening and Schrieffer-Wolff quasiparticle bounds in Si/SiGe spin-valley qubits and superconducting Josephson circuits",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "creators": [
+    {
+      "name": "Ownby, Gracen",
+      "affiliation": "University of Oklahoma, Norman, Oklahoma, USA"
+    }
+  ],
+  "description": "Complete mathematical proofs, 2,000-sample Monte Carlo verification suite, atomistic tight-binding valley-splitting benchmarks, and 8-state Bogoliubov-Lindblad master-equation benchmarks for universal step-graded interface screening in Si/SiGe spin-valley qubits and superconducting Josephson circuits.",
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "Si/SiGe spin-valley qubits",
+    "superconducting transmon qubits",
+    "valley-orbit coupling",
+    "quasiparticle trapping",
+    "Schrieffer-Wolff transformation",
+    "step-graded heterostructures"
+  ]
+}

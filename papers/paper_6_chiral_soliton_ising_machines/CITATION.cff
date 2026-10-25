@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use these theoretical proofs, datasets, or verification suites, please cite Paper VI as below."
+authors:
+  - family-names: "Ownby"
+    given-names: "Gracen"
+    affiliation: "University of Oklahoma, Norman, Oklahoma, USA"
+title: "Non-Reciprocal Chiral Dissipative Soliton Time Crystals and Sub-Picosecond Topological Ising Machines in Driven Nonlinear Ring Resonators"
+version: 1.0.0
+date-released: 2026-10-25
+license: MIT
+keywords:
+  - dissipative solitons
+  - non-reciprocal phase transitions
+  - chiral time crystals
+  - odd elasticity
+  - optical Ising machines
+  - topological phase kinks

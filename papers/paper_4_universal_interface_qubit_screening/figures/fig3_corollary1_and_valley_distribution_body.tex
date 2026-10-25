@@ -1,0 +1,207 @@
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \useasboundingbox (0,0) rectangle (11.8,4.5);
+
+  % Panel a: 2,000-Dot Random Verification of Corollary 1
+  \node[anchor=north west,font=\bfseries\normalsize] at (0.05,4.38) {a};
+  \draw[thick] (0.95,0.70) rectangle (5.35,3.95);
+  \foreach \v/\y in {2/1.08, 4/1.85, 6/2.61, 8/3.38} {
+    \draw (0.95,\y) -- (1.03,\y);
+    \node[left,font=\scriptsize] at (0.93,\y) {\v};
+  }
+  \foreach \xval/\xpos in {2/1.47, 4/2.50, 6/3.54, 8/4.57} {
+    \draw (\xpos,0.70) -- (\xpos,0.78);
+    \node[below,font=\scriptsize] at (\xpos,0.68) {\xval};
+  }
+  \node[below,font=\footnotesize] at (3.15,0.22) {Analytical bound $\mathcal{E}_{\mathrm{Q},\max}$ (Corollary 1)};
+  \node[rotate=90,above,font=\scriptsize] at (0.30,2.32) {Numerical $\mathcal{E}_{\mathrm{Q},\mathrm{num}}$};
+
+  % Forbidden region above diagonal
+  \fill[red!8] (0.95,0.70) -- (5.35,3.95) -- (0.95,3.95) -- cycle;
+  \draw[red!80!black,dashed,line width=1.1pt] (0.95,0.70) -- (5.35,3.95);
+  \fill[blue!75!black,opacity=0.55] (1.316,0.929) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.729,3.141) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.004,2.166) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.383,0.916) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.214,1.233) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.235,0.692) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.397,0.947) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.696,0.934) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.206,0.698) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.204,1.799) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.676,1.038) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.792,1.623) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.841,1.041) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.350,1.625) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.914,2.621) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.406,2.886) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.384,0.830) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.059,1.210) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.237,1.384) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.464,0.940) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.081,1.101) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.552,0.984) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.359,1.526) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.957,1.128) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.403,1.204) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.496,1.044) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.433,0.909) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.066,2.731) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.280,0.925) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.955,1.665) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.784,2.405) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (5.007,2.354) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.289,0.898) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.385,0.910) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.600,1.072) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.478,1.584) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.569,3.238) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.545,1.919) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.498,1.696) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.862,1.205) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.570,0.888) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.211,0.690) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.370,0.937) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.547,1.285) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.882,1.745) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.209,0.812) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.663,1.189) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (5.791,3.225) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.159,0.748) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.379,1.577) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.226,1.354) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.166,0.813) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.592,1.013) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.270,0.778) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.044,0.612) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.364,0.718) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.911,1.267) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.117,0.642) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.899,1.110) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.242,0.871) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.082,0.602) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.686,1.145) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.079,0.680) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.425,1.391) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.106,1.108) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.489,1.067) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.045,1.279) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.359,0.763) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.658,1.854) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.576,1.845) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.952,1.213) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.178,1.441) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.495,0.882) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.362,1.481) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.871,3.129) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.548,0.884) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.608,0.980) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.487,0.837) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.200,0.815) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.115,1.184) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.156,2.232) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.612,1.256) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.963,2.695) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.014,1.051) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.292,0.878) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.078,0.629) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.379,0.989) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.407,0.930) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.786,2.147) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.711,1.591) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.683,1.518) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.788,1.064) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.772,0.937) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.450,1.614) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.277,0.757) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.164,0.784) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.587,1.049) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.803,1.251) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.538,2.456) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.920,1.706) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.076,0.635) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.484,0.948) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.589,1.775) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.398,0.860) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (6.480,3.759) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.820,2.666) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.014,1.191) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.823,1.177) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.793,0.929) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.440,1.653) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.935,1.142) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.669,1.910) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.347,1.550) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.976,1.384) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.148,2.959) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.193,0.794) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.108,1.167) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.087,1.195) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.597,1.687) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.391,1.197) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.879,1.520) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (5.567,2.875) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (5.975,2.834) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.018,0.669) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.317,1.262) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.833,0.988) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.787,1.908) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.585,1.712) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.904,1.386) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.372,1.402) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.094,0.711) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.258,1.360) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.346,1.612) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.048,2.084) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.817,1.038) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.239,0.751) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.472,2.487) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.253,0.892) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.807,2.275) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (0.998,0.690) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.360,0.961) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.250,1.621) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.232,0.692) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.557,1.276) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.634,1.065) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.580,1.666) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.787,1.381) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.710,1.186) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.433,0.784) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (4.723,2.899) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.546,2.345) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.579,0.879) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.082,0.727) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (3.941,2.548) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.180,1.276) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (2.332,1.245) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.344,0.851) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.595,1.019) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.965,1.372) circle (1.1pt);
+  \fill[blue!75!black,opacity=0.55] (1.157,0.770) circle (1.1pt);
+  \node[anchor=north west,font=\tiny\bfseries,red!80!black] at (1.05,3.86) {Forbidden ($\mathcal{E}_{\mathrm{Q}} > \mathcal{E}_{\mathrm{Q},\max}$)};
+  \node[anchor=north west,font=\tiny,black!80] at (1.05,3.56) {$2{,}000$ dots: $0$ violations};
+
+  % Panel b: Valley Splitting Distribution (Abrupt vs SG-Valley-2)
+  \node[anchor=north west,font=\bfseries\normalsize] at (5.75,4.38) {b};
+  \draw[thick] (6.85,0.70) rectangle (11.25,3.95);
+  \foreach \v/\y in {0.0/0.70, 0.5/1.90, 1.0/3.11} {
+    \draw (6.85,\y) -- (6.93,\y);
+    \node[left,font=\scriptsize] at (6.83,\y) {\v};
+  }
+  \foreach \xval/\xpos in {50/7.22, 150/8.44, 250/9.66, 350/10.88} {
+    \draw (\xpos,0.70) -- (\xpos,0.78);
+    \node[below,font=\scriptsize] at (\xpos,0.68) {\xval};
+  }
+  \node[below,font=\footnotesize] at (9.05,0.22) {Valley splitting $\Delta_{\mathrm{v}}$ ($\mu\mathrm{eV}$)};
+  \node[rotate=90,above,font=\scriptsize] at (6.12,2.32) {Probability density};
+
+  % Hotspot zone near Zeeman splitting ~ 60 ueV
+  \fill[orange!18] (6.85,0.70) rectangle (7.48,3.20);
+  \node[rotate=90,font=\tiny,orange!85!black] at (7.16,2.05) {Spin-valley hotspot};
+
+  \draw[red!80!black,dashed,line width=1.15pt] (6.850,1.041) -- (6.899,1.103) -- (6.948,1.172) -- (6.997,1.249) -- (7.046,1.333) -- (7.094,1.425) -- (7.143,1.524) -- (7.192,1.628) -- (7.241,1.738) -- (7.290,1.853) -- (7.339,1.970) -- (7.388,2.088) -- (7.437,2.205) -- (7.486,2.320) -- (7.534,2.430) -- (7.583,2.533) -- (7.632,2.627) -- (7.681,2.711) -- (7.730,2.782) -- (7.779,2.839) -- (7.828,2.881) -- (7.877,2.906) -- (7.926,2.915) -- (7.974,2.906) -- (8.023,2.881) -- (8.072,2.839) -- (8.121,2.782) -- (8.170,2.711) -- (8.219,2.627) -- (8.268,2.533) -- (8.317,2.430) -- (8.366,2.320) -- (8.414,2.205) -- (8.463,2.088) -- (8.512,1.970) -- (8.561,1.853) -- (8.610,1.738) -- (8.659,1.628) -- (8.708,1.524) -- (8.757,1.425) -- (8.806,1.333) -- (8.854,1.249) -- (8.903,1.172) -- (8.952,1.103) -- (9.001,1.041) -- (9.050,0.987) -- (9.099,0.939) -- (9.148,0.898) -- (9.197,0.863) -- (9.246,0.832) -- (9.294,0.807) -- (9.343,0.786) -- (9.392,0.768) -- (9.441,0.754) -- (9.490,0.742) -- (9.539,0.733) -- (9.588,0.725) -- (9.637,0.719) -- (9.686,0.715) -- (9.734,0.711) -- (9.783,0.708) -- (9.832,0.706) -- (9.881,0.705) -- (9.930,0.703) -- (9.979,0.702) -- (10.028,0.702) -- (10.077,0.701) -- (10.126,0.701) -- (10.174,0.701) -- (10.223,0.700) -- (10.272,0.700) -- (10.321,0.700) -- (10.370,0.700) -- (10.419,0.700) -- (10.468,0.700) -- (10.517,0.700) -- (10.566,0.700) -- (10.614,0.700) -- (10.663,0.700) -- (10.712,0.700) -- (10.761,0.700) -- (10.810,0.700) -- (10.859,0.700) -- (10.908,0.700) -- (10.957,0.700) -- (11.006,0.700) -- (11.054,0.700) -- (11.103,0.700) -- (11.152,0.700) -- (11.201,0.700) -- (11.250,0.700);
+  \draw[blue!85!black,line width=1.25pt] (6.850,0.700) -- (6.899,0.700) -- (6.948,0.700) -- (6.997,0.700) -- (7.046,0.700) -- (7.094,0.700) -- (7.143,0.700) -- (7.192,0.700) -- (7.241,0.700) -- (7.290,0.700) -- (7.339,0.700) -- (7.388,0.700) -- (7.437,0.700) -- (7.486,0.700) -- (7.534,0.700) -- (7.583,0.700) -- (7.632,0.700) -- (7.681,0.700) -- (7.730,0.700) -- (7.779,0.700) -- (7.828,0.700) -- (7.877,0.700) -- (7.926,0.700) -- (7.974,0.700) -- (8.023,0.700) -- (8.072,0.700) -- (8.121,0.700) -- (8.170,0.700) -- (8.219,0.700) -- (8.268,0.700) -- (8.317,0.700) -- (8.366,0.700) -- (8.414,0.700) -- (8.463,0.701) -- (8.512,0.701) -- (8.561,0.701) -- (8.610,0.702) -- (8.659,0.703) -- (8.708,0.705) -- (8.757,0.708) -- (8.806,0.712) -- (8.854,0.718) -- (8.903,0.726) -- (8.952,0.738) -- (9.001,0.754) -- (9.050,0.775) -- (9.099,0.802) -- (9.148,0.838) -- (9.197,0.884) -- (9.246,0.941) -- (9.294,1.012) -- (9.343,1.096) -- (9.392,1.196) -- (9.441,1.312) -- (9.490,1.443) -- (9.539,1.589) -- (9.588,1.748) -- (9.637,1.917) -- (9.686,2.091) -- (9.734,2.267) -- (9.783,2.438) -- (9.832,2.599) -- (9.881,2.744) -- (9.930,2.867) -- (9.979,2.963) -- (10.028,3.027) -- (10.077,3.057) -- (10.126,3.052) -- (10.174,3.011) -- (10.223,2.937) -- (10.272,2.833) -- (10.321,2.703) -- (10.370,2.553) -- (10.419,2.388) -- (10.468,2.215) -- (10.517,2.039) -- (10.566,1.865) -- (10.614,1.699) -- (10.663,1.544) -- (10.712,1.402) -- (10.761,1.275) -- (10.810,1.164) -- (10.859,1.069) -- (10.908,0.989) -- (10.957,0.923) -- (11.006,0.869) -- (11.054,0.827) -- (11.103,0.793) -- (11.152,0.768) -- (11.201,0.748) -- (11.250,0.734);
+
+  \node[anchor=north west,font=\tiny,red!80!black] at (6.98,3.88) {Abrupt $\mathrm{Si/Si_{0.7}Ge_{0.3}}$ ($\sigma_{\Delta_{\mathrm{v}}}=48.2\,\mu\mathrm{eV}$)};
+  \node[anchor=north west,font=\tiny,blue!85!black] at (6.98,3.58) {SG-SiGe-Q1 ($m=2$, $\sigma_{\Delta_{\mathrm{v}}}=9.4\,\mu\mathrm{eV}$)};
+\end{tikzpicture}

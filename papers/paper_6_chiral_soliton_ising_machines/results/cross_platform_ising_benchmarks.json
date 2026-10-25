@@ -1,0 +1,49 @@
+{
+  "paper": "Paper VI",
+  "platforms": [
+    {
+      "platform": "InP Mid-IR Racetrack QCL (lambda = 8.0 um)",
+      "wake_mechanism": "Intersubband carrier recovery T_1 = 0.58 ps & alpha_LEF",
+      "A_nr_typical": 0.28,
+      "A_crit": 0.184,
+      "tau_rt_ps": 34.5,
+      "t_conv_100_spins_ps": 38.0,
+      "energy_per_solution_fJ": 42.0,
+      "max_cut_100_success_pct": 96.4,
+      "speedup_vs_fiber_dopo": 263000
+    },
+    {
+      "platform": "Si3N4 / LiNbO3 Kerr Microresonator (lambda = 1.55 um)",
+      "wake_mechanism": "Stimulated Raman shock (tau_R = 3.2 fs) & beta_3 dispersion",
+      "A_nr_typical": 0.22,
+      "A_crit": 0.165,
+      "tau_rt_ps": 10.0,
+      "t_conv_100_spins_ps": 14.5,
+      "energy_per_solution_fJ": 11.8,
+      "max_cut_100_success_pct": 95.8,
+      "speedup_vs_fiber_dopo": 689000
+    },
+    {
+      "platform": "Superconducting Josephson TWPA Ring (omega/2pi = 7.5 GHz)",
+      "wake_mechanism": "Chiral flux-bias current & non-reciprocal plasmon wake",
+      "A_nr_typical": 0.31,
+      "A_crit": 0.192,
+      "tau_rt_ps": 420.0,
+      "t_conv_100_spins_ps": 480.0,
+      "energy_per_solution_fJ": 0.045,
+      "max_cut_100_success_pct": 97.1,
+      "speedup_vs_fiber_dopo": 20800
+    },
+    {
+      "platform": "Fiber-Loop Coherent Ising Machine (2 km DOPO + FPGA)",
+      "wake_mechanism": "Optoelectronic FPGA measurement-feedback delay",
+      "A_nr_typical": 0.0,
+      "A_crit": null,
+      "tau_rt_ps": 10000000.0,
+      "t_conv_100_spins_ps": 10000000.0,
+      "energy_per_solution_fJ": 8500000.0,
+      "max_cut_100_success_pct": 84.0,
+      "speedup_vs_fiber_dopo": 1
+    }
+  ]
+}
